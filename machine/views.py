@@ -11,10 +11,11 @@ def current_datetime(request):
 
 
 def hours_ahead(request, offset):
-    offset = int(offset)
+    offset = int(offset)  # comment out to view typeerror
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
     formatfuture = dt.strftime("%d-%m-%Y %H:%M:%S")
     html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (offset, formatfuture)
+    # assert False to trigger print('error')
     return HttpResponse(html)
 
 
