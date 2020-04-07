@@ -16,14 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from machine.views import current_datetime, hours_ahead
-from accounts.views import say_hello, index
+from accounts.views import say_hello, index, logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    url(r'^$', index, name='index'),
     url(r'^hello/', say_hello),  # renders landing/base page
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
+    url(r'^accounts/logout/$', logout, name='logout')  #name maps to url at href
     # 'We’ve curtailed the outlandishness here by limiting
     # the offset to 99 hour' (pg 60)
 
