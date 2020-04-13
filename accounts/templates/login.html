@@ -17,26 +17,6 @@
         </ul>   
     </nav>
     <hr>
-    <div>
-        <!-- messes refers to value in dict on views.py  -->
-
-    {% for messi in messes %}  
-        <table>
-        <tr>
-            {% if messi.done %}
-            <td><strike>{{ messi.name }}</strike></td>
-            {% else %}
-            <td>{{ messi.name }}</td>
-            {% endif %}
-        </tr>
-        </table>
-        {% empty %}
-        <p>You're done pal</p>
-    {% endfor %}
-    
-    </div>
-
-    <hr>
     {% if messages %}
     <div>
         {% for message in messages %}
@@ -51,6 +31,9 @@
         {% csrf_token %}
 
         {{ login_form }}
+
+        <button type="submit">Login</button>
     </form>
+
 </body>
 </html>
