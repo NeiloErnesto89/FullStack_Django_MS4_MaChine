@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django Authentication</title>
-</head>
-<body>
-<h1>User Login Page</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">User</a></li>
-        </ul>   
-    </nav>
-    <hr>
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }} 
-        {% endfor %}
-    </div>
-    {% endif %}
-    
+{% extends 'base.html' %} 
 
-    <form method="POST">
+{% block page_title %}User Login Page{% endblock %} 
 
-        {% csrf_token %}
+{% block page_heading %}User Login Page{% endblock %}
 
-        {{ login_form }}
+    {% block content %}
 
-        <button type="submit">Login</button>
-    </form>
+        <form method="POST">
 
-</body>
-</html>
+            
+            {% csrf_token %}
+
+            {{ login_form }}
+
+            <button type="submit">Login</button>
+        </form>
+
+    {% endblock %}

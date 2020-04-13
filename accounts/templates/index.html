@@ -1,48 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django Authentication</title>
-</head>
-<body>
-<h1>Home Page</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">User</a></li>
-        </ul>   
-    </nav>
-    <hr>
-    <div>
+{% extends 'base.html' %} 
+
+{% block page_title %}Home Page{% endblock %} 
+
+{% block page_heading %} Home{% endblock %}
         <!-- messes refers to value in dict on views.py  -->
 
-    {% for messi in messes %}  
-        <table>
-        <tr>
-            {% if messi.done %}
-            <td><strike>{{ messi.name }}</strike></td>
-            {% else %}
-            <td>{{ messi.name }}</td>
-            {% endif %}
-        </tr>
-        </table>
-        {% empty %}
-        <p>You're done pal</p>
-    {% endfor %}
-    
-    </div>
 
-    <hr>
-    {% if messages %}
-    <div>
-        {% for message in messages %}
-            {{ message }} 
+    {% block content %}
+        
+        
+        {% for messi in messes %}  
+            <table>
+            <tr>
+                {% if messi.done %}
+                <td><strike>{{ messi.name }}</strike></td>
+                {% else %}
+                <td>{{ messi.name }}</td>
+                {% endif %}
+            </tr>
+            </table>
+            {% empty %}
+            <p>You're done pal</p>
         {% endfor %}
-    </div>
-    {% endif %}
+
+    {% endblock %}
+
 </body>
 </html>
