@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from machine.views import current_datetime, hours_ahead
-from accounts.views import say_hello, index, logout, login
+from accounts.views import say_hello, index, logout, login, registration
 
 """
     # name maps to url at href
@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
     url(r'^accounts/login/$', login, name='login'),
     url(r'^accounts/logout/$', logout, name='logout'),
+    url(r'^accounts/register/$', registration, name='registration'),
 
 ]

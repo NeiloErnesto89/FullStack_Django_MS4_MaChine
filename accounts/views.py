@@ -44,3 +44,8 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
     # value = name of the form instance just created
 
+
+def registration(request):
+    return render(request, 'registration.html')  # request object
+
+    
