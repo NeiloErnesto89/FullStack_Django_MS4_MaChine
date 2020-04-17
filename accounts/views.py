@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .models import Mess
-from accounts.forms import UserLoginForm
+from accounts.forms import UserLoginForm, UserCreationForm
 
 
 def say_hello(request):
@@ -46,6 +46,10 @@ def login(request):
 
 
 def registration(request):
-    return render(request, 'registration.html')  # request object
+
+    registration_form = UserCreationForm()  # instance of form request.POST
+
+    #request object
+    return render(request, 'registration.html', {"registration_form": registration_form})  # context dict key + (value - name of instance above)
 
     
