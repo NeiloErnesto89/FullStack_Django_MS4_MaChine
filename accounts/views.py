@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Mess
 from accounts.forms import UserLoginForm, UserCreationForm
 
@@ -69,4 +70,8 @@ def registration(request):
     #request object
     return render(request, 'registration.html', {"registration_form": registration_form})  # context dict key + (value - name of instance above)
 
-    
+
+def user_profile(request):
+    user = User.objects.get(email=request.user.email)  # from db
+    # username=request.user.username
+    return render(request, 'profile.html', {"profile": user})
