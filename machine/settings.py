@@ -122,3 +122,6 @@ STATIC_URL = '/static/'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
 # facilitates django messages functionality
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# prints email to console
