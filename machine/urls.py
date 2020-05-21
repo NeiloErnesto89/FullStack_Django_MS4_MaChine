@@ -32,6 +32,6 @@ urlpatterns = [
     url(r'^hello/', say_hello),  # renders landing/base page
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
-    url(r'^accounts/', include(accounts_urls))
+    url(r'^accounts/', include(accounts_urls)) 
 
 ]
