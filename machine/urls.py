@@ -19,6 +19,7 @@ from machine.views import current_datetime, hours_ahead
 from accounts.views import say_hello, index
 from accounts import urls as accounts_urls
 
+
 """
     # name maps to url at href
     # 'We’ve curtailed the outlandishness here by limiting
@@ -32,6 +33,6 @@ urlpatterns = [
     url(r'^hello/', say_hello),  # renders landing/base page
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
-    url(r'^accounts/', include(accounts_urls)) 
+    url(r'^accounts/', include(accounts_urls)),
 
 ]
