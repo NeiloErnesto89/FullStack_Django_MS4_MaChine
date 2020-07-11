@@ -1,1 +1,1 @@
-web: gunicorn machine_ms4_app.wsgi:application
+web: gunicorn machine-ms4-app.wsgi:application
