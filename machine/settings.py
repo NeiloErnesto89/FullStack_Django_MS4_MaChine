@@ -29,7 +29,7 @@ SECRET_KEY = 'ycn#7#e+-lt$afb@i4&fs)qj60+^9do(^6mopeq^fx@h#xi5h-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['machine-ms4-app.herokuapp.com']
 
 
 # Application definition
@@ -76,12 +76,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'machine.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-
-
 # DATABASES
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))} 
