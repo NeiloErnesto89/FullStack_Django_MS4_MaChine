@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from machine.views import current_datetime, hours_ahead
+from django.views.generic import RedirectView
+from django.views.static import serve
+from .settings import MEDIA_ROOT
 from accounts.views import say_hello, index
 from accounts import urls as accounts_urls
 
@@ -34,5 +37,8 @@ urlpatterns = [
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
     url(r'^accounts/', include(accounts_urls)),
+    url(r'^$', RedirectView.as_view(url='user_posts/')),
+    url(r'^user_posts/', include('user_posts.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 
 ]

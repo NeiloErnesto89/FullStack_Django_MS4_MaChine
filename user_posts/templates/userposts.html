@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% load bootstrap_tags %}
+
+{% block page_title %}User Post Page{% endblock %} 
+
+{% block page_heading %}User PostPage{% endblock %}
+
+    {% block content %}
+
+    
+        {% for post in user_posts %}
+            <h3>{{ post.title }}<h3>
+
+            <div class="row">
+        
+                <div class="col">
+                    <p>{{post.body|truncatewords:30|linebreaks}}</p>
+                    <p><a href="{% url 'post_info' post.id %}"  class="btn btn-default">Read more</a></p>
+                    <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
+                    <p><span class="boldtext">Views:</span> {{post.views}}</p>
+                    <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
+                </div>
+
+            </div>
+
+
+        {% endfor %}
+
+    {% endblock %}
