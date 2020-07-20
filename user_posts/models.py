@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class User_Posts(models.Model):
@@ -10,11 +11,18 @@ class User_Posts(models.Model):
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     views = models.IntegerField(default=0)
     tag = models.CharField(max_length=40, blank=True, null=True)
-    image = models.ImageField(upload_to="img", blank=True, null=True)
+    image = models.ImageField(upload_to="img", blank=True, null=True)  #default = 'default.png'
+    author = models.ForeignKey(User, default=None)
 
 
     def __unicode__(self):
-            return self.title
+        return self.title
+
+    # def __str__(self):
+    #     return self.title
+
+    # def snippet(self):
+    #     return self.body[:50] + "..."
 
     # def publish(self):
     #     self.published_date = timezone.now()
