@@ -2,11 +2,35 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import User_Posts
 from .forms import UserPostForm
+from django.core.paginator import Paginator
+# from django.views.generic import ListView
+
 #from django.contrib.auth.decorators import login_required
-#from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+# , EmptyPage, PageNotAnInteger
 
 
 # https://codeloop.org/django-pagination-complete-example/
+
+# class UserPostListView(ListView):
+#     model = User_Posts
+#     paginate_by = 3
+#     template_name = 'user_posts/userposts.html'
+#     context_object_name = 'user_posts'
+#     ordering = ['-published_date']
+
+
+# def Paginate(request):
+   
+#     posts = User_Posts.objects.all()
+#     paginator = Paginator(posts, 2)
+#     # paginator.num_pages
+#     # page = request.GET.get('page')
+
+#     # posts = paginator.get_page(page)
+
+#     return render(request, 'user_posts.html', {'posts': posts})
+
 
 
 # def Pagination(request, posts):
@@ -26,10 +50,17 @@ from .forms import UserPostForm
 #     # return render(request, 'user_posts.html', {'page': page , 'posts': posts})
 #     return posts
 
-
 def retrieve_posts(request):
+    
     posts = User_Posts.objects.filter(published_date__lte=timezone.now()
     ).order_by('-published_date')
+
+    paginator = Paginator(posts, 2)
+
+    page = request.GET.get('page', 1)
+
+    posts = paginator.page(page)
+
     return render(request, "userposts.html", {'posts': posts})
 
 def post_info(request, pk):

@@ -8,6 +8,52 @@
 
     {% block content %}
 
+    <div class="pagination">
+
+    {% if posts.has_previous %}
+
+    <a href="?pages=1"><<<</a>
+    <a href="?pages={{ posts.previous_pages_number }}"><<</a>
+
+    {% endif %}
+
+    <!-- {{ posts.number }}
+
+    {{ posts.paginator.num_pages }}
+
+    {{ posts.paginator.count }} -->
+
+    {% for num in posts.paginator.page_range %}
+
+        {% if posts.number == num %}
+
+        <strong>{{ num }}</strong>
+
+        {% else %}  
+             
+            {{ num }}
+
+        {% endif %}
+
+
+    {% endfor %}
+
+    {% if posts.has_next %}
+
+    <a href="?pages={{ posts.next_pages_number }}"><<<</a>
+    <a href="?pages={{ posts.paginator.num_pages }}"><<hello>></a>
+
+    {% endif %}
+
+
+
+    <!-- {{ posts.has_next }}
+
+    {{ posts.has_previous }} -->
+
+    
+    </div>
+
     
         {% for post in posts %}
             <h3>{{ post.title }}<h3>
@@ -16,13 +62,31 @@
         
                 <div class="col">
                     <p>{{post.body|truncatewords:30|linebreaks}}</p>
+                    
+                    {% if post.image %}
+
+                    <img class="img-circle" src="/media/{{post.image}}" alt="Post Image">
+                    
+                    {% endif %}
+                    
                     <p><a href="{% url 'post_info' post.id %}"  class="btn btn-default">Read more</a></p>
                     <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
+                    <p><span class="boldtext">Author:</span> {{ post.author }}</p>
                 </div>
+                <div class="div">
+                <a href="{% url 'index' %}" class="btn btn-default">Back to Home</a>
+                </div>
+                    
 
             </div>
+
+            <!-- {% if page_obj.paginator.num_pages > 1 %}
+
+                {% include 'user_posts/_pagination.html' with page_obj=page_obj %}
+
+            {% endif %} -->
 
 
         {% endfor %}

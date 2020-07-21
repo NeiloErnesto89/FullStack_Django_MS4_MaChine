@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class User_Posts(models.Model):
@@ -13,10 +14,13 @@ class User_Posts(models.Model):
     tag = models.CharField(max_length=40, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)  #default = 'default.png'
     author = models.ForeignKey(User, default=None)
-
+    # author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
 
     # def __str__(self):
     #     return self.title
