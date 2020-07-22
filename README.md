@@ -8,3 +8,5 @@
 ** Pagination ** 
 
 https://www.youtube.com/watch?v=Z8MDdDyB_6A&feature=emb_title
+
+https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html

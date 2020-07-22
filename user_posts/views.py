@@ -2,12 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import User_Posts
 from .forms import UserPostForm
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.views.generic import ListView
-
 #from django.contrib.auth.decorators import login_required
-
-# , EmptyPage, PageNotAnInteger
 
 
 # https://codeloop.org/django-pagination-complete-example/
@@ -20,46 +17,25 @@ from django.core.paginator import Paginator
 #     ordering = ['-published_date']
 
 
-# def Paginate(request):
-   
-#     posts = User_Posts.objects.all()
-#     paginator = Paginator(posts, 2)
-#     # paginator.num_pages
-#     # page = request.GET.get('page')
+def pagination(request, post_list):
 
-#     # posts = paginator.get_page(page)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(post_list, 2)
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_pages)
+    return post_list
 
-#     return render(request, 'user_posts.html', {'posts': posts})
-
-
-
-# def Pagination(request, posts):
-
-#     post_list = User_Posts.objects.all()
-#     paginator = Paginator(post_list, 5)
-#     page = request.GET.get('page', 1)
- 
-#     try:
-#         posts = paginator.page(page)
-#     except PageNotAnInteger:
-#         posts = paginator.page(1)
- 
-#     except EmptyPage:
-#         posts = paginator.page(paginator.num_pages)
- 
-#     # return render(request, 'user_posts.html', {'page': page , 'posts': posts})
-#     return posts
 
 def retrieve_posts(request):
     
     posts = User_Posts.objects.filter(published_date__lte=timezone.now()
     ).order_by('-published_date')
 
-    paginator = Paginator(posts, 2)
-
-    page = request.GET.get('page', 1)
-
-    posts = paginator.page(page)
+    posts = pagination(request, posts)
 
     return render(request, "userposts.html", {'posts': posts})
 
