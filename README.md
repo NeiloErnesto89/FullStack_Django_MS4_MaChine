@@ -10,3 +10,12 @@
 Settled on a view based function as opposed to class based pagination function.
 
 https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+
+
+** Bootstrap Comment Example ** 
+
+https://bootsnipp.com/snippets/exz9y
+
+## base.html layout
+
+https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/

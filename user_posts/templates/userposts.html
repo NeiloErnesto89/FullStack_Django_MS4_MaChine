@@ -82,10 +82,12 @@
                             <p>{{ post.content |truncatewords:30|linebreaks}}</p> 
                         </div>
                         <div class="div">
-                        <p><span class="text-muted">Views:</span> {{post.views}}</p>
-                        <p><span class="text-muted">Tag:</span> {{ post.tag }}</p>
-                        </div>
+                        <a href="{% url 'post_info' post.id %}" class="btn btn-default">View Post in Detail</a>
                         <a href="{% url 'index' %}" class="btn btn-default">Back to Home</a>
+                        
+                        </div>
+                        
+                        
                     </div>
                 </div>
                 

@@ -1,6 +1,65 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <div class="row">
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="card card-white post">
+                        <div class="post-heading">
+                            <div class="float-left image">
+
+                            {% if post.image %}
+
+                                <img class="img-circle" src="/media/{{post.image}}" alt="Post Image">
+                            
+                            {% else %}
+                            
+                                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                            {% endif %}
+                            </div>
+                            <div class="float-left meta">
+                            <div class="title h3">
+                                    {{ post.title }}</div>
+
+                                <div class="title h5">
+                                    posted by <a href="#"><b>{{ post.author }}</b></a>
+                                    
+                                </div>
+                                <h6 class="text-muted time">{{ post.published_date }}</h6>
+                            </div>
+                        </div> 
+                        <div class="post-description"> 
+                            <p>{{ post.content }}</p> 
+                        </div>
+                        <div class="div">
+                        <p><span class="text-muted">Views:</span> {{post.views}}</p>
+                        <p><span class="text-muted">Tag:</span> {{ post.tag }}</p>
+                        </div>
+
+                        {% if user.is_authenticated and user == post.author %}
+
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+
+                        {% elif user.is_authenticated and user.is_superuser %}
+
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+
+                        {% endif %}
+
+                        <a href="{% url 'retrieve_posts' %}" class="btn btn-default">Back to Blog</a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+   
+ {% endblock %}  
+   
+   
+    <!-- <div class="row">
        
         </div>
         <div class="col-sm-10 col-md-9">
@@ -19,5 +78,4 @@
                     <hr>
                 </div>
             </div>
-        </div>
-{% endblock %}
+        </div> -->
