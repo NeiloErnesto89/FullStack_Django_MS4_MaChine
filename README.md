@@ -19,3 +19,12 @@ https://bootsnipp.com/snippets/exz9y
 ## base.html layout
 
 https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/
+
+https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-or-template/11916391
+
+On this StackOverflow post I found the logic for is_superuser
+
+
+Django Forms 
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
