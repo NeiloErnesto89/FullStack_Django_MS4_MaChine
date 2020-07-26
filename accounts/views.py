@@ -10,13 +10,10 @@ def say_hello(request):
     return HttpResponse("Hello World!")
 
 
-def index(request):
-    messing = Mess.objects.all()
-    return render(request,  'index.html', {'messes': messing})
-
 # def index(request):
 #     messing = Mess.objects.all()
 #     return render(request,  'index.html', {'messes': messing})
+
 
 @login_required
 def logout(request):

@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from home.views import index
 from machine.views import current_datetime, hours_ahead
 from django.views.generic import RedirectView
 from django.views.static import serve
 from .settings import MEDIA_ROOT
-from accounts.views import say_hello, index
+from accounts.views import say_hello  #index
 from accounts import urls as accounts_urls
 
 

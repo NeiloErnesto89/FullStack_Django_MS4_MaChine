@@ -128,14 +128,15 @@
             {% endif %}
         </ul> -->
     <!-- </nav> -->
-
+    <div><h1>
+        {% block page_heading %}{% endblock %}
+    </h1> 
+    </div>
     <!-- Main Container for templates  -->
     <main role="main" class="container">
 
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1> 
-        <hr>
+    
+        
         {% if messages %}
             <div>
                 {% for message in messages %} {{ message }} {% endfor %}
