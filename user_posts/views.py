@@ -79,8 +79,13 @@ def delete_posts(request, pk):
     # return HttpResponseRedirect
 
     if request.user.is_authenticated and request.user == owner:
-        posts.delete
+        posts.delete()
         messages.success(request, 'Your post has been deleted')
+        return redirect(reverse("retrieve_posts"))
+
+    elif request.user.is_authenticated and request.user.is_superuser:
+        posts.delete()
+        messages.success(request, 'The admin has deleted this post')
         return redirect(reverse("retrieve_posts"))
 
     else:
