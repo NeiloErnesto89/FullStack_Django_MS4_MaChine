@@ -28,3 +28,7 @@ On this StackOverflow post I found the logic for is_superuser
 Django Forms 
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+
+Django messages template example: 
+
+https://stackoverflow.com/questions/16711917/django-message-template-tag-checking

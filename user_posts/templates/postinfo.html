@@ -41,9 +41,61 @@
 
                         <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
 
+                        <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button"> Delete Post</a> -->
+
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Are you sure you want to delete your post?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>You might want to reconsider?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                         {% elif user.is_authenticated and user.is_superuser %}
 
                         <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+
+                        <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a> -->
+
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Are you sure you want to delete your post?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>You might want to reconsider?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
                         {% endif %}
 

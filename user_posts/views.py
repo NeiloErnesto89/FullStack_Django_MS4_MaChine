@@ -1,10 +1,14 @@
-from django.shortcuts import render, get_object_or_404, redirect
+import re
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
+from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from .models import User_Posts
 from .forms import UserPostForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.views.generic import ListView
-#from django.contrib.auth.decorators import login_required
+
 
 
 # https://codeloop.org/django-pagination-complete-example/
@@ -29,7 +33,7 @@ def pagination(request, post_list):
         post_list = paginator.page(paginator.num_pages)
     return post_list
 
-
+@login_required
 def retrieve_posts(request):
     
     posts = User_Posts.objects.filter(published_date__lte=timezone.now()
@@ -39,6 +43,8 @@ def retrieve_posts(request):
 
     return render(request, "userposts.html", {'posts': posts})
 
+
+@login_required
 def post_info(request, pk):
 
     post = get_object_or_404(User_Posts, pk=pk)
@@ -48,7 +54,7 @@ def post_info(request, pk):
 
 #@login_required(login_url="accounts/login")
 
-
+@login_required
 def create_or_adapt_post(request, pk=None):
 
     post = get_object_or_404(User_Posts, pk=pk) if pk else None
@@ -63,4 +69,22 @@ def create_or_adapt_post(request, pk=None):
     else:
         form = UserPostForm(instance=post)
     return render(request, 'userpostform.html', {'form': form})
+
+
+@login_required
+def delete_posts(request, pk):
+
+    posts = get_object_or_404(User_Posts, pk=pk)
+    owner = posts.author
+    # return HttpResponseRedirect
+
+    if request.user.is_authenticated and request.user == owner:
+        posts.delete
+        messages.success(request, 'Your post has been deleted')
+        return redirect(reverse("retrieve_posts"))
+
+    else:
+        messages.error(request, 'you are not allowed to deleted this post')
+        return redirect('post_info', posts.pk)
+
 

@@ -50,10 +50,23 @@
     <!-- {{ posts.has_next }}
 
     {{ posts.has_previous }} -->
+        {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}"> 
+                        <a class="close" data-dismiss="alert">×</a>
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+        {% endif %}
+
+    
     {% for post in posts %}
+
+    <div style="border-top: 6px solid purple"></div>
+            
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col userposts_col">
                     <div class="card card-white post">
                         <div class="post-heading">
                             <div class="float-left image">
@@ -93,7 +106,14 @@
                 
             </div>
 
-            {% if posts.has_other_pages %}
+            
+        </div>
+       
+
+    {% endfor %}
+    <hr>
+
+    {% if posts.has_other_pages %}
                 <ul class="pagination">
                     {% if posts.has_previous %}
                     <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
@@ -118,9 +138,5 @@
                     {% endif %}
                 </ul>
             {% endif %}
-        </div>
-       
-
-    {% endfor %}
 
 {% endblock %}
