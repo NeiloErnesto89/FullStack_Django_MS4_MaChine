@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class User_Posts(models.Model):
  
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, help_text='Enter post title')
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
