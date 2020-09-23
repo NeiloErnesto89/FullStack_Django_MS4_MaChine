@@ -4,6 +4,45 @@
 
 [![Build Status](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.svg?branch=master)](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine)
 
+## UX 
+
+My aim was pure simplicity. I wanted an aesthetically pleasing and functional site. I wanted to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality.
+
+### User Stories
+
+There are 2 types of user experiences to be had: a standard user and admin:
+
+#### User
+
+* As a user, I am interested in electronics
+* As a user, I want a smooth browsing experience 
+* As a user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop))
+* As a user, I want to comment and interact with the site/application
+* As a user, I want to see the other posts from other members of the community 
+
+#### Admin
+
+* As an admin, I would like to be able to edit and delete posts I see as unfit.
+* As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
+
+
+# Site Layout 
+
+### Landing paginate
+
+# Technologies Used 
+
+* HTML
+* CSS
+* Django  
+* Python
+
+
+# Features 
+
+# Deployment 
+
+I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to faciliate this. 
 
 ** Pagination ** 
 
