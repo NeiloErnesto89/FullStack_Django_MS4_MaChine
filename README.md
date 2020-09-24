@@ -12,7 +12,13 @@ My aim was pure simplicity. I wanted an aesthetically pleasing and functional si
 
 There are 2 types of user experiences to be had: a standard user and admin:
 
-#### User
+#### First Time User
+
+* As a first time user, I am want to navigate around the site easily
+* As a first time user, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
+* * As a first time user, I want to access the site via any device
+
+#### Returning User
 
 * As a user, I am interested in electronics
 * As a user, I want a smooth browsing experience 

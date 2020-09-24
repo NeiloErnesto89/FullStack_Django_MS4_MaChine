@@ -52,3 +52,22 @@ body {
     padding-bottom: 10px;
 
 }
+
+/* main img carosel */
+.main_img {
+
+    width: 50;
+    height: 50;
+
+}
+
+/*  products section added */
+
+.product {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
