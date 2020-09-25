@@ -26,6 +26,7 @@ from accounts import urls as accounts_urls
 from products import urls as urls_products
 from products.views import all_products
 from search import urls as urls_search  # added search
+from cart import urls as urls_cart
 
 
 """
@@ -45,6 +46,7 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url='user_posts/')),
     url(r'^user_posts/', include('user_posts.urls')),
     url(r'^products/', include(urls_products)),
+    url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 

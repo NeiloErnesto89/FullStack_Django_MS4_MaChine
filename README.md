@@ -32,6 +32,12 @@ There are 2 types of user experiences to be had: a standard user and admin:
 * As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
 
 
+# Design 
+
+#### Colour Scheme
+
+I wanted to keep the schematic 
+
 # Site Layout 
 
 ### Landing paginate
