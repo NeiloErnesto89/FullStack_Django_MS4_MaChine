@@ -1,8 +1,16 @@
-# Full Stack Frameworks with Django Milestone 4 Project 
-
-# MaChine - *Printing, Labelling, Barcoding devices* (E-Commerce site and community)
-
 [![Build Status](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.svg?branch=master)](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine)
+
+
+<h1 align="center">Full Stack Frameworks with Django Milestone 4 Project</h1>  
+
+[The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
+
+# Project Introduction
+
+## Title: MaChine - electronics E-Commerce site and community
+
+This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and potentially purchase some products.
+
 
 ## UX 
 
@@ -10,7 +18,7 @@ My aim was pure simplicity. I wanted an aesthetically pleasing and functional si
 
 ### User Stories
 
-There are 2 types of user experiences to be had: a standard user and admin:
+The following section details the type of user experiences I wanted the users of the site to have:
 
 #### First Time User
 
@@ -32,11 +40,27 @@ There are 2 types of user experiences to be had: a standard user and admin:
 * As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
 
 
-# Design 
+- # Design 
 
-#### Colour Scheme
+    - #### Colour Scheme
 
-I wanted to keep the schematic 
+        - I wanted to keep the schematic 
+
+### Wireframes
+
+    -   Landing Home Page Wireframe - [View](https://github.com/)
+
+
+## Features
+
+- * Landing Page: 
+
+
+## Features Left to Implement 
+
+Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features, both backend and frontend, that could be incorporated. 
+
+
 
 # Site Layout 
 
@@ -49,8 +73,6 @@ I wanted to keep the schematic
 * Django  
 * Python
 
-
-# Features 
 
 # Deployment 
 
