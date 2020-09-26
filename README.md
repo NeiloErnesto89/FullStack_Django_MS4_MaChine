@@ -53,11 +53,11 @@ The following section details the type of user experiences I wanted the users of
 
 ## Features
 
-- * Landing Page: 
+* Landing Page: 
 
-- * Cart App:
-    For the cart section of the site, we utilise a contexts.py file, which contains functions which dictate the logic of the cart section. As we use a 'contxt', this ensures that the cart contents are available when rendering
-    every page. The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
+* Cart App:
+    For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictate the logic of the cart section and this also ensures that the cart contents are available when rendering
+    every page on the site. The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
 
 
 ## Features Left to Implement 
