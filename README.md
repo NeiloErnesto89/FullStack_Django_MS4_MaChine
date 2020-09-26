@@ -75,19 +75,44 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 * Models 
  - The model creation is extremely important as it's the information going into the database. Which will be all the information we require from a user, for example, the Checkout app model. Each time we create a new model, we must migrate the data to ensure that [Model Definitions and the Database Schema are in Sync](https://realpython.com/django-migrations-a-primer/#:~:text=Without%20migrations%2C%20you%20will%20have,in%20sync%20with%20your%20models.)
 
-### Landing paginate
+
 
 # Technologies Used 
 
-* HTML
-* CSS
-* Django  
-* Python
+### Languages Used
+
+-   [Python](https://www.python.org/)
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [Javascript](https://www.javascript.com/)
+- 
+### Frameworks
+
+-   [Django](https://www.djangoproject.com/)  
+
+### Libraries and Other Programs Used
+
+-   [Balsamiq](https://balsamiq.com/) was used to create my wireframes
+
+
+## Testing
+
+#### Validators 
+
+-   [PEP8](http://pep8online.com/)
+-   [JSHint](https://jshint.com/)
+-   [W3C Markup Validator](https://validator.w3.org/#validate_by_input+with_options) 
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+# Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
+
 
 
 # Deployment 
 
 I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to faciliate this. 
+
+### Landing paginate
 
 ** Pagination ** 
 
