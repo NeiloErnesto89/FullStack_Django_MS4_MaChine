@@ -106,7 +106,12 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 
 # Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
 
+# Bugs
 
+I had a number of interesting and challenges bugs throughout the project. [Stack Overflow](https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete) as always proved very helpful with this error. I actually entered the `collectstatic` command in the terminal incorrectly (something like `collecstatic`) however the console returned an intriguing error: 
+`product = models.ForeignKey(Product, null=False) TypeError: __init__() missing 1 required positional argument: 'on_delete'`. The fix proved to be simple however I thought it curious as the incorrect command gave feedback on a missing `arg` when using `ForeignKey` in the models.
+
+This error in fact lead to another, more [troubling error](https://stackoverflow.com/questions/56274132/exception-in-thread-django-main-thread)`Exception in thread django-main-thread:`. I have a little bit of experience with firing threads in my work and this error gave me a bit more trouble. I began by spot fixing the error feedback, which stated `ImportError: No module named 'django.core.urlresolvers'` so I removed the `reverse lazy` library and simplified it with `from django.urls import reverse` [following this discussion of Stack Overflow](https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers). However this lead to a game of cat and mouse, as with each change I got a new error relating to some import incompatiblity. However, through a bit more research I realised (and this is why Github version control is so important) that my Django version had been updated when I installed some new libraries, namely the `django-storages==1.10.1`, was the version that cause the error, thus resulting in a string of incompatiblities. So I simplied reinstalled an older version of `Django==1.11.29`and `django-storages==1.9.1`. Following that, I ran my runserver command in the terminal and it worked. 
 
 # Deployment 
 
@@ -121,7 +126,7 @@ Settled on a view based function as opposed to class based pagination function.
 https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
 
 
-** Bootstrap Comment Example ** 
+- Bootstrap Comment Example 
 
 https://bootsnipp.com/snippets/exz9y
 
@@ -134,10 +139,14 @@ https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-o
 On this StackOverflow post I found the logic for is_superuser
 
 
-Django Forms 
+#### Django Forms 
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
 
 Django messages template example: 
 
 https://stackoverflow.com/questions/16711917/django-message-template-tag-checking
+
+#### AWS S3 Bucket Logic
+
+[This article](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) helped me navigate the storage process on Amazon S3 for the Django Static and Media Files.
