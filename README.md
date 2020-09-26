@@ -68,6 +68,13 @@ Due to a mix up, I had less time than anticapted to finish up my project and so 
 
 # Site Layout 
 
+# Django Framework Logic 
+
+I mainly followed the MVT (Model-View-Template) concept of Django as I found it to be the most clean and logical approach for my needs. [Check out more info on MVT here](https://medium.com/@jaychaturvedi18/a-brief-introduction-to-django-mvt-framework-8ef46cc321ab)
+
+* Models 
+ - The model creation is extremely important as it's the information going into the database. Which will be all the information we require from a user, for example, the Checkout app model. Each time we create a new model, we must migrate the data to ensure that [Model Definitions and the Database Schema are in Sync](https://realpython.com/django-migrations-a-primer/#:~:text=Without%20migrations%2C%20you%20will%20have,in%20sync%20with%20your%20models.)
+
 ### Landing paginate
 
 # Technologies Used 
