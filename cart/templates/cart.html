@@ -4,6 +4,8 @@
 
 {% block content %}
 <div class="row row-flex">
+    {% if cart_items > 0 %}
+
     {% for item in cart_items %}
     
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
@@ -32,11 +34,24 @@
         </div>
     </div>
     {% endfor %}
-</div>
-<div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+
+    {% else %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Your Basket is Empty!</h1>      
+            <p>Why not help us out during Covid.</p>
+        </div>
+    </div>
+
+
+    {% endif %}
     
 </div>
+    <div class="row">
+        <p>Current Total = </p>
+        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>{{ total }}</p>
+        
+    </div>
 
 {% endblock %}
