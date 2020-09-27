@@ -150,3 +150,5 @@ https://stackoverflow.com/questions/16711917/django-message-template-tag-checkin
 #### AWS S3 Bucket Logic
 
 [This article](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) helped me navigate the storage process on Amazon S3 for the Django Static and Media Files.
+
+Also [this](https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html)

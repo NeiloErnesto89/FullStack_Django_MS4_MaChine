@@ -108,6 +108,24 @@
     </nav>
     </header>
 
+    <div>
+
+    <h3 class='text-center mt-3 mb-3'>
+
+        {% if messages %}
+            <div class="alert alert-success">
+                <div class="messages">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+    </h3>
+
+    </div>
+
     <!-- <nav> -->
 
         
@@ -121,22 +139,54 @@
             {% endif %}
         </ul> -->
     <!-- </nav> -->
-    <div class="text-center mt-3 mb-3">
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1> 
-    </div>
+    
     <!-- Main Container for templates  -->
     <div class="div">
+
         <main role="main" class="container">
 
-        
-            
-            {% if messages %}
+            <!-- {% if messages %}
                 <div>
                     {% for message in messages %} {{ message }} {% endfor %}
                 </div>
-            {% endif %} 
+            {% endif %}  -->
+
+            <!-- {% if messages %}
+                <div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{% for message in messages %} {{ message }} {% endfor %}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                
+                    <h2>
+                        
+                    </h2>
+                
+            {% endif %}  -->
+
+            <div class="text-center mt-3 mb-3">
+                <h1>
+                    {% block page_heading %}{% endblock %}
+                </h1> 
+            </div>
+
+        
+            
+            
             
             
                 {% block content %}           
@@ -146,17 +196,14 @@
         </main>
     </div>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <p>Made by Neil Smyth</p>
+            <span class="text-muted">Sticky Foot.</span>
         </div>
     </footer>
 
-    <!-- <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer> -->
+ 
 
 <!--  jQuery  -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
