@@ -46,29 +46,47 @@
         </div>
 
 
-  <div class="container marketing">
+  <div class="container marketing mt-3">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg-4 mt-3">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
         <h2>Electronics</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        <p>Products for electronics hobbyists.</p>
+        {% if user.is_authenticated %}
+        <p><a class="btn btn-success" href="{% url 'products' %}" role="button">View Products »</a></p>
+        {% else %}
+        <p><a class="btn btn-secondary" href="{% url 'login' %}" role="button">Login »</a></p>
+        {% endif %}
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 mt-3">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <h2>Gadgets for Sale</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
+
       <div class="col-lg-4 mt-3">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
         <h2>Fun Articles</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        
+        {% if user.is_authenticated %}
+        <p>Check out what everyone in the electronics community is discussing here on the user forum. </p>
+        <p><a class="btn btn-success" href="{% url 'retrieve_posts' %}" role="button">View Posts »</a></p>
+        {% else %}
+        <p>If you're not a member, why not register to join the electronics community. </p>
+        <p><a class="btn btn-secondary" href="{% url 'registration' %}" role="button">Register »</a></p>
+        {% endif %}
       </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+
+      
+        
+         {% if user.is_authenticated %}
+        <div class="col-lg-4 mt-3">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <h2>Your Profile</h2>
+            <p>Why not build up your profile here!</p>
+            <p><a class="btn btn-success" href="{% url 'profile' %}" role="button">Profile »</a></p>
+            {% else %}
+            
+            {% endif %}
+      </div>
+    </div>
 
 
     <!-- START THE FEATURETTES -->
@@ -77,8 +95,8 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
+        <h2 class="featurette-heading">Interesting Issues. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Check out some of the cool issues users are having.</p>
       </div>
       <div class="col-md-5">
         <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
@@ -110,6 +128,10 @@
     </div>
 
     <hr class="featurette-divider">
+
+    <!-- NEW FEATURE -->
+
+    <!-- https://stackoverflow.com/questions/33626772/line-up-bootstrap-featurette-text-with-the-image-above-it -->
 
     <!-- /END THE FEATURETTES -->
 
