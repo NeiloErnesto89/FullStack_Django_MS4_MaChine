@@ -5,18 +5,47 @@
 
 [The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
-# Project Introduction
+*For the **Code Institute testing purposes**, I suggest (at some stage) logging into the site as the **Admin**, using the following details*: 
+- Username: **_test_**   
+- Password: **_test_** 
 
-## Title: MaChine - electronics E-Commerce site and community
+# **Machine**
+
+## Project Introduction
+
+### *Title: **Machine** - an electronics e-Commerce website and community*
 
 This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and potentially purchase some products.
 
+# **Table of Contents**
 
-## UX 
+- [**Machine**](#machine)
+- [**Project Introduction**](#project-introduction)
+- [**UX**](#ux)
+- [**Design**](#design)
+- [**Wireframes**](#wireframes)
+- [**Features**](#features)
+	- [Existing features](#existing-features)
+	- [Features left to implement](#features-left-to-implement)
+- [**Site Layout**](#site-layout)	        
+- [**Technologies used**](#technologies-used)
+    - [Languages](#languages)
+    - [Libraries and Other Programs Used](libraries-and-other-programs-used])
+- [**Testing**](#testing)	
+    - [Validation](#validation)
+- [**Bugs**](bugs)
+- [**Deployment**](#deployment)
+- [**Credits**](#credits)
+	- [Content](#content)
+	- [Media](#media)
+	- [Acknowledgements](#acknowledgements)
+
+
+## **UX** 
 
 My aim was pure simplicity. I wanted an aesthetically pleasing and functional site. I wanted to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality.
 
-### User Stories
+### **User Stories**
 
 The following section details the type of user experiences I wanted the users of the site to have:
 
@@ -40,18 +69,22 @@ The following section details the type of user experiences I wanted the users of
 * As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
 
 
-- # Design 
+# Design 
 
-    - #### Colour Scheme
+#### Colour Scheme
 
-        - I wanted to keep the schematic 
+I wanted to keep the schematic 
 
-### Wireframes
+### **Wireframes**
 
-    -   Landing Home Page Wireframe - [View](https://github.com/)
+Landing Home Page Wireframe - [View](https://github.com/)
 
 
-## Features
+# **Features**
+
+## **Existing features**
+
+The following features are divided up by page, detailing the logic behind each:
 
 * Landing Page: 
 
@@ -60,15 +93,15 @@ The following section details the type of user experiences I wanted the users of
     every page on the site. The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
 
 
-## Features Left to Implement 
+## **Features Left to Implement** 
 
 Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features, both backend and frontend, that could be incorporated. 
 
 
 
-# Site Layout 
+# **Site Layout**
 
-# Django Framework Logic 
+## Django Framework Logic 
 
 I mainly followed the MVT (Model-View-Template) concept of Django as I found it to be the most clean and logical approach for my needs. [Check out more info on MVT here](https://medium.com/@jaychaturvedi18/a-brief-introduction-to-django-mvt-framework-8ef46cc321ab)
 
@@ -77,41 +110,47 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 
 
 
-# Technologies Used 
+# **Technologies Used** 
 
-### Languages Used
+### **Languages**
 
 -   [Python](https://www.python.org/)
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [Javascript](https://www.javascript.com/)
-- 
-### Frameworks
+
+
+### **Frameworks**
 
 -   [Django](https://www.djangoproject.com/)  
 
-### Libraries and Other Programs Used
+### **Libraries and Other Programs Used**
 
 -   [Balsamiq](https://balsamiq.com/) was used to create my wireframes
 
 
-## Testing
+# **Testing**
 
-#### Validators 
+### **Validation**
 
 -   [PEP8](http://pep8online.com/)
 -   [JSHint](https://jshint.com/)
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input+with_options) 
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-# Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
+## Analysing User Experiences 
 
-# Bugs
+Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
+
+## **Bugs**
 
 I had a number of interesting and challenges bugs throughout the project. [Stack Overflow](https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete) as always proved very helpful with this error. I actually entered the `collectstatic` command in the terminal incorrectly (something like `collecstatic`) however the console returned an intriguing error: 
 `product = models.ForeignKey(Product, null=False) TypeError: __init__() missing 1 required positional argument: 'on_delete'`. The fix proved to be simple however I thought it curious as the incorrect command gave feedback on a missing `arg` when using `ForeignKey` in the models.
 
 This error in fact lead to another, more [troubling error](https://stackoverflow.com/questions/56274132/exception-in-thread-django-main-thread)`Exception in thread django-main-thread:`. I have a little bit of experience with firing threads in my work and this error gave me a bit more trouble. I began by spot fixing the error feedback, which stated `ImportError: No module named 'django.core.urlresolvers'` so I removed the `reverse lazy` library and simplified it with `from django.urls import reverse` [following this discussion of Stack Overflow](https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers). However this lead to a game of cat and mouse, as with each change I got a new error relating to some import incompatiblity. However, through a bit more research I realised (and this is why Github version control is so important) that my Django version had been updated when I installed some new libraries, namely the `django-storages==1.10.1`, was the version that cause the error, thus resulting in a string of incompatiblities. So I simplied reinstalled an older version of `Django==1.11.29`and `django-storages==1.9.1`. Following that, I ran my runserver command in the terminal and it worked. 
+
+*Amazon S3*:
+- Plenty of minor bugs and issues stemmed from using the [Amazon S3 Buckets](https://aws.amazon.com/s3/). One interesting bug in particular was that, for testing, I was using an older bucket I created for the Django ecommerce app. As that app was uploaded to Heroku, despite the fact I had deleted the old contents, my new project was simultanelously runnings with 2 `style.css` files. It took me a while to figure out and rectify (by deleting the older, unused Heroku app). Frustrating but interesting nevertheless as Heroku had manage to maintain the deleted css file and simultanelously run it on my new app.
 
 # Deployment 
 
