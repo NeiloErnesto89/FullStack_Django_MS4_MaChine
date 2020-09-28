@@ -9,20 +9,24 @@
 - Username: **_test_**   
 - Password: **_test_** 
 
-*
+*For the sake of testing, please all use **4242_4242_4242_4242** when entering credit card details when paying for products using [Stripe](https://stripe.com/en-ie)
 
 # **Machine**
 
-## Project Introduction
+## Project Scope
 
 ### *Title: **Machine** - an electronics e-Commerce website and community*
 
 This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and potentially purchase some products.
 
+### Technical Introduction 
+
+The site is built using the [Django](https://www.djangoproject.com/) Framework. It is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). 
+
 # **Table of Contents**
 
 - [**Machine**](#machine)
-- [**Project Introduction**](#project-introduction)
+- [**Project Scope**](#project-scope)
 - [**UX**](#ux)
 - [**Design**](#design)
 - [**Wireframes**](#wireframes)
@@ -75,7 +79,7 @@ The following section details the type of user experiences I wanted the users of
 
 #### Colour Scheme
 
-I wanted to keep the schematic 
+I wanted to keep the colour schematic similar to my other projects, which all used the colour green heavily. I like the contrast it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
 
 ### **Wireframes**
 
@@ -155,6 +159,107 @@ This error in fact lead to another, more [troubling error](https://stackoverflow
 - Plenty of minor bugs and issues stemmed from using the [Amazon S3 Buckets](https://aws.amazon.com/s3/). One interesting bug in particular was that, for testing, I was using an older bucket I created for the Django ecommerce app. As that app was uploaded to Heroku, despite the fact I had deleted the old contents, my new project was simultanelously runnings with 2 `style.css` files. It took me a while to figure out and rectify (by deleting the older, unused Heroku app). Frustrating but interesting nevertheless as Heroku had manage to maintain the deleted css file and simultanelously run it on my new app.
 
 # Deployment 
+
+Deploying the project is vital as it demonstrates the steps one needs to pass to get a functional site live>
+
+### AWS S3 Bucket
+
+#### Setting up the S3 Bucket
+
+1. Go to [AWS](https://aws.amazon.com) and sign up for an account
+2. Go to your profile and select [S3](https://aws.amazon.com/s3/) and create a bucket, giving it a title of your choice
+3. Go to the *properties* tab and and select *static web hosting*
+4. Go to the *permissions* tab and change the *CORS Config* (CORS = Cross Origin Resource String) to the following (snippet):
+    ```
+       <?xml version="1.0" encoding="UTF-8"?>
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>HEAD</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+    <AllowedHeader>Authorization</AllowedHeader>
+    </CORSRule>
+    </CORSConfiguration>
+    ```
+5. Also in *permissions* section, change the *bucket policy* to the following (snippet) - making sure to add personal *bucket name*:
+    ```
+     {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::<bucket-name>/*"
+            }
+        ]
+    }
+    ```
+6. Click on **IAM** (Identity & Access Management i.e. how a user manages access), create a new *group*  and add your bucket to it.
+7. Create a *new policy* (in the *group IAM*), to the JSON section and click *import managed policy*, choose "AmazonS3FullAccess" and select import. Make sure to replace the resource string **'*'**.
+8. Click *review policy* and click *create policy*
+9. Now add *policy* to *group*
+10. Create a *user*, give *programmatic access*, choose a *group* and click *create*
+11. Finally, make sure to download CSV file with the *access keys* and other important details.
+
+### Adding AWS S3 to Django
+
+This step enables the *Django* project to have access to the *S3 Bucket*. Public and Private keys must be added to the `settings.py` via the `env.py` so the static files can be moved to S3.
+
+1. Install the necessary libraries and correct versions (depending on Django project version):
+
+    ```
+    sudo pip3 install django-storages==1.9.1
+    sudo pip3 install boto3==1.12.31
+    ```
+2. To the `settings.py` file, add `storages` to **INSTALLED_APPS** section.
+
+3. Then add the following  S3 bucket details to the `settings.py`:
+    
+    ```python
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000'
+    }
+    
+    AWS_STORAGE_BUCKET_NAME = '<bucket-name>'
+    AWS_S3_REGION_NAME = '<region-name>'
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    AWS_DEFAULT_ACL = None # removes boto warning
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    ```
+
+#### Adding the Media to AWS S3
+
+1. Create a `custom_storages.py` with 2 classes for both Static and Media (files) locations. Underneath is the code snippet:
+
+    ```python
+    from django.conf import settings
+    from storages.backends.s3boto3 import S3Boto3Storage
+
+
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+
+    ```
+2. Next, you must go to the `settings.py` to configure the static and media files `location` and `storage`
+    ``python
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    ```
+3. Finally, in your Command Line Terminal, run the following command to push the static files to the S3 Bucket - `python3 manage.py collectstatic` 
+
+### Heroku
 
 I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to faciliate this. 
 
