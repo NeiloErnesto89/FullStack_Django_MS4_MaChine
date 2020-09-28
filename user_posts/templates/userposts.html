@@ -2,6 +2,8 @@
 
 {% load bootstrap_tags %}
 
+{% load humanize %}
+
 {% block page_title %}User Post Page{% endblock %} 
 
 {% block page_heading %}User PostPage{% endblock %}
@@ -89,7 +91,7 @@
                                         posted by <a href="#"><b>{{ post.author }}</b></a>
                                         
                                     </div>
-                                <h6 class="text-muted time">{{ post.published_date }}</h6>
+                                <h6 class="text-muted time">{{ post.published_date|naturaltime }}</h6>
                             </div>
                         </div> 
                         <div class="post-description"> 

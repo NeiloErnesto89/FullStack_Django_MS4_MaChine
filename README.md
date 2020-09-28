@@ -284,6 +284,10 @@ https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-o
 
 On this StackOverflow post I found the logic for is_superuser
 
+#### Humanize Numbers
+
+[Humanize](https://simpleisbetterthancomplex.com/tips/2016/05/09/django-tip-2-humanize.html) is a really simple way to give data a bit of a 'human touch', so instead of `18 Sep 2020 20:54:31` into `2 days ago` using the template filter `| naturaltime` .
+
 
 #### Django Forms 
 

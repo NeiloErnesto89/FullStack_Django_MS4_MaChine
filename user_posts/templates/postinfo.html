@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load humanize %}
+
 {% block content %}
    
         <div class="container">
@@ -28,7 +30,7 @@
                                     posted by <a href="#"><b>{{ post.author }}</b></a>
                                     
                                 </div>
-                                <h6 class="text-muted time">{{ post.published_date }}</h6>
+                                <h6 class="text-muted time">{{ post.published_date|naturaltime }}</h6>
                             </div>
                         </div> 
                         <div class="post-description"> 
