@@ -67,8 +67,8 @@
     <div style="border-top: 6px solid purple"></div>
             
         <div class="container">
-            <div class="row">
-                <div class="col userposts_col">
+            <div class="row justify-content-center">
+                <div class="col userposts_col p-3">
                     <div class="card card-white post">
                         <div class="post-heading">
                             <div class="float-left image">
@@ -116,8 +116,9 @@
     {% endfor %}
     <hr>
 
-    {% if posts.has_other_pages %}
-                <ul class="pagination">
+        {% if posts.has_other_pages %}
+            <nav aria-label="...">
+                <ul class="pagination pagination-lg justify-content-center">
                     {% if posts.has_previous %}
                     <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
                     {% else %}
@@ -127,7 +128,7 @@
                 {% for i in posts.paginator.page_range %}
 
                     {% if posts.number == i %}
-                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        <li class="waves-effect"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
                     {% else %}
                         <li><a href="?page={{ i }}">{{ i }}</a></li>
                     {% endif %}
@@ -136,10 +137,11 @@
 
                 {% if posts.has_next %}
                     <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
-                    {% else %}
+                {% else %}
                     <li class="disabled"><span>&raquo;</span></li>
-                    {% endif %}
+                {% endif %}
                 </ul>
-            {% endif %}
+            </nav>
+        {% endif %}
 
 {% endblock %}
