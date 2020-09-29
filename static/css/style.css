@@ -14,23 +14,23 @@ body {
     
 }
 
-.footer {
+/* .footer {
     margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: 1px solid #ededed;
     background-color: #99ff99;
     text-align: center;
-}
-/* .footer {
-   position: fixed;
+} */
+.footer {
+   margin-top: 40px;
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: green;
+   background-color: red;
    color: white;
    text-align: center;
-} */
+}
 
 .container {
     width: auto;

@@ -1,4 +1,32 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block page_title %}Edit Your Profile Page{% endblock %}
+{% load bootstrap_tags %}
+
+{% block page_title %}Edit Profile Page{% endblock %} 
+
+{% block page_heading %}Edit Profile Page{% endblock %}
+
+    {% block content %}
+
+    {% for bio in biof %}
+            <div class="text-left mt-3">
+                <h4 class="font-13 text-uppercase">About Me :</h4>
+                <p class="text-muted font-13 mb-3">
+                    {{ bio.bio }}
+                </p>
+                <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ml-2">Nik G. Patel</span></p>
+
+    {% endfor %}
+
+    <p>If you already have an account, you can <a href="{% url 'login' %}">sign in here </a></p>
+
+     <form method="POST">
+ 
+            {% csrf_token %}
+
+            {{ registration_form | as_bootstrap }}
+
+            <button type="submit" class="btn btn-success">Edit Profile</button>
+        </form>
+    {% endblock %}
 

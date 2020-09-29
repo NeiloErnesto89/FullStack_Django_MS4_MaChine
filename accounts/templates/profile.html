@@ -5,13 +5,62 @@
 {% block page_heading %}{{ user }}'s Profile{% endblock %}
 
 {% block content %}
-<h3> Here is {{ user }}'s details: </h3>
-<p>{{ profile.email }} </p>
+<h3 class="justify text-center"> Here is {{ user }}'s details: </h3>
+<!-- <p>{{ profile.email }} </p> -->
 
 {% if user.is_superuser %}
-    <p>Hello, admin.</p>
+    <p class="justify text-center mb-3">Hello, admin.</p>
 {% else %}
     <p>Hello, ordinary visitor.</p>
 {% endif %}
+
+<div class="card-box text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+
+            <h4 class="mb-0">{{ user }}</h4>
+            <p class="text-muted">@webdesigner</p>
+
+            
+
+            
+            {% if user.is_superuser %}
+            <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Delete</button>
+            {% else %}
+                
+            {% endif %}
+            <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
+
+            <div class="rounded-circle" style="background-image: url('{{ MEDIA_URL }}{{ profile.image }}')"></div>
+           
+
+            <div class="text-left mt-3">
+                <h4 class="font-13 text-uppercase">About Me :</h4>
+                <p class="text-muted font-13 mb-3">
+                    Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the
+                    1500s, when an unknown printer took a galley of type.
+                </p>
+                <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ml-2">Neil Ernesto</span></p>
+
+
+                <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ml-2 ">{{ profile.email }}</span></p>
+
+                <p class="text-muted mb-1 font-13"><strong>Location :</strong> <span class="ml-2">IE</span></p>
+            </div>
+
+            <ul class="social-list list-inline mt-3 mb-0">
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-purple text-purple"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="fab fa-google"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="fab fa-github"></i></a>
+                </li>
+            </ul>
+        </div> <!-- end card-box -->
 
 {% endblock %}

@@ -288,6 +288,13 @@ On this StackOverflow post I found the logic for is_superuser
 
 [Humanize](https://simpleisbetterthancomplex.com/tips/2016/05/09/django-tip-2-humanize.html) is a really simple way to give data a bit of a 'human touch', so instead of `18 Sep 2020 20:54:31` into `2 days ago` using the template filter `| naturaltime` .
 
+### Profile Page
+
+The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html) 
+
+I also closely followed Corey Schafer's excellent [videos](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=2s&ab_channel=CoreySchafer) and his code snippets came in [handy](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/08-Profile-And-Images/django_project/users/views.py)   
+
+I also used this to extend the User model by adding a [Profile model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone)
 
 #### Django Forms 
 

@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Mess
+from .models import Mess, Profile
 from accounts.forms import UserLoginForm, UserCreationForm
 
 
@@ -76,3 +76,28 @@ def user_profile(request):
     user = User.objects.get(email=request.user.email)  # from db
     # username=request.user.username
     return render(request, 'profile.html', {"profile": user})
+
+# def bio(request):
+#     biof = Profile.objects.all()
+#     return render(request,  'edit_profile.html', {'biof': biof})
+
+
+# def delete_user(request, pk):
+
+#     user = get_object_or_404(User, pk=pk)
+#     owner = User.author
+#     # return HttpResponseRedirect
+
+#     if request.user.is_authenticated and request.user == owner:
+#         posts.delete()
+#         messages.success(request, 'Your post has been deleted')
+#         return redirect(reverse("retrieve_posts"))
+
+#     elif request.user.is_authenticated and request.user.is_superuser:
+#         posts.delete()
+#         messages.success(request, 'The admin has deleted this post')
+#         return redirect(reverse("retrieve_posts"))
+
+#     else:
+#         messages.error(request, 'you are not allowed to deleted this post')
+#         return redirect('post_info', posts.pk)
