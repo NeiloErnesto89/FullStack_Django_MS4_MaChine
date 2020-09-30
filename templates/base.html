@@ -100,9 +100,9 @@
 
                 </ul>
                 
-                <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" name="q" placeholder="Search">
-                <button class="btn btn-info">
+                <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0" >
+                <input class="form-control" type="text" name="q" placeholder="Search" required>
+                <button class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Search for Products">
                 <i class="fas fa-search"></i>
                 </button>
                 </form>

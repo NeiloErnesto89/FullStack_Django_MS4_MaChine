@@ -1,12 +1,22 @@
 from django.shortcuts import render, redirect, reverse
-from django.contrib import messages
+from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+# from accounts.forms import UserLoginForm
 
 # Create your views here.
 
-
+@login_required
 def view_cart(request):
     """A View that renders the cart contents page"""
-    return render(request, "cart.html")  # we don't have to pass in a dictionary of cart_contents because that context is available everywhere.
+    if request.user.is_authenticated:
+        return render(request, "cart.html")  # we don't have to pass in a dictionary of cart_contents because that context is available everywhere.
+    else:
+        messages.error(request, "You must log in or sign up")
+        return redirect(reverse('index'))
+
+
+        # value = name of the form instance just created
 
 
 def add_to_cart(request, id):
