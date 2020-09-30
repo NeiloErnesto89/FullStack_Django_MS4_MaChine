@@ -13,14 +13,20 @@
 
                             {% if post.image %}
 
-                                <img class="img-circle avatar" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Post Image">
+                             <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400" alt="profile-image">
+
+                                <!-- <img class="img-circle avatar" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Post Image"> -->
+
+                               
                         
                         <!-- <div><img class="card-img-top mb-3" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Cover for {{ book.book_title }}"></div> -->
                             
                             {% else %}
                             
-                                <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+
                             {% endif %}
+
                             </div>
                             <div class="float-left meta">
                             <div class="title h3">

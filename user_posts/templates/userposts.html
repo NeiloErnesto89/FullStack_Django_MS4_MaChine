@@ -71,11 +71,13 @@
                 <div class="col userposts_col p-3">
                     <div class="card card-white post">
                         <div class="post-heading">
-                            <div class="float-left image">
+                            <div class="justify-content-center image">
 
                             {% if post.image %}
 
-                                <img class="img-thumbnail" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image">
+                                <!-- <img class="img-thumbnail" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image"> -->
+
+                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400"alt="profile-image">
 
                             
                             {% else %}

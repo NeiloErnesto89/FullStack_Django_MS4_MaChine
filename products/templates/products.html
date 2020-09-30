@@ -8,7 +8,9 @@
                 <div class="card-container mb-2 mt-2 p-2">
                     <div class="card" style="width: 18rem;">
                 
-                        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+                        <!-- <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div> -->
+
+                        <img src="{{ product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image">
 
                         <h3>{{ product.name }}</h3>
                         <p class="product-description">{{ product.description }}</p>

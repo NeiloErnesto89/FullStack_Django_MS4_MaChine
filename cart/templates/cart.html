@@ -10,8 +10,8 @@
         {% for item in cart_items %}
         
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
-            
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+
+            <img src="{{ item.product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image">
             
             <div class="caption">
                 <h3>{{ item.product.name }}</h3>
@@ -33,7 +33,7 @@
                     </form>
                     <div class ="mt-2 mb-3">
                     <!-- <button class="btn btn-success btn-lg btn-block" role="button" href="{% url 'checkout' %}"> Checkout </button> -->
-                    <a href="{% url 'checkout' %}" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+                    
                     </div>
                         
                     <!-- <li class="nav-item active">
@@ -41,6 +41,8 @@
                     </li> -->
                 </p>
             </div>
+
+        <div><a href="{% url 'checkout' %}" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a></div>
         </div>
         
         {% endfor %}
@@ -58,9 +60,11 @@
     
 </div>
     <div class="row">
-        <p>Current Total = </p>
-        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>{{ total }}</p>
+        <div class="col-12">
+            <p>Current Total = </p>
+            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>{{ total }}</p>
         
+        </div>
     </div>
 
 </div>
