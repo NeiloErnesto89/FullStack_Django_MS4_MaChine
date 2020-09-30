@@ -12,7 +12,7 @@ class User_Posts(models.Model):
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     views = models.IntegerField(default=0)
     tag = models.CharField(max_length=40, blank=True, null=True)
-    image = models.ImageField(upload_to="img", blank=True, null=True)  #default = 'default.png'
+    image = models.ImageField(upload_to="img", blank=True, null=True)  # default = 'default.png'
     author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     # author = models.ForeignKey(User, on_delete=models.CASCADE)
     # https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models

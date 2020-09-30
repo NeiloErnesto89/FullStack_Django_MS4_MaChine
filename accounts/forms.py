@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm # base for Django 
 from django.core.exceptions import ValidationError
-
+from .models import Profile
 
 # from .models import Mess # class
 class UserLoginForm(forms.Form):  # Model forms
@@ -67,3 +67,10 @@ class UserCreationForm(UserCreationForm):  # as arg
     #     password1 = cleaned_data.get('password')
     #     if not username and not email and not password1:
     #         raise forms.ValidationError('There are issues with your input')
+
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ['bio', 'image', 'location']

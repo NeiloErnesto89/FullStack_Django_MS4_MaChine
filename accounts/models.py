@@ -8,7 +8,7 @@ class Profile(models.Model):  # inherit
     user = models.OneToOneField(User, on_delete=models.CASCADE)  # oneway deletion
     bio = models.TextField(max_length=300, blank=True)
     image = models.ImageField(default='default.png', upload_to='profile_pics')
-    # location = models.CharField(max_length=30, blank=True)
+    location = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'

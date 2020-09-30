@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Mess, Profile
-from accounts.forms import UserLoginForm, UserCreationForm
+from accounts.forms import UserLoginForm, UserCreationForm, ProfileForm
 
 
 def say_hello(request):
@@ -73,9 +73,34 @@ def registration(request):
 
 
 def user_profile(request):
-    user = User.objects.get(email=request.user.email)  # from db
-    # username=request.user.username
+
+    if request.user.is_authenticated:
+        user = User.objects.get(email=request.user.email)
+    else:
+        return redirect('login')
+   
     return render(request, 'profile.html', {"profile": user})
+
+
+# @login_required
+# def update_profile(request):
+#     if request.method == 'POST':
+#         user_form = UserCreationForm(request.POST, instance=request.user)
+#         profile_form = ProfileForm(request.POST, instance=request.user.profile)# added at the end of forms
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, _('Your profile was successfully updated!'))
+#             return render(request, 'profile.html', {"profile": user_form})
+#         else:
+#             messages.error(request, 'Please correct the error below.')
+#     else:
+#         user_form = UserCreationForm(instance=request.user)
+#         profile_form = ProfileForm(instance=request.user.profile)
+#     return render(request, 'profile.html', {
+#         'user_form': user_form,
+#         'profile_form': profile_form
+#     })
 
 # def bio(request):
 #     biof = Profile.objects.all()
