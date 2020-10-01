@@ -263,6 +263,93 @@ This step enables the *Django* project to have access to the *S3 Bucket*. Public
 
 I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to faciliate this. 
 
+
+### Deploy on Heroku
+
+
+[Heroku](https://dashboard.heroku.com/apps) is a cloud platform that allows for *deploying, managing and scaling applications*. The aim of Heroku is the ease at which developers can 'get their apps to market'. 
+The project is deployed via the master branch and hosted on Heroku. 
+
+The following steps were taken to successfully deploy the project on the Heroku:
+
+1. Create a New Application:
+
+	- Very simply logging into my (already created Heroku account) and creating a new application on my Heroku profile - I named it *machine-ms4-app*
+	- Some configuration is necessary, so going to the *resources* section, searching in the *add-ons* section for the **Heroku Postgres** DB, selecting the *hobby level*
+	- Returning to *Gitpod*, in my `settings.py` file, I added my app `['machine-ms4-app.herokuapp.com']` to the `ALLOWED_HOSTS` list (which also contains my `['localhost']`)
+
+2. Installing Heroku and the Application Dependencies:
+
+	- In the Command Line Terminal in Gitpod (as it's online/virtual dev environment , I don't need to `cd` (change directory) to any particular path. For my terminal command line, 
+	- I entered the following command > `sudo pip3 install --classic heroku`
+	- After the download, a user can log in to their Heroku account with the following command > `heroku login` , followed by their user details
+	- Next, I installed some libraries/dependencies - the first command I entered was `sudo pip3 install gunicorn==20.0.4`. `Guincorn` is a [Python WSGI HTTP Server](https://gunicorn.org/) used to connect servers and apps.
+	- After, I installed > `sudo pip3 installpsycopg2==2.7.3.2`. [Psycopg ](https://pypi.org/project/psycopg2/) which is a Postgres SQL DB adaptor for python
+
+3. Create Requirements.txt, add Libraries/Dependencies and Procfile:
+
+	- The **requirements.txt** file is necessary to run the installed dependencies (above). The following command was used to create and commit these libraries > `$ sudo pip3 freeze --local > requirements.txt`. This command also updates the file, for example, if any other libraries were added.
+	- A **Procfile** is necessary to direct the Heroku app to the file(s) that it needs to execute and run. I used the command > `echo web: python > Procfile` in the terminal to install the file a
+	- This was followed by a simple command in the terminal to run the web process: `heroku ps:scale web=1` and the resulting Procfile file is populated with the code `web: gunicorn machine.wsgi:application` 
+	- Also, as I was using [Amazon S3 Buckets](https://aws.amazon.com/s3/) to store and host my static and media files, I needed to add the key-value pair `DISABLE_COLLECTSTATIC=1` to my Heroku *config vars* 
+	- And as I didn't want [Heroku running my `collectstatic` command on my behalf](https://devcenter.heroku.com/articles/django-assets), I used the command `heroku config:set DISABLE_COLLECTSTATIC=1` to disable the `collectstaic` section of the build.
+
+4. Connecting the PostgresSQL Database to Heroku:
+	
+	- I ran the command > `sudo pip3 install dj_database_url` to install this package. This important as [dj_database_url](https://pypi.org/project/dj-database-url/) *"returns the Django database connection dictionary, populated with all the data specified in your URL"*
+	- Then I updated my requirements.txt file, with the command > `sudo pip3 freeze > requirements.txt`
+	- I added my `DATABASE_URL` value to to my `env.py` (along with all my other keys). It's important not pushed the `env.py` file to Heroku or Github so it's added to a `.gitignore` file. This is to avoid any security issues.
+	- The next step is to `import dj_database_url` in my `settings.py` file. I also added the following (`if-else`) logic to ensure a DB connection (if my *PostgreSQL* Database was available for whatever reason, there's a fallback default Django Database *sqlite3*):
+    
+	```python
+    	if "DATABASE_URL" in os.environ:
+        	DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+    	else:
+        	print("Database URL not found. Using SQLite instead")
+        	DATABASES = {
+            	'default': {
+                	'ENGINE': 'django.db.backends.sqlite3',
+                	'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            	}
+    	}
+
+ 	```
+
+5.  Migrate Models and Create a SuperUser:
+
+	- It's necessary to migrate all models to Heroku's PostgreSQL so I run, in the following order, these commands > 1: `python3 manage.py makemigrations` > 2: `ython3 manage.py migrate`
+	- Then I ran the `createsuperuser` command to create an admin/super-user for the PostgreSQL database and my Django app.
+
+6. Config Vars on Heroku:
+
+	- Returning to Heroku platform, going into my app, I select the **Reveal Config Vars** section and add the necessary key-value pairs.
+	- These values are stored on the `env.py` file but as they are not pushed to Heroku or Github, I needed to manually configure them in this section.
+	- `env.py` file contains these values, as follows:
+	
+	    ```python
+    		import os
+
+    		os.environ.setdefault("SECRET_KEY", "<app-secret-key")
+    		os.environ.setdefault("EMAIL_ADDRESS", "<admin-email-address>")
+    		os.environ.setdefault("EMAIL_PASSWORD", "<admin-email-password>")
+    		os.environ.setdefault("EMAIL_HOST_PASS", "<gmail-host-pass>")
+    		os.environ.setdefault("DATABASE_URL", "<heroku-db-url>")
+    		os.environ.setdefault("AWS_ACCESS_KEY_ID", "<aws-access-key-id>")
+    		os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "<aws-secret-access-key>")
+    		os.environ.setdefault("STRIPE_PUBLISHABLE", "<stripe-publishable>")
+    		os.environ.setdefault("STRIPE_SECRET", "<stripe-secret>")
+    	   ```
+
+	- And same details were configured in the Heroku **Config Vars** section as below:
+	![alt text](https://https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/blob/master/media/readme_img/heroku_vars.png "Config Vars")
+		
+7. Deployment:
+	
+	-  Finally, back on the Heroku page, I go to the *deploy* section, adding *GitHub* to deploy my heroku app to the Github repo
+	- The final step is to enable *automatic deploys*, so that each time I push to GitHub, the updated version of the app is deployed to Heroku (except, as mentioned above, not the `collectstatic` command)
+
+Sidenote: After configuring all of this, after any big changes or advancements on my code etc. I would push my code to the Heroku app (via GitPod) to check if it was functioning.  
+
 ### Landing paginate
 
 ** Pagination ** 

@@ -75,9 +75,9 @@
 
                             {% if post.image %}
 
-                                <!-- <img class="img-thumbnail" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image"> -->
+                                <!-- <img class="rounded-circle avatar img-thumbnail" width="400" height="400" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image"> -->
 
-                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400"alt="profile-image">
+                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400" alt="Post Image">
 
                             
                             {% else %}
