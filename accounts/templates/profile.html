@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
 
+{% load bootstrap_tags %}
+
 {% block page_title %}{{ user }}'s Profile Page{% endblock %} 
 
 {% block page_heading %}{{ user }}'s Profile{% endblock %}
@@ -51,7 +53,7 @@
                     Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the
                     1500s, when an unknown printer took a galley of type.
                 </p>
-                <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ml-2">Neil Ernesto</span></p>
+                <!-- <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ml-2">I AM A ROBOT</span></p> -->
 
             {% endif %}
 
@@ -78,4 +80,11 @@
             </ul>
         </div> <!-- end card-box -->
 
+        <div class="mt-2 mb-2">
+
+        <div>  
+            <a href="{% url 'edit_profile' %}" class="btn btn-success btn-block" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Update Profile</a></div>
+        </div>
+
+                        
 {% endblock %}

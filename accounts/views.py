@@ -83,28 +83,60 @@ def user_profile(request):
 
 
 # @login_required
-# def update_profile(request):
-#     if request.method == 'POST':
-#         user_form = UserCreationForm(request.POST, instance=request.user)
-#         profile_form = ProfileForm(request.POST, instance=request.user.profile)# added at the end of forms
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#             messages.success(request, _('Your profile was successfully updated!'))
-#             return render(request, 'profile.html', {"profile": user_form})
-#         else:
-#             messages.error(request, 'Please correct the error below.')
-#     else:
-#         user_form = UserCreationForm(instance=request.user)
-#         profile_form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'profile.html', {
-#         'user_form': user_form,
-#         'profile_form': profile_form
-#     })
+def edit_profile(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(email=request.user.email)
+        
+        if request.method == "POST":
+            # user_form = UserCreationForm(request.FILES, instance=request.user)
+            profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+            print(profile_form)
+            if profile_form.is_valid():  # user_form.is_valid() and 
+                # user_form.save()
+                profile_form.save()
+                messages.success(request, ('Your profile was successfully updated!'))
+                return render(request, 'profile.html', {'profile_form': profile_form})  # 'user_form': user_form, 
+            else:
+                messages.error(request, 'forms not valid')
+                # profile_form = ProfileForm()
 
-# def bio(request):
-#     biof = Profile.objects.all()
-#     return render(request,  'edit_profile.html', {'biof': biof})
+        else:
+            # user_form = UserCreationForm(request.FILES, instance=request.user)
+            profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        return render(request, 'edit_profile.html', {
+            # 'user_form': user_form,
+            'profile_form': profile_form
+            })
+    else:
+        return redirect('login')
+
+# added 01/10
+# @login_required
+# def update_profile(request):
+#     if request.user.is_authenticated:
+#         # user = User.objects.get(email=request.user.email)
+#         if request.method == "POST":
+#             registration_form = UserCreationForm(instance=request.user)
+#             profile_form = ProfileForm(request.POST, instance=request.user.profile)
+#             if profile_form.is_valid() and registration_form.is_valid():
+#                 registration_form.save()
+#                 profile_form.save()
+#                 messages.success(request, _('Your profile was successfully updated!'))
+#                 return render(request, 'edit_profile.html', {"user form": registration_form })
+#             else:
+#                 messages.error(request, 'forms not valid')
+#         else:
+#             registration_form = UserCreationForm(instance=request.user)
+#             profile_form = ProfileForm(instance=request.user.profile)
+#         return render(request, 'edit_profile.html', {
+#             "user form": registration_form,
+#             'profile_form': profile_form
+#         })
+#     else:
+#         messages.error(request, 'forms not valid')
+#         return redirect(reverse('login'))
+
+
 
 
 # def delete_user(request, pk):
