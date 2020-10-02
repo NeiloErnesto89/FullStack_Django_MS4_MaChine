@@ -148,6 +148,14 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 
 # **Testing**
 
+I tested the site in a number of ways, always attempting to incorporate a defensvie programming mindset. A good quote that summarise's this point, comes from this [blog](https://medium.com/swlh/2-defensive-coding-techniques-you-should-use-today-4225cacc1c29), which states:
+
+> Defensive coding allows our software to behave in a correct manner, despite incorrect input
+
+I tested the platform on a number of devices (ipad, iphone, android, laptop). And I always aim to *disrupt* the flow of the creature of project. I referred to the ever trusty [Real Python](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests) to guide me through some of the tests at the later stage of the project, when I had no access to the course content.
+
+
+
 ### **Validation**
 
 -   [PEP8](http://pep8online.com/)
@@ -363,32 +371,35 @@ The following steps were taken to successfully deploy the project on the Heroku:
 
 Sidenote: After configuring all of this, after any big changes or advancements on my code etc. I would push my code to the Heroku app (via GitPod) to check if it was functioning.  
 
-### Landing paginate
+# Credits
 
-** Pagination ** 
+### Content
+
+At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result as I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
+
+That being said, the internet is an endless wealth of material, content, inspiration and snippets for a would-be developer to avail from, so here are all the points of reference I had for building my project: 
+
+
+**Pagination** 
 
 Settled on a view based function as opposed to class based pagination function.
+[This blog](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html) guided me very smoothly through this process. 
 
-https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+
+- This Bootstrap style [comment example](https://bootsnipp.com/snippets/exz9y) was used as the base for my user posts/comments but I did adapt it quite a bit in the end.
+
+**base.html layout**
+
+[footer example](https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/)
 
 
-- Bootstrap Comment Example 
+On this StackOverflow post I found the [logic](https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-or-template/11916391) for the `is_superuser` templating 
 
-https://bootsnipp.com/snippets/exz9y
-
-## base.html layout
-
-https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/
-
-https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-or-template/11916391
-
-On this StackOverflow post I found the logic for is_superuser
-
-#### Humanize Numbers
+**Humanize (Numbers):**
 
 [Humanize](https://simpleisbetterthancomplex.com/tips/2016/05/09/django-tip-2-humanize.html) is a really simple way to give data a bit of a 'human touch', so instead of `18 Sep 2020 20:54:31` into `2 days ago` using the template filter `| naturaltime` .
 
-### Profile Page
+**Profile Page:**
 
 The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html) 
 
@@ -396,21 +407,30 @@ I also closely followed Corey Schafer's excellent [videos](https://www.youtube.c
 
 I also used this to extend the User model by adding a [Profile model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone)
 
-#### Django Forms 
 
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+I refered quite often to the **[Django docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)** (here is the section on forms)
 
-Django messages template example: 
+Another StackOverflow discussion resulting in a [Django messages template example](https://stackoverflow.com/questions/16711917/django-message-template-tag-checking)
 
-https://stackoverflow.com/questions/16711917/django-message-template-tag-checking
+**AWS S3 Bucket Logic:**
 
-#### AWS S3 Bucket Logic
+- [This article](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) helped me navigate the storage process on Amazon S3 for the Django Static and Media Files.
 
-[This article](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) helped me navigate the storage process on Amazon S3 for the Django Static and Media Files.
-
-Also [this](https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html)
+- Also, [this](https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html) blog came in extremely handy more than once (in this case for Amazon S3)
 
 
-### Javascript/Bootstrap Carousel 
+**Javascript/Bootstrap Carousel:** 
+- I got my inspiration and code snippet for my landing page carousel [here](https://mdbootstrap.com/docs/jquery/javascript/carousel/). I loved the imagery and even though they are landscape as opposed to machine/electronics, I enjoy the juxtaposition of nature and electronics.
 
-I got my inspiration and code snippet for my landing page carousel [here](https://mdbootstrap.com/docs/jquery/javascript/carousel/). I loved the imagery and even though they are landscape as opposed to machine/electronics, I enjoy the juxtaposition of nature and electronics.
+
+**Delete Functions/Views:**
+
+- some of the logic that I used for the delete user and delete (user) posts methods was adapted from this [StackOverflow post](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django)
+
+**Acknowledgements**
+
+A fellow Code Institute Student was a huge source of inspiration as their project was of such high quality. I referred to it at times when I was entertaining some ideas and looking for some solid logic. The size, scale and professionalism of this [project](https://github.com/JBroks/unicornattractor_issue_tracker) is really impressive. Excellent work!
+
+## Media
+
+## Acknowledgements
