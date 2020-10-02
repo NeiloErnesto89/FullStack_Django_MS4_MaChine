@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse
+from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -110,6 +110,26 @@ def edit_profile(request):
     else:
         return redirect('login')
 
+@login_required
+def delete_user(request, pk):
+
+    user = get_object_or_404(User, pk=pk)
+    # return HttpResponseRedirect
+
+    if request.user.is_authenticated and request.user == user:
+        user.delete()
+        messages.success(request, 'This User has been deleted')
+        return redirect(reverse("login"))
+
+    elif request.user.is_authenticated and request.user.is_superuser:
+        user.delete()
+        messages.success(request, 'The admin has deleted this post')
+        return redirect(reverse("index"))
+
+    else:
+        messages.error(request, 'you are not allowed to deleted this post')
+        return redirect('profile', user.pk)
+
 # added 01/10
 # @login_required
 # def update_profile(request):
@@ -139,22 +159,3 @@ def edit_profile(request):
 
 
 
-# def delete_user(request, pk):
-
-#     user = get_object_or_404(User, pk=pk)
-#     owner = User.author
-#     # return HttpResponseRedirect
-
-#     if request.user.is_authenticated and request.user == owner:
-#         posts.delete()
-#         messages.success(request, 'Your post has been deleted')
-#         return redirect(reverse("retrieve_posts"))
-
-#     elif request.user.is_authenticated and request.user.is_superuser:
-#         posts.delete()
-#         messages.success(request, 'The admin has deleted this post')
-#         return redirect(reverse("retrieve_posts"))
-
-#     else:
-#         messages.error(request, 'you are not allowed to deleted this post')
-#         return redirect('post_info', posts.pk)

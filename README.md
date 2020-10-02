@@ -85,7 +85,9 @@ I wanted to keep the colour schematic similar to my other projects, which all us
 
 Landing Home Page Wireframe - [View](https://github.com/)
 
-- Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
+I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find it to be a really intuitive and user friendly application, which allows a user to build, simply and efficiently, a wireframe. This allowed me to clearly visualize the structure and design of my project.
+
+Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
 
 
 #### Wireframe 1
