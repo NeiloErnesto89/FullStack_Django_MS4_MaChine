@@ -85,6 +85,15 @@ I wanted to keep the colour schematic similar to my other projects, which all us
 
 Landing Home Page Wireframe - [View](https://github.com/)
 
+- Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
+
+
+#### Wireframe 1
+
+![home page](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/tree/master/README_docs/wireframes/wireframe_desktop_landing1.png "Index.html Wireframe")
+
+*Figure 1. Index.html*
+
 
 # **Features**
 
