@@ -53,29 +53,43 @@
 
                         <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button"> Delete Post</a> -->
 
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
-
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
+                        <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="modal" data-target="#centralModalDanger">Delete Post
+                        </button>
+ 
+ 
+                            <!-- Central Modal Medium Danger -->
+                            <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-notify modal-danger" role="document">
+                                <!--Content-->
                                 <div class="modal-content">
+                                    <!--Header-->
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Are you sure you want to delete your post?</h4>
+                                    <p class="heading lead">Delete this Post</p>
+                            
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">&times;</span>
+                                    </button>
                                     </div>
+                            
+                                    <!--Body-->
                                     <div class="modal-body">
-                                        <p>You might want to reconsider?</p>
+                                    <div class="text-center">
+                                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                        <p>Be careful. Once you delete your post, you cannot undo it!</p>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a>
+                                    </div>
+                            
+                                    <!--Footer-->
+                                    <div class="modal-footer justify-content-center">
+                                    <a href="{% url 'delete_posts' post.id %}" type="button" class="btn btn-danger">Delete<i class="far fa-gem ml-1 text-white"></i></a>
+                                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
                                     </div>
                                 </div>
-
+                                <!--/.Content-->
+                                </div>
                             </div>
-                        </div>
+                            <!-- Central Modal Medium Danger-->
 
                         {% elif user.is_authenticated and user.is_superuser %}
 
@@ -83,30 +97,43 @@
 
                         <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a> -->
 
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Delete</button>
-
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
+                        <button type="button" class="btn btn-danger waves-effect waves-light " data-toggle="modal" data-target="#centralModalDanger">Delete Post
+                        </button>
+ 
+ 
+                            <!-- Central Modal Medium Danger -->
+                            <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-notify modal-danger" role="document">
+                                <!--Content-->
                                 <div class="modal-content">
+                                    <!--Header-->
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Are you sure you want to delete your post?</h4>
+                                    <p class="heading lead">Delete this Post</p>
+                            
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">&times;</span>
+                                    </button>
                                     </div>
+                            
+                                    <!--Body-->
                                     <div class="modal-body">
-                                        <p>You might want to reconsider?</p>
+                                    <div class="text-center">
+                                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                        <p>Be careful. Once you delete your post, you cannot undo it!</p>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a>
+                                    </div>
+                            
+                                    <!--Footer-->
+                                    <div class="modal-footer justify-content-center">
+                                    <a href="{% url 'delete_posts' post.id %}" type="button" class="btn btn-danger">Delete<i class="far fa-gem ml-1 text-white"></i></a>
+                                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
                                     </div>
                                 </div>
-
+                                <!--/.Content-->
+                                </div>
                             </div>
-                        </div>
-
+                            <!-- Central Modal Medium Danger-->
                         {% endif %}
 
                         <a href="{% url 'retrieve_posts' %}" class="btn btn-default">Back to Blog</a>
@@ -121,23 +148,4 @@
  {% endblock %}  
    
    
-    <!-- <div class="row">
-       
-        </div>
-        <div class="col-sm-10 col-md-9">
-            {% if post.image %}
-                <img class="img-blogpost" src="/media/{{ post.image }}">
-            {% endif %}
-            <h3>{{ post.title }}</h3>
-            <div class="row">
-                <div class="col-xs-9">
-                    <p>{{ post.content }}</p>
-                    <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
-                    <p><span class="boldtext">Views:</span> {{post.views}}</p>
-                    <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
-                    <a href="{% url 'retrieve_posts' %}" class="btn btn-default">Back to Blog</a>
-                    
-                    <hr>
-                </div>
-            </div>
-        </div> -->
+ 

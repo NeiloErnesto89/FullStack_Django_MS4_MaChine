@@ -392,6 +392,8 @@ Settled on a view based function as opposed to class based pagination function.
 
 [footer example](https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/)
 
+- For my modals, I took some snippets from [this site](https://mdbootstrap.com/docs/jquery/modals/customization/) as I thought they looked really sleek and worked very well.
+
 
 On this StackOverflow post I found the [logic](https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-or-template/11916391) for the `is_superuser` templating 
 
