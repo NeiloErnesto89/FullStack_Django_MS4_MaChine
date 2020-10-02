@@ -90,7 +90,7 @@ Landing Home Page Wireframe - [View](https://github.com/)
 
 #### Wireframe 1
 
-![home page](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/tree/master/README_docs/wireframes/wireframe_desktop_landing1.png "Index.html Wireframe")
+<!-- ![home page](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/tree/master/README_docs/wireframes/wireframe_desktop_landing1.png "Index.html Wireframe") -->
 
 *Figure 1. Index.html*
 
