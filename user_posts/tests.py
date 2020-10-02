@@ -9,4 +9,3 @@ class PostsTests(TestCase):
     def test_str(self):
         test_name = User_Posts(name='user post')
         self.assertEqual(str(test_name), 'user profile')
-
