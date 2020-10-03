@@ -14,16 +14,7 @@ body {
     
 }
 
-/* .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    background-color: #99ff99;
-    text-align: center;
-} */
-
-.footer {
+.base-footer {
    margin-top: 40px;
    left: 0;
    bottom: 0;
@@ -40,9 +31,6 @@ body {
 
 }
 
-/* form {
-    width: 60%;
-} */
 
  .carousel-inner img {
     width: 100%;
@@ -61,14 +49,6 @@ body {
     padding-bottom: 10px;
 
 }
-
-/* main img carosel */
-/* .main_img {
-
-    width: 50;
-    height: 50;
-
-} */
 
 /*  products section added */
 

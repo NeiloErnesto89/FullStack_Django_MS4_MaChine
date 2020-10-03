@@ -49,7 +49,7 @@ The site is built using the [Django](https://www.djangoproject.com/) Framework. 
 
 ## **UX** 
 
-My aim was pure simplicity. I wanted an aesthetically pleasing and functional site. I wanted to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality.
+My aim was offer the user a smooth and logical experience, focusing on  simplicity. I wanted an aesthetically pleasing and functional site. I aimed to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality, as well as cultivating my code.
 
 ### **User Stories**
 
@@ -66,8 +66,8 @@ The following section details the type of user experiences I wanted the users of
 * As a user, I am interested in electronics
 * As a user, I want a smooth browsing experience 
 * As a user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop))
-* As a user, I want to comment and interact with the site/application
-* As a user, I want to see the other posts from other members of the community 
+* As a user, I want to comment, like and interact with the site/application
+* As a user, I want to add my own posts and see the other posts from other members of the community 
 
 #### Admin
 
@@ -79,7 +79,11 @@ The following section details the type of user experiences I wanted the users of
 
 #### Colour Scheme
 
-I wanted to keep the colour schematic similar to my other projects, which all used the colour green heavily. I like the contrast it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
+I wanted to keep the colour schematic simple, but a bit different compared to my other milestone projects, which all used the colour green heavily. This site I went for a grey tone to match the sort of mechanical colouring associated with machines and electronics. But I also dotted the site with red, blue, yellow and green (among others) - which can be considered a subtle ode to rainbow coloured electrical wiring. 
+
+
+
+Over all, I like the contrast the dark grey colour it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
 
 ### **Wireframes**
 
@@ -103,16 +107,29 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 
 The following features are divided up by page, detailing the logic behind each:
 
-* Landing Page: 
+**Landing Page:** 
 
-* Cart App:
-    For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictate the logic of the cart section and this also ensures that the cart contents are available when rendering
-    every page on the site. The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
+**Cart App**:
+
+- For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictate the logic of the cart section and this also ensures that the cart contents are available when rendering
+every page on the site. 
+
+    The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
+
+**User Posts (Individual Posts):**
+
+- I followed this tutorial to add the [like button functionality](https://www.youtube.com/watch?v=PXqRPqDjDgc&ab_channel=Codemy.com) and I feel it works quite smoothly and adds to the feel of a community. I could have also added the *dislike* button but I wanted to avoid any negative connotations on the site. 
+
+    If the user has written the post themselves, they have the option to edit/update and/delete. If the user is on a post from another user, they do not have the option to edit or delete a post. The Admin reserves the write to edit and/delete any post they so choose. This is an important tenet of CRUD (Create, Read, Update and Delete) from the ux perspective as well as a site management point of view. The admin can remove or edit a post they feel is unsuitable or against the site regulations, for example.
 
 
 ## **Features Left to Implement** 
 
-Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features, both backend and frontend, that could be incorporated. 
+Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features, both backend and frontend, that could be incorporated. I focused more on the backend logic and making sure that the users could perform a variety of actions but here are some features that can be added in the future:
+
+- I could have also added a user comment section/forum for each post, which would cultivate an interactive community (for example, on [StackOverflow](https://stackoverflow.com/), if a user is struggling on a topic or justs wants to know more about something, they could pose a question to the forum, hoping for a robust response). 
+
+- 
 
 
 
