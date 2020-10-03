@@ -190,8 +190,18 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage" 
 # facilitates django messages functionality
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# if 'DEVELOPMENT' in os.environ:
 # prints email to console
+
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+
+# else:
+#  should sent a real email
+# https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
