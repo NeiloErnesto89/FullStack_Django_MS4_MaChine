@@ -4,3 +4,4 @@
 __pycache__/
 env.py
 static1
+_pagination.html

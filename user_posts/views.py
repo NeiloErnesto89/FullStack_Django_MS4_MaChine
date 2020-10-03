@@ -7,19 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import User_Posts
 from .forms import UserPostForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from django.db.models import Q
-# from django.views.generic import ListView
-
-
-
-# https://codeloop.org/django-pagination-complete-example/
-
-# class UserPostListView(ListView):
-#     model = User_Posts
-#     paginate_by = 3
-#     template_name = 'user_posts/userposts.html'
-#     context_object_name = 'user_posts'
-#     ordering = ['-published_date']
 
 
 def pagination(request, post_list):
@@ -34,9 +21,9 @@ def pagination(request, post_list):
         post_list = paginator.page(paginator.num_pages)
     return post_list
 
+
 @login_required
-def retrieve_posts(request):
-    
+def retrieve_posts(request):  
     posts = User_Posts.objects.filter(published_date__lte=timezone.now()
     ).order_by('-published_date')
 
@@ -46,8 +33,7 @@ def retrieve_posts(request):
 
 
 @login_required
-def post_info(request, pk):
-    
+def post_info(request, pk):  
     user_likes = get_object_or_404(User_Posts, pk=pk)
     total_likes = user_likes.total_likes()
     post = get_object_or_404(User_Posts, pk=pk)
@@ -58,11 +44,9 @@ def post_info(request, pk):
         "total_likes": total_likes
         })
 
-#@login_required(login_url="accounts/login")
 
 @login_required
 def create_or_adapt_post(request, pk=None):
-
     post = get_object_or_404(User_Posts, pk=pk) if pk else None
     if request.method == "POST":
         form = UserPostForm(request.POST, request.FILES, instance=post)
@@ -105,5 +89,3 @@ def like_post(request, pk):
     posts = get_object_or_404(User_Posts, id=request.POST.get('post_id'))  # frm
     posts.likes.add(request.user)  # save like + user
     return HttpResponseRedirect(reverse("post_info", args=[str(pk)]))
-
-
