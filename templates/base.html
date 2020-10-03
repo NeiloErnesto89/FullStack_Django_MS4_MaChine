@@ -40,7 +40,7 @@
     <header>
         <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
     
-            <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-robot" style="font-size:34px;"></i></a>
+            <a class="navbar-brand" href="{% url 'index' %}" data-toggle="tooltip" title="Return to the Machine home page"><i class="fas fa-robot" style="font-size:34px;"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,21 +56,21 @@
                         <a class="nav-link" href="{% url 'products' %}">Products </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'view_cart' %}">
+                        <a class="nav-link" href="{% url 'view_cart' %}" data-toggle="tooltip" title="What's in your cart!">
                             <i class="fas fa-shopping-bag"></i>
                             {% if product_count > 0 %}
                             <label class="badge badge-success">{{ product_count }}</label>
                             {% elif product_count == 0 %}
-                            <label class="badge badge-warning">{{ product_count }} Your cart is empty!</label>
+                            <label class="badge badge-warning">{{ product_count }}</label>
                             {% endif %}
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <!-- <li class="nav-item active">
                         <a class="nav-link" href="{% url 'checkout' %}">Checkout </a>
-                    </li>
-                    <li class="nav-item active">
+                    </li> -->
+                    <!-- <li class="nav-item active">
                         <a class="nav-link" href="{% url 'logout' %}">Logout </a>
-                    </li>
+                    </li> -->
                     
                     
                     
@@ -90,9 +90,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
-                        <a class="dropdown-item" href="{% url 'retrieve_posts' %}">See Posts</a>
+                        <a class="dropdown-item" href="{% url 'retrieve_posts' %}">See User Posts</a>
                         <a class="dropdown-item" href="{% url 'new_post' %}">Add a New Post </a>
                         
+                        <a class="dropdown-item" href="{% url 'checkout' %}">Checkout </a>
+                    
+                        
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" style="color:red;" href="{% url 'logout' %}">Logout </a>
                     </li>
                     {% else %}
                     
@@ -174,6 +181,11 @@
 <!-- Compiled and minified JavaScript -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 </body>
 

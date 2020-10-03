@@ -21,3 +21,9 @@ $(document).ready(function(){
     $("#myCarousel").carousel("next");
   });
 });
+
+// tooltip 
+
+// $(document).ready(function(){
+//   $('[data-toggle="tooltip"]').tooltip();
+// });
