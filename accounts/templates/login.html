@@ -8,7 +8,7 @@
 
     {% block content %}
 
-            <div>
+            <!-- <div>
                 <h3 class="text-center mt-2 mb-2">
 
                     {% if messages %}
@@ -21,7 +21,7 @@
                         </div>
                     {% endif %}
                 </h3>
-            </div>
+            </div> -->
     
 
         <form method="POST">
@@ -34,5 +34,7 @@
             <button type="submit" class="btn btn-success">Login</button>
         </form>
 
-    <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+    <a href="{% url 'password_reset' %}" type="button" class="mt-2 mb-3 btn btn-outline-warning" data-toggle="tooltip" data-placement="right" title="If you can find your password!"><i class="fas fa-lock"></i> Reset Password</a>
+
+   
     {% endblock %}

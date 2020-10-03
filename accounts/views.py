@@ -72,17 +72,19 @@ def registration(request):
     return render(request, 'registration.html', {"registration_form": registration_form})  # context dict key + (value - name of instance above)
 
 
+# @login_required
 def user_profile(request):
 
     if request.user.is_authenticated:
         user = User.objects.get(email=request.user.email)
     else:
+        messages.warning(request, ('Please Login or Sign up'))
         return redirect('login')
    
     return render(request, 'profile.html', {"profile": user})
 
 
-# @login_required
+@login_required
 def edit_profile(request):
     if request.user.is_authenticated:
         user = User.objects.get(email=request.user.email)
