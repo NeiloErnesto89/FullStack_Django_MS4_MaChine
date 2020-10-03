@@ -137,6 +137,16 @@
                         {% endif %}
 
                         <a href="{% url 'retrieve_posts' %}" class="btn btn-default">Back to Blog</a>
+
+                       <div>
+
+                        <form action="{% url 'like_post' post.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></button>  total likes: {{ total_likes }} 
+                        </form>
+
+                        </div>
+                        
                         
                     </div>
                 </div>

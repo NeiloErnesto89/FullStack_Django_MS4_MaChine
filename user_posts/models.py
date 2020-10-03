@@ -14,10 +14,13 @@ class User_Posts(models.Model):
     tag = models.CharField(max_length=40, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)  # default = 'default.png'
     author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
-    # author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="user_likes")
     # https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models
 
         # renewal_date = forms.DateField(help_text="Enter a date between now and 4 weeks (default 3).")
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __unicode__(self):
         return self.title

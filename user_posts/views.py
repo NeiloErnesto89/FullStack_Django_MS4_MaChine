@@ -47,11 +47,16 @@ def retrieve_posts(request):
 
 @login_required
 def post_info(request, pk):
-
+    
+    user_likes = get_object_or_404(User_Posts, pk=pk)
+    total_likes = user_likes.total_likes()
     post = get_object_or_404(User_Posts, pk=pk)
     post.views += 1
     post.save()
-    return render(request, "postinfo.html", {'post': post})
+    return render(request, "postinfo.html", {
+        "post": post,
+        "total_likes": total_likes
+        })
 
 #@login_required(login_url="accounts/login")
 
@@ -94,25 +99,11 @@ def delete_posts(request, pk):
         return redirect('post_info', posts.pk)
 
 
-# def post_search(request):
-#     posts_search = User_Posts.objects.all()
-#     query = request.GET.get('q')
-#     if query:
-#         posts_search = User_Posts.objects.filter(
-#             Q(title__icontains=query) | Q(content__icontains=query) |
-#             Q(user__first_name__icontains=query) | Q(user__last_name__icontains=query)
-#         ).distinct()
-#     paginator = Paginator(posts_search, 6) # 6 posts per page
-#     page = request.GET.get('page')
+@login_required
+def like_post(request, pk):
 
-#     try:
-#         posts = paginator.page(page)
-#     except PageNotAnInteger:
-#         posts = paginator.page(1)
-#     except EmptyPage:
-#         posts = paginator.page(paginator.num_pages)
+    posts = get_object_or_404(User_Posts, id=request.POST.get('post_id'))  # frm
+    posts.likes.add(request.user)  # save like + user
+    return HttpResponseRedirect(reverse("post_info", args=[str(pk)]))
 
-#     context = {
-#         'posts': posts
-#     }
-#     return render(request, "userposts.html", context)
+
