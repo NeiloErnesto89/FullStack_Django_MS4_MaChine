@@ -29,11 +29,26 @@ According to the *CI Assessment Handbook 2020*, the aim of this project is to:
 
 > *build a full-stack site based around business logic used to control a centrally-owned dataset. You will set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service*
 
+I aimed to stick to this overarching goal and the following section summarise the CS requirements, it was taken, and adapted, from the **CI project requirements** section:
+
+* Data handling: Build a MongoDB-backed Flask project...
+* Database structure: Put some effort into designing a database structure... 
+* User functionality: (CRUD functionality)...
+* Use of technologies: Use HTML and custom CSS for the website's front-end....
+* Structure: Incorporate a main navigation menu and structured layout...
+* Documentation: Write a README.md file...
+* Version control: Use Git & GitHub for version control...
+* Attribution: Maintain clear separation between code written by you and code from external sources...
+* Deployment: Deploy the final version (Heroku)...
+* (Secrecy): Make sure to not include any passwords or secret keys in the project repository...
+
 ## Project Page Breakdown
 
-**1. Landing Page**
+**1. Landing Page** 
+The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
-**2. Login Page**
+**2. Login Page** 
+- 
 
 **3. Register Page**
 
@@ -145,7 +160,7 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 
 #### Wireframe 1
 
-![home page](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/tree/master/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Wireframe" )
+![home page](/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Wireframe" )
 
 *Figure 1. Index.html*
 
