@@ -158,11 +158,19 @@ I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find 
 Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
 
 
-#### Wireframe 1
+#### Wireframe 1 - Desktop View
 
-![home page](/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Wireframe" )
+![home page](/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Desktop Wireframe" )
 
-*Figure 1. Index.html*
+*Figure 1. Landing Page (Desktop) Index.html*
+
+#### Wireframe 2 - Phone View
+
+![home page](/media/ReadMe_Docs/wireframe_phone1.png "Index.html Phone Wireframe" )
+
+*Figure 2. Landing Page (Phone) (Index.html)*
+
+
 
 
 # **Features**
