@@ -4,16 +4,16 @@
 
 {% block page_title %}User Post Form Page{% endblock %} 
 
-{% block page_heading %}User Post Form  Page{% endblock %}
+{% block page_heading %}Add a New Post{% endblock %}
 
     {% block content %}
 
-    <h1>New Post</h1>
+    <h3>What's on your mind?</h3>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | as_bootstrap }}
         <button type="submit" class="btn btn-info">Save</button>
     </form>
 
-    <p><a href="{% url 'profile' %}">Return</a></p>
+    <p><a class="mt-2 btn btn-outline-secondary" href="{% url 'profile' %}">Return</a></p>
     {% endblock %}
