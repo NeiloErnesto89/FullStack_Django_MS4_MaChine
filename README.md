@@ -23,6 +23,31 @@ This is a site aimed at electronics enthusiasts looking to interact with fellow 
 
 Keeping in line with the CI project requirements as well as CRUD tenets, the site is aiming to incorporate, and expand on, what has been taught in the CI course. 
 
+# **Table of Contents**
+
+- [**Machine**](#machine)
+- [**Project Scope**](#project-scope) 
+- [**Project Page Breakdown**](#project-page-breakdown) 
+- [**UX**](#ux)
+- [**Design**](#design)
+- [**Wireframes**](#wireframes)
+- [**Features**](#features)
+	- [Existing features](#existing-features)
+	- [Features left to implement](#features-left-to-implement)
+- [**Site Layout**](#site-layout)	        
+- [**Technologies used**](#technologies-used)
+    - [Languages](#languages)
+    - [Libraries and Other Programs Used](libraries-and-other-programs-used])
+- [**Testing**](#testing)	
+    - [Validation](#validation)
+- [**Bugs**](bugs)
+- [**Deployment**](#deployment)
+- [**Credits**](#credits)
+	- [Content](#content)
+	- [Media](#media)
+	- [Acknowledgements](#acknowledgements)
+
+
 **Project Purpose**
 
 According to the *CI Assessment Handbook 2020*, the aim of this project is to:
@@ -35,7 +60,7 @@ I aimed to stick to this overarching goal and the following section summarise th
 * Database structure:  Design a robust database structure use PostgresSQL... 
 * User functionality: (CRUD functionality)...
 * Use of technologies Frontend: Use HTML, custom CSS and Javascript for the website's front-end....
-* Use of technologies Nackend: Use Python and JS (Stripe) for the website's front-end....
+* Use of technologies Backend: Use Python and JS (Stripe) for the website's front-end....
 * Structure: Incorporate a main navigation menu and structured layout...
 * Documentation: Write a README.md file...
 * Version control: Use Git & GitHub for version control...
@@ -48,8 +73,7 @@ I aimed to stick to this overarching goal and the following section summarise th
 **1. Landing Page** 
 The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
-**2. Login Page** 
-- 
+**2. Login Page**  
 
 **3. Register Page**
 
@@ -78,38 +102,10 @@ The main site page with Carousel and some informative text as well as links. Nav
 **11. Other Site Functions** 
 
 
-
-
-
-
-
-
-### Technical Introduction 
+### Technical Insight 
 
 The site is built using the [Django](https://www.djangoproject.com/) Framework. It is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). 
 
-# **Table of Contents**
-
-- [**Machine**](#machine)
-- [**Project Scope**](#project-scope)
-- [**UX**](#ux)
-- [**Design**](#design)
-- [**Wireframes**](#wireframes)
-- [**Features**](#features)
-	- [Existing features](#existing-features)
-	- [Features left to implement](#features-left-to-implement)
-- [**Site Layout**](#site-layout)	        
-- [**Technologies used**](#technologies-used)
-    - [Languages](#languages)
-    - [Libraries and Other Programs Used](libraries-and-other-programs-used])
-- [**Testing**](#testing)	
-    - [Validation](#validation)
-- [**Bugs**](bugs)
-- [**Deployment**](#deployment)
-- [**Credits**](#credits)
-	- [Content](#content)
-	- [Media](#media)
-	- [Acknowledgements](#acknowledgements)
 
 
 ## **UX** 
@@ -502,7 +498,7 @@ The following steps were taken to successfully deploy the project on the Heroku:
     		os.environ.setdefault("STRIPE_SECRET", "<stripe-secret>")
     	   ```
 
-	And same details were configured in the Heroku **Config Vars** section as below (with the values removed for obvious reasons :lock: ):
+	And same details were configured in the Heroku **Config Vars** section as below (with the values removed for obvious reasons :lock: )
 
 	![alt text](/media/ReadMe_Docs/heroku_config_vars.png "Config Vars")
 		
@@ -582,7 +578,7 @@ Another StackOverflow discussion resulting in a [Django messages template exampl
 
 **Acknowledgements**
 
-A fellow Code Institute Student was a huge source of inspiration as their project was of such high quality. I referred to it at times when I was entertaining some ideas and looking for some solid logic. The size, scale and professionalism of this [project](https://github.com/JBroks/unicornattractor_issue_tracker) is really impressive. Excellent work!
+A fellow Code Institute Student whose [project](https://github.com/JBroks/unicornattractor_issue_tracker) was a huge source of inspiration as their project was of such high quality. I referred to it at times when I was entertaining some ideas and looking for some solid logic. The size, scale and professionalism of this project is really impressive. No direct code snippets were used (mainly due to different techniques implemented), so it was more of a guide, but excellent and inspiring work nevertheless!
 
 ## Media
 
