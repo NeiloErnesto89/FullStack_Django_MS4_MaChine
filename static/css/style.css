@@ -61,3 +61,12 @@ body {
     margin: 0 auto;
 }
 
+/*  landing page scroll button */
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+

@@ -16,14 +16,13 @@
 
     <!-- Custom CSS path -->
 
-    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 
-    <link rel="stylesheet" src="static/css/style.css" type="text/css" />
+    <!-- <link rel="stylesheet" src="static/css/style.css" type="text/css" /> -->
 
     <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
              -->
-
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -140,6 +139,8 @@
                     {% endif %}
                 </h3>
             </div>
+
+            
     
 
 
@@ -153,8 +154,10 @@
                     <!-- main content for templates -->
                 {% endblock %}
             
+              
         </main>
     </div>
+
 
     <footer class="footer base-footer">
         <div class="container">
@@ -185,6 +188,27 @@
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
+</script>
+
+<script>
+
+$(document).ready(function(){
+	$(window).scroll(function () {
+			if ($(this).scrollTop() > 50) {
+				$('#back-to-top').fadeIn();
+			} else {
+				$('#back-to-top').fadeOut();
+			}
+		});
+		// scroll body to 0px on click
+		$('#back-to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+});
+
 </script>
 
 </body>
