@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.svg?branch=master)](https://travis-ci.com/NeiloErnesto89/FullStack_Django_MS4_MaChine)
 
 
-<h1 align="center">Full Stack Frameworks with Django Milestone 4 Project</h1>  
+<h1 align="center">Full Stack Frameworks with Django Milestone 4 Project 
+
+<h2 align="center">Machine :robot: </h2>
 
 [The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
@@ -11,13 +13,60 @@
 
 *For the sake of testing, please all use **4242_4242_4242_4242** when entering credit card details when paying for products using [Stripe](https://stripe.com/en-ie)
 
-# **Machine**
+
 
 ## Project Scope
 
-### *Title: **Machine** - an electronics e-Commerce website and community*
+### *Title: **Machine** - an Electronics e-Commerce website and community*
 
-This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and potentially purchase some products.
+This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and hopefully purchase some products.
+
+Keeping in line with the CI project requirements as well as CRUD tenets, the site is aiming to incorporate, and expand on, what has been taught in the CI course. 
+
+**Project Purpose**
+
+According to the *CI Assessment Handbook 2020*, the aim of this project is to:
+
+> *build a full-stack site based around business logic used to control a centrally-owned dataset. You will set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service*
+
+## Project Page Breakdown
+
+**1. Landing Page**
+
+**2. Login Page**
+
+**3. Register Page**
+
+**4. Reset Password Pages**
+
+**5. User Profile Page:**
+- **5.1. Edit/Update Profile** 
+
+- **5.2. Delete Profile** 
+
+**6. Products Page**
+
+**7. Cart Page**
+
+**8. Checkout (Payment) Page**
+
+**9. User Posts Pages (Individual Posts and All Posts)**
+
+**10. Add User Post Page**
+- **5.1. Edit/Update Posts** 
+
+- **5.2. Delete Posts** 
+
+- **5.3. Like Posts** 
+
+**11. Other Site Functions** 
+
+
+
+
+
+
+
 
 ### Technical Introduction 
 
@@ -392,9 +441,18 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 ### Content
 
-At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result as I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
+At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
-That being said, the internet is an endless wealth of material, content, inspiration and snippets for a would-be developer to avail from, so here are all the points of reference I had for building my project: 
+All that being said, the internet is an endless wealth of material, content, inspiration and snippets for a would-be developer to avail from, so here are all the points of reference I had for building my project: 
+
+
+**User Password-Reset Email**
+
+This section is important as it gves the touch of a real and interactive site. I ran into some issues along the way including some of the naming conventions and having to generate an two-factor authentication step for my email account to faciliate the actual email being sent. The bones of the *reset password* logic was crafted using the CI course material, however the final hurdle was aided by the ever reliable:
+
+- [Corey Schafer's Youtube video(s)](https://www.youtube.com/watch?v=-tyBEsHSv7w&t=750s&ab_channel=CoreySchafer) 
+- As well as a few ventures onto Stack Overflow including this [query](https://stackoverflow.com/questions/28421887/django-email-with-smtp-gmail-smtpauthenticationerror-534-application-specific-pa) and [this question](https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received)
+- And also the [Django documention](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/views/)
 
 
 **Pagination** 

@@ -198,8 +198,6 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # else:
 #  should sent a real email
-# https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received
-
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
