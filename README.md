@@ -175,7 +175,7 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
  likes  | likes | ManyToManyField | User, related_name="user_likes"
 
  *Below is how the UserPost Models are constructed in `Python`:*
- 
+
 
     ```python
     class User_Posts(models.Model):
@@ -223,7 +223,7 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 
 *Figure 2. Landing Page (Phone) (Index.html)*
 
-
+<!-- <img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100"> -->
 
 # **Features**
 
@@ -502,8 +502,9 @@ The following steps were taken to successfully deploy the project on the Heroku:
     		os.environ.setdefault("STRIPE_SECRET", "<stripe-secret>")
     	   ```
 
-	- And same details were configured in the Heroku **Config Vars** section as below:
-	![alt text](https://https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine/blob/master/media/readme_img/heroku_vars.png "Config Vars")
+	And same details were configured in the Heroku **Config Vars** section as below (with the values removed for obvious reasons :lock: ):
+
+	![alt text](/media/ReadMe_Docs/heroku_config_vars.png "Config Vars")
 		
 7. Deployment:
 	
@@ -514,7 +515,7 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 # Credits
 
-### Content
+### Credits & Content
 
 At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
@@ -586,3 +587,9 @@ A fellow Code Institute Student was a huge source of inspiration as their projec
 ## Media
 
 ## Acknowledgements
+
+* My Mentor Maranatha Ilesanmi, for his helpful and constructive insights 
+
+* Thanks to Code Institute Support team, my fellow students/alumni (via Slack), to my family and my partner for everything 	:smiley:
+
+> NOTE: This project was created for educational purposes. **Machine** is a fictious site. 
