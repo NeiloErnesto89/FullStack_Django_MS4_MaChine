@@ -291,8 +291,6 @@ I tested the site in a number of ways, always attempting to incorporate a defens
 
 I tested the platform on a number of devices (ipad, iphone, android, laptop). And I always aim to *disrupt* the flow of the creature of project. I referred to the ever trusty [Real Python](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests) to guide me through some of the tests at the later stage of the project, when I had no access to the course content.
 
-
-
 ### **Validation**
 
 -   [PEP8](http://pep8online.com/)
@@ -304,7 +302,54 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop). An
 
 Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
 
-## **Bugs**
+
+### Testing User Stories from User Experience (UX) Section
+
+-   #### First Time Site Visitor Goals
+
+    1. As a First Time Visitor, I want to "quote from above"  . . 
+
+        1. Upon landing on site, users are met 
+        2. Simple title and carosel gives the user some direction.
+
+    2.  As a First Time Visitor,  . . . 
+
+        1. Once the new visitor has read t
+        2. 
+
+     3. As a First Time Visitor, I want to look
+
+-   #### Returning Visitor Goals
+
+    1. As a Returning Visitor, I want to find the ..
+
+        1. These are clearly shown in the banner message.
+        2. The user . . 
+
+    2. As a Returning Visitor, I..
+
+        1. The navigation bar ...
+        2. Here . . .
+
+-   #### Frequent User Goals
+
+    1. As a Frequent User, I want  . . 
+
+        1. The user is at ease with the websites ins and outs
+
+    2. As a Frequent User, I want to see if there are any new user posts.
+
+        1. The user would  . . 
+
+### Further Testing  . . 
+
+-   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+-   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
+-   A large amount of testing was done to ensure that all pages were linking correctly.
+-   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+
+## **Bugs** 
 
 I had a number of interesting and challenges bugs throughout the project. [Stack Overflow](https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete) as always proved very helpful with this error. I actually entered the `collectstatic` command in the terminal incorrectly (something like `collecstatic`) however the console returned an intriguing error: 
 `product = models.ForeignKey(Product, null=False) TypeError: __init__() missing 1 required positional argument: 'on_delete'`. The fix proved to be simple however I thought it curious as the incorrect command gave feedback on a missing `arg` when using `ForeignKey` in the models.
@@ -511,7 +556,7 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 # Credits
 
-### Credits & Content
+## Credits & Content
 
 At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
@@ -555,6 +600,8 @@ The inspiration for the profile card style profile came from this [site](https:/
 I also closely followed Corey Schafer's excellent [videos](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=2s&ab_channel=CoreySchafer) and his code snippets came in [handy](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/08-Profile-And-Images/django_project/users/views.py)   
 
 I also used this to extend the User model by adding a [Profile model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone)
+
+[CSS return to top button](https://codepen.io/michalwyrwa/pen/GBaPPj)
 
 
 I refered quite often to the **[Django docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)** (here is the section on forms)
