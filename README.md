@@ -31,16 +31,17 @@ According to the *CI Assessment Handbook 2020*, the aim of this project is to:
 
 I aimed to stick to this overarching goal and the following section summarise the CS requirements, it was taken, and adapted, from the **CI project requirements** section:
 
-* Data handling: Build a MongoDB-backed Flask project...
-* Database structure: Put some effort into designing a database structure... 
+* Data handling: Build a Django project using Python as your main programming Language...
+* Database structure:  Design a robust database structure use PostgresSQL... 
 * User functionality: (CRUD functionality)...
-* Use of technologies: Use HTML and custom CSS for the website's front-end....
+* Use of technologies Frontend: Use HTML, custom CSS and Javascript for the website's front-end....
+* Use of technologies Nackend: Use Python and JS (Stripe) for the website's front-end....
 * Structure: Incorporate a main navigation menu and structured layout...
 * Documentation: Write a README.md file...
 * Version control: Use Git & GitHub for version control...
 * Attribution: Maintain clear separation between code written by you and code from external sources...
-* Deployment: Deploy the final version (Heroku)...
-* (Secrecy): Make sure to not include any passwords or secret keys in the project repository...
+* Deployment: Deploy the final, live version ( on Heroku)...
+* Secrecy: Do not include any passwords or secret keys in the project repository...
 
 ## Project Page Breakdown
 
@@ -149,6 +150,57 @@ I wanted to keep the colour schematic simple, but a bit different compared to my
 
 Over all, I like the contrast the dark grey colour it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
 
+
+# Database Schema 
+
+
+Below is a table of my `User_Posts` Model, which I am demonstrating as an example of the database schematic. Please note the variations in Field Type and Validation as the the model can be associated with other models, making the database fluid and interchangeable, which is a key tenet when working with data that is constantly changing and adaoting. 
+
+For example, the `on_delete=models.CASCADE` method ensures that if a `User` is deleted, the `author` and therefore the post will also be deleted. As mentioned this is extremely important to the structure of the database. As we can see from the `author` item in the table, it utilises the [SQL]() `ForeignKey`, which is, as stated on the [W3 Schools site](https://www.w3schools.com/sql/sql_foreignkey.asp#:~:text=A%20FOREIGN%20KEY%20is%20a,the%20referenced%20or%20parent%20table.),:
+> (A `FOREIGN KEY` is) a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table e.g. (`author` :arrow_right: `User`)
+
+
+**SQL Database Table**
+
+| **Name** | **Database Primary Key** | **Field Type(s)** | **Validation** |
+--- | --- | --- | --- 
+ title | title | CharField |  max_length=100, help_text='Enter post title'
+ content | content | TextField | null
+ created_date | created_date | DateTimeField | auto_now_add=True
+ published_date | published_date | DateTimeField | blank=True, null=True, default=timezone.now
+ views  | views | IntegerField | default=0
+ tag | tag  | CharField | max_length=40, blank=True, null=True
+ image  | image | ImageField | upload_to="img", blank=True, null=True
+ author  | default_country | ForeignKey | User, default=None, on_delete=models.CASCADE
+ likes  | likes | ManyToManyField | User, related_name="user_likes"
+
+ *Below is how the UserPost Models are constructed in `Python`:*
+ 
+
+    ```python
+    class User_Posts(models.Model):
+ 
+    title = models.CharField(max_length=100, help_text='Enter post title')
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    views = models.IntegerField(default=0)
+    tag = models.CharField(max_length=40, blank=True, null=True)
+    image = models.ImageField(upload_to="img", blank=True, null=True) 
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="user_likes")
+
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
+    ```
+
 ### **Wireframes**
 
 Landing Home Page Wireframe - [View](https://github.com/)
@@ -166,10 +218,10 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 
 #### Wireframe 2 - Phone View
 
-![home page](/media/ReadMe_Docs/wireframe_phone1.png "Index.html Phone Wireframe" )
+
+![home page](/media/ReadMe_Docs/wireframe_phone1.png "Index.html Phone Wireframe" ) <h2>
 
 *Figure 2. Landing Page (Phone) (Index.html)*
-
 
 
 
