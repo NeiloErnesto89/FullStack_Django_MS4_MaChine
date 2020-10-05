@@ -81,6 +81,10 @@ body {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    display: none;
+    display: inline;
+    z-index: 1;
+    color:green;
+    background-color: lightgrey;
+    border-color: #f8f9fa;
 }
 

@@ -637,6 +637,9 @@ Another StackOverflow discussion resulting in a [Django messages template exampl
 **Javascript/Bootstrap Carousel:** 
 - I got my inspiration and code snippet for my landing page carousel [here](https://mdbootstrap.com/docs/jquery/javascript/carousel/). I loved the imagery and even though they are landscape as opposed to machine/electronics, I enjoy the juxtaposition of nature and electronics.
 
+*Landing Page SVG Icons* 
+
+I used some svg icons from the [bootsrap icons library here](https://icons.getbootstrap.com/icons/lightning/). I used them only on the main landing page. I found the SVG format to be a bit clunky but it did give me some nice inline styling, sizing and positioning options I didn't have with Fontawesome.
 
 **Delete Functions/Views:**
 

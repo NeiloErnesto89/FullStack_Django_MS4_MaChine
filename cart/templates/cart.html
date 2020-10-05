@@ -3,9 +3,9 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="container justify content-center">
+<div class="container justify content-center mt-2 mb-2">
 <div class="row row-flex ">
-    {% if cart_items != None %}
+    {% if cart_items %}
 
         {% for item in cart_items %}
         
@@ -23,12 +23,13 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                            <div class="input-group">
+                            <div class="input-group p-2">
                                 <div class="input-group-addon">Qty</div>
                                 <input name="quantity" type="number" min="0" max="999" class="form-control" required>
                                 <div class="input-group-addon p-2">{{item.quantity}}</div>
                             </div>
                         </div>
+
                         <button type="submit" class="btn btn-primary p-2"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
                     </form>
                     <div class ="mt-2 mb-3">
@@ -46,12 +47,16 @@
         </div>
         
         {% endfor %}
+
     {% else %}
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+    <div class="jumbotron jumbotron-fluid mt-3 mb-2">
+        <div class="container text-center">
             <h1>Your Basket is Empty!</h1>      
             <p>Why not help us out during Covid.</p>
+            <div class="text-center mt-3">
+            <a class="btn btn-success btn-lg" href="{% url 'products' %}">Check out Products </a>
+            </div>
         </div>
     </div>
 
@@ -59,11 +64,13 @@
     {% endif %}
     
 </div>
-    <div class="row">
-        <div class="col-12">
-            <p>Current Total = </p>
-            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>{{ total }}</p>
-        
+    <div class="container text-center mt-3">
+        <div class="row">
+            <div class="col-12">
+                <p>Current Total</p>
+                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
+            
+            </div>
         </div>
     </div>
 
