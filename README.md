@@ -14,7 +14,7 @@
 *For the sake of testing, please all use **4242_4242_4242_4242** when entering credit card details when paying for products using [Stripe](https://stripe.com/en-ie)
 
 
-## Project Scope
+## Project Brief
 
 ### *Title: **Machine** - an Electronics e-Commerce website and community*
 
@@ -24,9 +24,9 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 
 # **Table of Contents**
 
-- [**Machine**](#machine)
+- [**Project Brief**](#project-brief)
 - [**Demo**](#demo)
-- [**Project Scope**](#project-scope) 
+- [**Project Purpose and Scope**](#project-purpose-and-scope) 
 - [**Project Page Breakdown**](#project-page-breakdown) 
 - [**UX**](#ux)
 - [**Design**](#design)
@@ -48,11 +48,11 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 	- [Acknowledgements](#acknowledgements)
 
 
-# Demo
+### Demo
 
 [The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
-**Project Purpose**
+### **Project Purpose and Scope**
 
 According to the *CI Assessment Handbook 2020*, the aim of this project is to:
 
@@ -127,16 +127,17 @@ The following section details the type of user experiences I wanted the users of
 #### First Time User
 
 * As a first time user, I am want to navigate around the site easily
+* As a first time user, I want to know quickly what the site is about 
 * As a first time user, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
-* * As a first time user, I want to access the site via any device
+* As a first time user, I want to access the site via any device
 
 #### Returning User
 
-* As a user, I am interested in electronics
-* As a user, I want a smooth browsing experience 
-* As a user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop))
-* As a user, I want to comment, like and interact with the site/application
-* As a user, I want to add my own posts and see the other posts from other members of the community 
+* As a user, I am interested in electronics and want to learn a bit more
+* As a user, I want a smooth browsing experience, signing up, logging in and, if I can't remember my password, have a smooth exchange to facilitate a password reset (via email)
+* As a user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop)) 
+* As a user, I want to build a profile and research products to potentially purchase
+* As a user, I want to add my own posts and see the other posts from other members of the community, I would also enjoy a form of interaction such a like button for posts I enjoy or support.
 
 #### Admin
 
@@ -146,10 +147,16 @@ The following section details the type of user experiences I wanted the users of
 
 # Design 
 
+#### Font
+
+In keeping in line with a machine themed site, I chose the Google Font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono?preview.text=roboto&preview.text_type=custom&query=robot&sidebar.open=true&selection.family=Roboto+Mono#license) which I personally really like and felt it lent itself a lot to the design style I was aiming for.
+
+
 #### Colour Scheme
 
 I wanted to keep the colour schematic simple, but a bit different compared to my other milestone projects, which all used the colour green heavily. This site I went for a grey tone to match the sort of mechanical colouring associated with machines and electronics. But I also dotted the site with red, blue, yellow and green (among others) - which can be considered a subtle ode to rainbow coloured electrical wiring. 
 
+For example, I chose  [metallic green](https://encycolorpedia.com/296e01) `#296e01` as the footer colour as once again I liked the juxtaposition between the green, which is associated with nature, and metallic which gives off more of a colder, static machine tone.
 
 
 Over all, I like the contrast the dark grey colour it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
@@ -191,30 +198,30 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
 
  *Below is how the UserPost Models are constructed in `Python`:*
 
+            ```python
+        
+            class User_Posts(models.Model):
+            
+                title = models.CharField(max_length=100, help_text='Enter post title')
+                content = models.TextField()
+                created_date = models.DateTimeField(auto_now_add=True)
+                published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+                views = models.IntegerField(default=0)
+                tag = models.CharField(max_length=40, blank=True, null=True)
+                image = models.ImageField(upload_to="img", blank=True, null=True) 
+                author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+                likes = models.ManyToManyField(User, related_name="user_likes")
+            
 
-    ```python
-    class User_Posts(models.Model):
- 
-    title = models.CharField(max_length=100, help_text='Enter post title')
-    content = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
-    views = models.IntegerField(default=0)
-    tag = models.CharField(max_length=40, blank=True, null=True)
-    image = models.ImageField(upload_to="img", blank=True, null=True) 
-    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
-    likes = models.ManyToManyField(User, related_name="user_likes")
+                def total_likes(self):
+                    return self.likes.count()
 
+                def __unicode__(self):
+                    return self.title
 
-    def total_likes(self):
-        return self.likes.count()
-
-    def __unicode__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
-    ```
+                def get_absolute_url(self):
+                    return reverse('post-detail', kwargs={'pk': self.pk})`
+            ```
 
 ### **Wireframes**
 
