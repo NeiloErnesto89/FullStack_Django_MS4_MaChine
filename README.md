@@ -14,7 +14,6 @@
 *For the sake of testing, please all use **4242_4242_4242_4242** when entering credit card details when paying for products using [Stripe](https://stripe.com/en-ie)
 
 
-
 ## Project Scope
 
 ### *Title: **Machine** - an Electronics e-Commerce website and community*
@@ -26,6 +25,7 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 # **Table of Contents**
 
 - [**Machine**](#machine)
+- [**Demo**](#demo)
 - [**Project Scope**](#project-scope) 
 - [**Project Page Breakdown**](#project-page-breakdown) 
 - [**UX**](#ux)
@@ -47,6 +47,10 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 	- [Media](#media)
 	- [Acknowledgements](#acknowledgements)
 
+
+# Demo
+
+[The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
 **Project Purpose**
 
@@ -112,6 +116,10 @@ The site is built using the [Django](https://www.djangoproject.com/) Framework. 
 
 My aim was offer the user a smooth and logical experience, focusing on  simplicity. I wanted an aesthetically pleasing and functional site. I aimed to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality, as well as cultivating my code.
 
+### UX Target Audience
+
+My target audience would be users who are interested in electronics as a hobby. This is an all encompassing subject but particularly in my case it's been helpful of my coding journey as I found using a Raspberry Pi (mini computer) allows the user to learn about electronics and programming in a real fun and intuitve manner. 
+
 ### **User Stories**
 
 The following section details the type of user experiences I wanted the users of the site to have:
@@ -149,6 +157,17 @@ Over all, I like the contrast the dark grey colour it gives to the lighter eleme
 
 # Database Schema 
 
+### DATABASES
+
+**SQLite3** 
+
+SQLite is a lightweight relational database management system. It's Django's default database management system, so once you create a Django project, 
+an SQLite database is automatically created, which allows the user to store data locally and run tests.
+SQLite is embedded on the end-program (Django) as opposed to being a ['client-server' database engine](https://en.wikipedia.org/wiki/SQLite).
+
+**PostgreSQL**
+
+PostgreSQL is a relational database that is synced to the live Heroku application and facilitate the data exchange in the site.
 
 Below is a table of my `User_Posts` Model, which I am demonstrating as an example of the database schematic. Please note the variations in Field Type and Validation as the the model can be associated with other models, making the database fluid and interchangeable, which is a key tenet when working with data that is constantly changing and adaoting. 
 
@@ -156,7 +175,7 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
 > (A `FOREIGN KEY` is) a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table e.g. (`author` :arrow_right: `User`)
 
 
-**SQL Database Table**
+**PostgresSQL Database Table**
 
 | **Name** | **Database Primary Key** | **Field Type(s)** | **Validation** |
 --- | --- | --- | --- 
@@ -167,7 +186,7 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
  views  | views | IntegerField | default=0
  tag | tag  | CharField | max_length=40, blank=True, null=True
  image  | image | ImageField | upload_to="img", blank=True, null=True
- author  | default_country | ForeignKey | User, default=None, on_delete=models.CASCADE
+ author  | author | ForeignKey | User, default=None, on_delete=models.CASCADE
  likes  | likes | ManyToManyField | User, related_name="user_likes"
 
  *Below is how the UserPost Models are constructed in `Python`:*
@@ -556,7 +575,7 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 # Credits
 
-## Credits & Content
+## Credits
 
 At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
