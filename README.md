@@ -78,9 +78,10 @@ I aimed to stick to this overarching goal and the following section summarise th
 The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
 **2. Login Page**  
-If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic
+If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic. 
 
 **3. Register Page**
+A visitor on the site would would like to sign up for an account, 
 
 **4. Reset Password Pages**
 
@@ -598,6 +599,9 @@ This section is important as it gves the touch of a real and interactive site. I
 - As well as a few ventures onto Stack Overflow including this [query](https://stackoverflow.com/questions/28421887/django-email-with-smtp-gmail-smtpauthenticationerror-534-application-specific-pa) and [this question](https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received)
 - And also the [Django documention](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/views/)
 
+**Search**
+
+I found a really simple [fix](https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django) for returning a `message` redirecting back to the home page if, when using the search bar, the Django queryset filter was empty, which was this simple built in method `if products.exists():` 
 
 **Pagination** 
 
