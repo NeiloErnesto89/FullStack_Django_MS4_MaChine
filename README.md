@@ -81,7 +81,7 @@ The main site page with Carousel and some informative text as well as links. Nav
 If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic. 
 
 **3. Register Page**
-A visitor on the site would would like to sign up for an account, 
+A visitor on the site would would like to sign up for an account, they simple need to provide their `email`, a `username` and a `password` (that needs to be confirmed)
 
 **4. Reset Password Pages**
 
