@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
+
 @login_required
 def view_cart(request):
     """A View that renders the cart contents page"""
@@ -19,6 +20,7 @@ def view_cart(request):
         # value = name of the form instance just created
 
 
+@login_required
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
     quantity = int(request.POST.get('quantity'))
@@ -38,9 +40,10 @@ def add_to_cart(request, id):
     # cart[id] = cart.get(id, quantity)
 
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('view_cart'))
 
 
+@login_required
 def adjust_cart(request, id):
     """
     Adjust the quantity of the specified product to the specified

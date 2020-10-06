@@ -2,53 +2,80 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+
+{% block page_heading %}{{user}}'s Basket{% endblock %}
+
 {% block content %}
+<hr>
+{% if cart_items %}
+
+        <div class="container text-center mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <p>Current Total</p>
+                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
+                
+                </div>
+            </div>
+        </div>
+    
+        <div class="container justify content-center mt-2 mb-2">
+            <div class="row row-flex">  
+                <a href="{% url 'checkout' %}" class="btn btn-success btn-lg" role="button" data-toggle="tooltip" title="Go to Checkout to buy your products" style="margin:auto; display:block;"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><i class="far fa-credit-card"></i> Go to Checkout <i class="far fa-credit-card"></i></a>
+            </div>
+        </div>
+
 <div class="container justify content-center mt-2 mb-2">
-<div class="row row-flex ">
-    {% if cart_items %}
+    <div class="row row-flex">
+    
 
         {% for item in cart_items %}
-        
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
-
-            <img src="{{ item.product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image">
             
-            <div class="caption">
-                <h3>{{ item.product.name }}</h3>
-                <p class="product-description">{{ item.product.description }}</p>
-                <p>{{ item.product.price }}</p>
-                <p>
-                    
-                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                            <div class="input-group p-2">
-                                <div class="input-group-addon">Qty</div>
-                                <input name="quantity" type="number" min="0" max="999" class="form-control" required>
-                                <div class="input-group-addon p-2">{{item.quantity}}</div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary p-2"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                    </form>
-                    <div class ="mt-2 mb-3">
-                    <!-- <button class="btn btn-success btn-lg btn-block" role="button" href="{% url 'checkout' %}"> Checkout </button> -->
-                    
-                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-container text-center mb-2 mt-2 p-3">
+                            <!-- card -->
+                            <div class="card" style="width: 20rem; padding: 5px; height: 28rem;">
                         
-                    <!-- <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'checkout' %}">Checkout </a>
-                    </li> -->
-                </p>
-            </div>
+                                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
 
-        <div><a href="{% url 'checkout' %}" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a></div>
-        </div>
-        
+                                <!-- <<img src="{{ item.product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image"> -->
+                                
+                                <h3 class="text-center mt-2" style="font-weight: bold;">{{ item.product.name }}</h3>
+                                <hr>
+                                <p class="product-description">{{ item.product.description }}</p>
+                            
+                                <p><i class="fas fa-euro-sign"></i> {{ item.product.price }} x {{item.quantity}}</p>    
+
+                                <hr>
+
+                                <!-- <div class="fixed-bottom"> -->
+                                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                            <div class="input-group p-2">
+                                                <div class="input-group-addon"></div>
+                                                <input name="quantity" type="number" min="0" max="999" class="form-control" required>
+                                                <div class="input-group-addon p-2"><i class="fas fa-arrow-right"></i></div>
+                                            </div>
+                                        </div>
+                
+                                        <button type="submit" class="btn btn-primary p-2"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend Quantity</button>
+                                    </form>
+                                <!-- </div> -->
+
+                            </div>  
+                            <!-- card  -->
+
+                        
+                        </div> 
+                    </div>
+                        <!-- card - container -->
+
+            
         {% endfor %}
 
-    {% else %}
+{% else %}
 
     <div class="jumbotron jumbotron-fluid mt-3 mb-2">
         <div class="container text-center">
@@ -60,20 +87,35 @@
         </div>
     </div>
 
-    
-    {% endif %}
-    
-</div>
-    <div class="container text-center mt-3">
-        <div class="row">
-            <div class="col-12">
-                <p>Current Total</p>
-                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
-            
+{% endif %}
+
+    </div> 
+    <!-- flexrow -->  
+
+        <!-- <div class="container justify content-center mt-2 mb-2">
+            <div class="row row-flex">  
+                <a href="{% url 'checkout' %}" class="btn btn-success btn-lg" role="button" data-toggle="tooltip" title="Go to Checkout to buy your products" style="margin:auto; display:block;"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><i class="far fa-credit-card"></i> Go to Checkout <i class="far fa-credit-card"></i></a>
+            </div>
+        </div> -->
+
+        <div class="container text-center mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <p>Current Total</p>
+                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
+                
+                </div>
             </div>
         </div>
-    </div>
 
+
+    
+
+
+    
+    <hr>
+
+    
 </div>
-
+<!-- main -->
 {% endblock %}
