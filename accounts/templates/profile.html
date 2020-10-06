@@ -7,13 +7,14 @@
 {% block page_heading %}{{ user }}'s Profile{% endblock %}
 
 {% block content %}
+<hr>
 <!-- <h3 class="justify text-center"> Here is {{ user }}'s details: </h3> -->
 <!-- <p>{{ profile.email }} </p> -->
 
 {% if user.is_superuser %}
     <p class="justify text-center mb-3">Hello, admin.</p>
 {% else %}
-    <p>Hello, ordinary visitor.</p>
+    <p class="justify text-center mb-3">Hello there {{ user }}.</p>
 {% endif %}
 
 <div class="card-box text-center">
@@ -27,8 +28,8 @@
             
             {% endif %}
 
-            <h4 class="mb-0">{{ user }}</h4>
-            <p class="text-muted">@webdesigner</p>
+            <h4 class="mb-0">@{{ user }}</h4>
+            <p class="text-muted"></p>
             
             <!-- {% if user.is_superuser %}
             <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Delete</button>
@@ -126,6 +127,9 @@
 
                 <p class="text-muted mb-1 font-13"><strong>Location :</strong> <span class="ml-2">{{ user.profile.location  }}</span></p>
             </div>
+
+
+            <hr>
 
 
             <ul class="social-list list-inline mt-3 mb-0">

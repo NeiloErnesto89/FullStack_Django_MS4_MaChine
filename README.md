@@ -78,6 +78,7 @@ I aimed to stick to this overarching goal and the following section summarise th
 The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
 **2. Login Page**  
+If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic
 
 **3. Register Page**
 
