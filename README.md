@@ -59,19 +59,22 @@ According to the *CI Assessment Handbook 2020*, the aim of this project is to:
 
 > *build a full-stack site based around business logic used to control a centrally-owned dataset. You will set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service*
 
-I aimed to stick to this overarching goal and the following section summarise the CS requirements, it was taken, and adapted, from the **CI project requirements** section:
+I aimed to stick to this overarching goal and the following section summarises what was needed in terms of requirements to complete the project. This excerpt was taken from the **CI project requirements** documentation:
 
-* Data handling: Build a Django project using Python as your main programming Language...
-* Database structure:  Design a robust database structure use PostgresSQL... 
-* User functionality: (CRUD functionality)...
-* Use of technologies Frontend: Use HTML, custom CSS and Javascript for the website's front-end....
-* Use of technologies Backend: Use Python and JS (Stripe) for the website's front-end....
-* Structure: Incorporate a main navigation menu and structured layout...
-* Documentation: Write a README.md file...
-* Version control: Use Git & GitHub for version control...
-* Attribution: Maintain clear separation between code written by you and code from external sources...
-* Deployment: Deploy the final, live version ( on Heroku)...
-* Secrecy: Do not include any passwords or secret keys in the project repository...
+> 1.	Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
+> 2.	Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
+>3.	Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course
+>4.	User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
+> 5.	User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
+> 6.	Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout, subscription-based payments or single payments, donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
+> 7.	Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
+> 8.	Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
+> 9.	Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+>10.	Version Control: Use Git & GitHub for version control.
+>11.	Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
+>12.	Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
+>13.	Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
+
 
 ## **Project Page Breakdown**
 
@@ -111,7 +114,14 @@ A visitor on the site would would like to sign up for an account, they simple ne
 
 ### **Further Technical Insight** 
 
-The site is built using the [Django](https://www.djangoproject.com/) Framework. It is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). 
+The site is built using the [Django](https://www.djangoproject.com/) Framework. Furthermore, the CI project had some more technical requirements to fulfill, including using the follow languages:
+
+    * HTML
+    * CSS
+    * JavaScript 
+    * Python (+ Django)
+
+These languages needed to be utilised in tandem with a relational database management system (recommended - [MySQL](https://www.mysql.com/) or [PostgreSQL](https://www.postgresql.org/)). The site is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). The site has the [Stripe](https://stripe.com/ie) payment system software fully integrated. As well as numerous additional libraires and API's dotted and employed throughout the site.
 
 
 
@@ -632,7 +642,7 @@ On this StackOverflow post I found the [logic](https://stackoverflow.com/questio
 
 **Profile Page:**
 
-The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html). Furthermore, for the styling of the product cards, I followed a similar tutorial from this [site](https://mdbootstrap.com/docs/jquery/components/cards/#waves-effect)
+The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html). Furthermore, for the styling of the product, cart and checkout cards, I followed a similar tutorial from this [site](https://mdbootstrap.com/docs/jquery/components/cards/#waves-effect). 
 
 I also closely followed Corey Schafer's excellent [videos](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=2s&ab_channel=CoreySchafer) and his code snippets came in [handy](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/08-Profile-And-Images/django_project/users/views.py)   
 

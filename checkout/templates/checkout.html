@@ -70,36 +70,37 @@
    
     <div class="container-fluid text-center">
     
-            <div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-                
-                
+            
+            <!-- <div class="card-group"> -->
+            <!-- Card -->
+                <div class="card text-center testimonial-card mb-2 mt-2" style="width:18rem">
+
+                    <!-- Background color -->
+                    <div class="card-up lighten-1" style="background-color: blue;"></div>
+
+                        <!-- Avatar -->
+                        <div class="avatar mx-auto white">
+                            <div class="product rounded-circle" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="card-body">
+                            <!-- Name -->
+                            <h4 class="card-title">{{ item.product.name }}</h4>
+                            <hr>
+                            <!-- Quotation -->
+                            <p>Items: {{ item.quantity }}</p>
+                            <p><i class="fas fa-euro-sign"> {{ item.product.price }}</i>
+                            </p>
+                        </div>
+
+                </div>
                 <!-- Card -->
-                    <div class="card text-center testimonial-card mb-2 mt-2" style="width:18rem">
-
-                        <!-- Background color -->
-                        <div class="card-up lighten-1" style="background-color: blue;"></div>
-
-                            <!-- Avatar -->
-                            <div class="avatar mx-auto white">
-                                <div class="product rounded-circle" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="card-body">
-                                <!-- Name -->
-                                <h4 class="card-title">{{ item.product.name }}</h4>
-                                <hr>
-                                <!-- Quotation -->
-                                <p>Items: {{ item.quantity }}</p>
-                                <p><i class="fas fa-euro-sign"> {{ item.product.price }}</i>
-                                </p>
-                            </div>
-
-                    </div>
-                    <!-- Card -->
-                
-            </div>
+            <!-- </div> -->
+            <!-- group -->
+        </div>
     </div>
             
     {% endfor %}
