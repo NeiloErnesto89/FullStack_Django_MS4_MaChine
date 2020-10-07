@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% block page_heading %}Products{% endblock %}
+
 {% block content %}
+<hr>
 <div class="row row-flex">
     {% for product in products %}
         <div class="container">

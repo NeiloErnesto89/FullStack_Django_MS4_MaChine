@@ -39,64 +39,91 @@
 
                 {% if user.is_authenticated and request.user.id %}
                     
-                    
 
-                        <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light" data-toggle="modal" data-target="#myModal">Delete </button>
-                    
-                    
+                    <button type="button" class="btn btn-danger btn-xs mb-2 waves-effect waves-light" data-toggle="modal" data-target="#centralModalDanger">Delete 
+                    </button>
 
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
 
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Are you sure you want to delete your account?</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>You might want to reconsider?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <a href="{% url 'delete_user' user.id %}" class="btn btn-danger" role="button" >Delete User</a>
-                                    </div>
+
+                        <!-- Central Modal Medium Danger -->
+                        <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-danger" role="document">
+                            <!--Content-->
+                            <div class="modal-content">
+                                <!--Header-->
+                                <div class="modal-header">
+                                <p class="heading lead">Delete User</p>
+                        
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
                                 </div>
-
+                        
+                                <!--Body-->
+                                <div class="modal-body">
+                                <div class="text-center">
+                                    <i class="fas fa-trash fa-4x mb-3 animated rotateIn" style="color: red;"></i>
+                                    <p>Be careful. Once you delete your profile, you cannot undo it!</p>
+                                </div>
+                                </div>
+                        
+                                <!--Footer-->
+                                <div class="modal-footer justify-content-center">
+                                <a href="{% url 'delete_user' user.id %}" type="button" class="btn btn-danger">Delete<i class="far fa-gem ml-1 text-white"></i></a>
+                                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+                                </div>
+                            </div>
+                            <!--/.Content-->
                             </div>
                         </div>
+                        <!-- Central Modal Medium Danger-->
 
-                        {% elif user.is_authenticated and user.is_superuser %}
 
-            
-                        <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light" data-toggle="modal" data-target="#myModal">Delete</button>
-                    
 
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                    {% elif user.is_authenticated and user.is_superuser %}
 
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Are you sure you want to delete your account?</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>You might want to reconsider?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <a href="{% url 'delete_user' user.id %}" class="btn btn-danger" role="button" >Delete Profile</a>
-                                    </div>
+                    <button type="button" class="btn btn-danger btn-xs  mb-2 waves-effect waves-light" data-toggle="modal" data-target="#centralModalDanger">Delete 
+                    </button>
+
+
+
+                        <!-- Central Modal Medium Danger -->
+                        <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-danger" role="document">
+                            <!--Content-->
+                            <div class="modal-content">
+                                <!--Header-->
+                                <div class="modal-header">
+                                <p class="heading lead">Delete User</p>
+                        
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
                                 </div>
-
+                        
+                                <!--Body-->
+                                <div class="modal-body">
+                                <div class="text-center">
+                                    <i class="fas fa-trash fa-4x mb-3 animated rotateIn" style="color: red;"></i>
+                                    <p>Be careful. Once you delete your profile, you cannot undo it!</p>
+                                </div>
+                                </div>
+                        
+                                <!--Footer-->
+                                <div class="modal-footer justify-content-center">
+                                <a href="{% url 'delete_user' user.id %}" type="button" class="btn btn-danger">Delete<i class="far fa-gem ml-1 text-white"></i></a>
+                                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+                                </div>
+                            </div>
+                            <!--/.Content-->
                             </div>
                         </div>
-                
-            
-                        {% endif %}
+                        <!-- Central Modal Medium Danger-->
+
+
+                    {% endif %}
 
             <a href="{% url 'edit_profile' %}" class="btn btn-success btn-xs waves-effect mb-2 waves-light " role="button">Update Profile</a>
             
