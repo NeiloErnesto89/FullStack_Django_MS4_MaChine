@@ -30,9 +30,9 @@ body {
 
     clear: both;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     height: 6em;
-    margin-top: 22em;
+    margin-top: 4em;
     background-color: #296e01;
     color: white;
 
@@ -82,7 +82,7 @@ body {
     bottom: 25px;
     right: 25px;
     display: inline;
-    z-index: -1;
+    z-index: 1;
     color:green;
     background-color: lightgrey;
     border-color: #f8f9fa;
