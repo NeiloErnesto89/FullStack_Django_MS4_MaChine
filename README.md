@@ -233,7 +233,7 @@ class User_Posts(models.Model):
 
 The following features are divided up by page, detailing the logic behind each:
 
-*1. Landing Page** 
+**1. Landing Page** 
 The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
 **2. Login Page**  
