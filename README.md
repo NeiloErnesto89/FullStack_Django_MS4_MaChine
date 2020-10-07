@@ -31,6 +31,7 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 - [**UX**](#ux)
 - [**Design**](#design)
 - [**Wireframes**](#wireframes)
+- [**Database Schema**](#database-schema)
 - [**Features**](#features)
 	- [Existing features](#existing-features)
 	- [Features left to implement](#features-left-to-implement)
@@ -48,7 +49,7 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 	- [Acknowledgements](#acknowledgements)
 
 
-### Demo
+## Demo
 
 [The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
@@ -72,7 +73,7 @@ I aimed to stick to this overarching goal and the following section summarise th
 * Deployment: Deploy the final, live version ( on Heroku)...
 * Secrecy: Do not include any passwords or secret keys in the project repository...
 
-## Project Page Breakdown
+## **Project Page Breakdown**
 
 **1. Landing Page** 
 The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
@@ -108,13 +109,13 @@ A visitor on the site would would like to sign up for an account, they simple ne
 **11. Other Site Functions** 
 
 
-### Technical Insight 
+### **Further Technical Insight** 
 
 The site is built using the [Django](https://www.djangoproject.com/) Framework. It is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). 
 
 
 
-## **UX** 
+# **UX** 
 
 My aim was offer the user a smooth and logical experience, focusing on  simplicity. I wanted an aesthetically pleasing and functional site. I aimed to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality, as well as cultivating my code.
 
@@ -149,7 +150,7 @@ The following section details the type of user experiences I wanted the users of
 
 # Design 
 
-#### Font
+#### Font/Typography
 
 In keeping in line with a machine themed site, I chose the Google Font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono?preview.text=roboto&preview.text_type=custom&query=robot&sidebar.open=true&selection.family=Roboto+Mono#license) which I personally really like and felt it lent itself a lot to the design style I was aiming for.
 
@@ -163,10 +164,37 @@ For example, I chose  [metallic green](https://encycolorpedia.com/296e01) `#296e
 
 Over all, I like the contrast the dark grey colour it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
 
+#### Imagery 
+
+
+### **Wireframes**
+
+Landing Home Page Wireframe - [View](https://github.com/)
+
+I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find it to be a really intuitive and user friendly application, which allows a user to build, simply and efficiently, a wireframe. This allowed me to clearly visualize the structure and design of my project.
+
+Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
+
+
+#### Wireframe 1 - Desktop View
+
+![home page](/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Desktop Wireframe" )
+
+*Figure 1. Landing Page (Desktop) Index.html*
+
+#### Wireframe 2 - Phone View
+
+
+![home page](/media/ReadMe_Docs/wireframe_phone1.png "Index.html Phone Wireframe" ) <h2>
+
+*Figure 2. Landing Page (Phone) (Index.html)*
+
+<!-- <img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100"> -->
+
 
 # Database Schema 
 
-### DATABASES
+## Databases
 
 **SQLite3** 
 
@@ -225,29 +253,7 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
                     return reverse('post-detail', kwargs={'pk': self.pk})`
             ```
 
-### **Wireframes**
 
-Landing Home Page Wireframe - [View](https://github.com/)
-
-I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find it to be a really intuitive and user friendly application, which allows a user to build, simply and efficiently, a wireframe. This allowed me to clearly visualize the structure and design of my project.
-
-Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
-
-
-#### Wireframe 1 - Desktop View
-
-![home page](/media/ReadMe_Docs/wireframe_desktop_landing1.png "Index.html Desktop Wireframe" )
-
-*Figure 1. Landing Page (Desktop) Index.html*
-
-#### Wireframe 2 - Phone View
-
-
-![home page](/media/ReadMe_Docs/wireframe_phone1.png "Index.html Phone Wireframe" ) <h2>
-
-*Figure 2. Landing Page (Phone) (Index.html)*
-
-<!-- <img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100"> -->
 
 # **Features**
 
