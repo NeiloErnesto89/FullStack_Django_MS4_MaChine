@@ -6,29 +6,42 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="card-container mb-2 mt-2 p-2">
-                    <div class="card" style="width: 20rem; padding: 5px; height: 28rem;">
-                
-                        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-
-                        <!-- <img src="{{ product.image.url }}" class="rounded-circle avatar-xl img-thumbnail img-fluid" width="400" height="400" alt="profile-image"> -->
-
-                        <h3 class="text-center mt-2" style="font-weight: bold;">{{ product.name }}</h3>
-                        <hr>
-                        <p class="product-description">{{ product.description }}</p>
                     
-                        <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>    
+                    <div class="card card-cascade" style="width: 20rem; padding: 5px; height: 28rem;">
+                
+                        <div class="product view view-cascade overlay" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>                       
+                        </div>
+                     
+                    <!-- <img src="{{ product.image.url }}" class="rounded-circle avatar-xl img-thumbnail img-fluid" width="400" height="400" alt="profile-image"> -->
 
-                        <!-- <div class="fixed-bottom"> -->
+                        <div class="card-body card-body-cascade text-center"> 
+                        
+                            <h3 class="text-center indigo-text py-2 mt-2" style="font-weight: bold;">{{ product.name }}</h3>
+                            <hr>
+                            <p class="product-description">{{ product.description }}</p>
+                        
+                            <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>    
+
+                            <!-- <div class="fixed-bottom"> -->
+                                
+                            <!-- </div> -->
+                        </div>
+
+                    
+                        <div class="card-footer text-muted text-center">
                             <form method="post" action="{% url 'add_to_cart' product.id %}">
-                                {% csrf_token %}
-                                <div class="input-group mt-3">
-                                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success " type="submit" data-toggle="tooltip" title="Add Products to Cart">Add</button>
-                                    </span>
-                                </div>
-                            </form>
-                        <!-- </div> -->
+                                    {% csrf_token %}
+                                    <div class="input-group mt-3">
+                                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success pull-left" style="margin-right:5px;" type="submit" data-toggle="tooltip" title="Add Products to Cart">Add</button>
+                                        </span>
+                                    </div>
+                                </form>
+                        </div>
 
                     </div>
                 </div>     
@@ -37,6 +50,7 @@
 
     {% endfor %}
 </div>
+    
     
     <hr>
 
