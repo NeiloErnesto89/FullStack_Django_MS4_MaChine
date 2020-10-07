@@ -632,7 +632,7 @@ On this StackOverflow post I found the [logic](https://stackoverflow.com/questio
 
 **Profile Page:**
 
-The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html) 
+The inspiration for the profile card style profile came from this [site](https://www.bootdey.com/snippets/view/about-me-profile#html). Furthermore, for the styling of the product cards, I followed a similar tutorial from this [site](https://mdbootstrap.com/docs/jquery/components/cards/#waves-effect)
 
 I also closely followed Corey Schafer's excellent [videos](https://www.youtube.com/watch?v=FdVuKt_iuSI&t=2s&ab_channel=CoreySchafer) and his code snippets came in [handy](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/08-Profile-And-Images/django_project/users/views.py)   
 

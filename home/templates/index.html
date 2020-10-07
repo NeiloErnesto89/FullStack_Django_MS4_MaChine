@@ -94,7 +94,7 @@
         
         {% if user.is_authenticated %}
         <p>Products for electronics hobbyists.</p>
-        <p><a class="btn btn-success" href="{% url 'products' %}" role="button">View Products »</a></p>
+        <p><a class="btn btn-secondary waves-effect waves-light" style="background-color:purple;" href="{% url 'products' %}" role="button">View Products »</a></p>
         {% else %}
         <p>Login to check out our electronics products</p>
         <p><a class="btn btn-outline-success" href="{% url 'login' %}" role="button">Login »</a></p>
@@ -109,7 +109,7 @@
         
         {% if user.is_authenticated %}
         <p>Check out what everyone in the electronics community is discussing here on the user forum. </p>
-        <p><a class="btn btn-success" href="{% url 'retrieve_posts' %}" role="button">View Posts »</a></p>
+        <p><a class="btn btn-secondary waves-effect waves-light" style="background-color:purple;" href="{% url 'retrieve_posts' %}" role="button">View Posts »</a></p>
         {% else %}
         <p>If you're not a member, why not register to join the electronics community. </p>
         <p><a class="btn btn-outline-secondary" href="{% url 'registration' %}" role="button">Register »</a></p>
@@ -129,7 +129,7 @@
             </svg>
             <h2>Your Profile</h2>
             <p>Why not build up your profile here!</p>
-            <p><a class="btn btn-success" href="{% url 'profile' %}" role="button">Profile »</a></p>
+            <p><a class="btn btn-outline-light waves-effect" style="color:purple;" href="{% url 'profile' %}" role="button">Profile »</a></p>
             {% else %}
             
             {% endif %}

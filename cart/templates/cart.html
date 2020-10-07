@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-12">
                     <p>Current Total</p>
-                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
+                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= <strong>{{ total }}</strong></p>
                 
                 </div>
             </div>
@@ -25,97 +25,103 @@
             </div>
         </div>
 
-<div class="container justify content-center mt-2 mb-2">
-    <div class="row row-flex">
+<!-- <div class="container justify content-center mt-2 mb-2"> -->
     
-
+    
+    
+        <div class="row row-flex">
         {% for item in cart_items %}
-            
-                    <div class="col-sm-6">
-                        <div class="card-container text-center mb-2 mt-2 p-3">
-                            <!-- card -->
-                            <div class="card" style="width: 20rem; padding: 5px; height: 28rem;">
-                        
-                                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
 
-                                <!-- <<img src="{{ item.product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image"> -->
-                                
-                                <h3 class="text-center mt-2" style="font-weight: bold;">{{ item.product.name }}</h3>
-                                <hr>
-                                <p class="product-description">{{ item.product.description }}</p>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+        
+                    <div class="card-container mb-2 mt-2">
+                        <!-- card -->
+                        <div class="card card-cascade p-1" style="width: 22rem;">
+
+        
+                        
+
+                    
+                            <div class="product view view-cascade overlay  lighten-1" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+
+                            <!-- <<img src="{{ item.product.image.url }}" class="rounded-circle avatar-xl img-thumbnail" width="400" height="400" alt="profile-image"> -->
+                            <hr>
                             
-                                <p><i class="fas fa-euro-sign"></i> {{ item.product.price }} x {{item.quantity}}</p>    
-
-                                <hr>
-
-                                <!-- <div class="fixed-bottom"> -->
-                                    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                                            <div class="input-group p-2">
-                                                <div class="input-group-addon"></div>
-                                                <input name="quantity" type="number" min="0" max="999" class="form-control" required>
-                                                <div class="input-group-addon p-2"><i class="fas fa-arrow-right"></i></div>
-                                            </div>
-                                        </div>
-                
-                                        <button type="submit" class="btn btn-primary p-2"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend Quantity</button>
-                                    </form>
-                                <!-- </div> -->
-
-                            </div>  
-                            <!-- card  -->
-
+                            <h3 class="text-center mt-2" style="font-weight: bold;">{{ item.product.name }}</h3>
+                            <hr>
+                            <p class="product-description">{{ item.product.description }}</p>
                         
-                        </div> 
-                    </div>
-                        <!-- card - container -->
+                            <p><i class="fas fa-euro-sign"></i> {{ item.product.price }} x {{item.quantity}}</p>    
 
+                            <hr>
+
+                            <!-- <div class="fixed-bottom"> -->
+                             <div class="card-footer text-muted text-center">
+                                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                        <div class="input-group p-2">
+                                            <div class="input-group-addon"></div>
+                                            <input name="quantity" type="number" min="0" max="999" class="form-control" required>
+                                            <div class="input-group-addon p-2"><i class="fas fa-arrow-right"></i></div>
+                                        </div>
+                                    </div>
             
+                                    <button type="submit" class="btn btn-primary p-2"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend Quantity</button>
+                                </form>
+                            </div>
+
+                        </div>  
+                        <!-- card  -->
+
+                    
+                    </div> 
+                    <!-- card - container -->
+
+                </div> 
+            </div> 
+        <hr>
+        </div>
+                        
+
+          
         {% endfor %}
 
 {% else %}
 
-    <div class="jumbotron jumbotron-fluid mt-3 mb-2">
-        <div class="container text-center">
-            <h1>Your Basket is Empty!</h1>      
-            <p>Why not help us out during Covid.</p>
+            <div class="jumbotron jumbotron-fluid mt-3 mb-2" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/images/48.jpg);">
+                <div class="container text-white text-center rgba-black-strong ">
+                    <h1 class="mt-1 mb-3"><strong>Your Basket is Empty!</strong></h1>      
+                    <!-- <p><strong>Why not check out the products section?</strong></p> -->
+                    <div>
+                    <p class="mt-3"><i class="fas fa-shopping-basket fa-5x"></i></p>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class="text-center mt-3">
-            <a class="btn btn-success btn-lg" href="{% url 'products' %}">Check out Products </a>
+                <a class="btn btn-success btn-lg" href="{% url 'products' %}">Check out Products </a>
+            </div>
+
+    <hr>
+
+{% endif %}
+
+    
+    
+    
+  
+    <div class="container text-center mt-3">
+        <div class="row">
+            <div class="col-12">
+                <p>Current Total</p>
+                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= <strong>{{ total }}</strong></p>
+            
             </div>
         </div>
     </div>
 
-{% endif %}
-
-    </div> 
-    <!-- flexrow -->  
-
-        <!-- <div class="container justify content-center mt-2 mb-2">
-            <div class="row row-flex">  
-                <a href="{% url 'checkout' %}" class="btn btn-success btn-lg" role="button" data-toggle="tooltip" title="Go to Checkout to buy your products" style="margin:auto; display:block;"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span><i class="far fa-credit-card"></i> Go to Checkout <i class="far fa-credit-card"></i></a>
-            </div>
-        </div> -->
-
-        <div class="container text-center mt-3">
-            <div class="row">
-                <div class="col-12">
-                    <p>Current Total</p>
-                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"> </span>= {{ total }}</p>
-                
-                </div>
-            </div>
-        </div>
-
-
-    
-
-
-    
-    <hr>
-
-    
-</div>
 <!-- main -->
 {% endblock %}
