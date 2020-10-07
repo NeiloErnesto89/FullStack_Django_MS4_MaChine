@@ -1,6 +1,8 @@
+// carousel func
+
 $(document).ready(function(){
   // Activate Carousel with a specified interval
-  $("#myCarousel").carousel({interval: 500});
+  $("#myCarousel").carousel({interval: 1500});
         
   // Enable Carousel Indicators
   $(".item1").click(function(){
@@ -22,11 +24,15 @@ $(document).ready(function(){
   });
 });
 
-// tooltip 
 
-// $(document).ready(function(){
-//   $('[data-toggle="tooltip"]').tooltip();
-// });
+// tooltip func
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+
+// Button to scroll to top of page - landing
 
 $(document).ready(function(){
 	$(window).scroll(function () {
@@ -40,7 +46,7 @@ $(document).ready(function(){
 		$('#back-to-top').click(function () {
 			$('body,html').animate({
 				scrollTop: 0
-			}, 400);
+			}, 800);
 			return false;
 		});
 });

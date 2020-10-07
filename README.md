@@ -27,7 +27,6 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 - [**Project Brief**](#project-brief)
 - [**Demo**](#demo)
 - [**Project Purpose and Scope**](#project-purpose-and-scope) 
-- [**Project Page Breakdown**](#project-page-breakdown) 
 - [**UX**](#ux)
 - [**Design**](#design)
 - [**Wireframes**](#wireframes)
@@ -74,42 +73,6 @@ I aimed to stick to this overarching goal and the following section summarises w
 >11.	Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
 >12.	Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
 >13.	Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
-
-
-## **Project Page Breakdown**
-
-**1. Landing Page** 
-The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
-
-**2. Login Page**  
-If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic. 
-
-**3. Register Page**
-A visitor on the site would would like to sign up for an account, they simple need to provide their `email`, a `username` and a `password` (that needs to be confirmed)
-
-**4. Reset Password Pages**
-
-**5. User Profile Page:**
-- **5.1. Edit/Update Profile** 
-
-- **5.2. Delete Profile** 
-
-**6. Products Page**
-
-**7. Cart Page**
-
-**8. Checkout (Payment) Page**
-
-**9. User Posts Pages (Individual Posts and All Posts)**
-
-**10. Add User Post Page**
-- **5.1. Edit/Update Posts** 
-
-- **5.2. Delete Posts** 
-
-- **5.3. Like Posts** 
-
-**11. Other Site Functions** 
 
 
 ### **Further Technical Insight** 
@@ -238,31 +201,30 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
 
  *Below is how the UserPost Models are constructed in `Python`:*
 
-            ```python
-        
-            class User_Posts(models.Model):
-            
-                title = models.CharField(max_length=100, help_text='Enter post title')
-                content = models.TextField()
-                created_date = models.DateTimeField(auto_now_add=True)
-                published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
-                views = models.IntegerField(default=0)
-                tag = models.CharField(max_length=40, blank=True, null=True)
-                image = models.ImageField(upload_to="img", blank=True, null=True) 
-                author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
-                likes = models.ManyToManyField(User, related_name="user_likes")
-            
+```python
 
-                def total_likes(self):
-                    return self.likes.count()
+class User_Posts(models.Model):
 
-                def __unicode__(self):
-                    return self.title
+    title = models.CharField(max_length=100, help_text='Enter post title')
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    views = models.IntegerField(default=0)
+    tag = models.CharField(max_length=40, blank=True, null=True)
+    image = models.ImageField(upload_to="img", blank=True, null=True) 
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name="user_likes")
 
-                def get_absolute_url(self):
-                    return reverse('post-detail', kwargs={'pk': self.pk})`
-            ```
 
+    def total_likes(self):
+        return self.likes.count()
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})`
+```
 
 
 # **Features**
@@ -271,20 +233,80 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
 
 The following features are divided up by page, detailing the logic behind each:
 
-**Landing Page:** 
+*1. Landing Page** 
+The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
-**Cart App**:
+**2. Login Page**  
+If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic. 
 
+**3. Register Page**
+A visitor on the site would would like to sign up for an account, they simple need to provide their `email`, a `username` and a `password` (that needs to be confirmed)
+
+**4. Reset Password Pages**
+Functionality to allow a user (who already has registered successfully) to recover a lost password by entering in their email (must be valid to receive an email from the site), follow the link generated on the email to a page to enter in a new password (plus confirmation), so that the user can recover their profile with their bio and comments on it.
+
+**5. User Profile Page:**
+    Once a user registers, their profile data is saved and stored on the database (to allow for anytime access). Users can navigate to the profile section of the site and adapt the default information, adding for example, their own profile bio and image. 
+
+- **5.1. Edit/Update Profile**:
+
+    As mentioned above, the user can edit their profile. They can upload a personalised profile image, add a bio and also their location. I didn't allow them to change their email/username to maintain the integrity of each profile. Passwords can only be changed using the process as above, which is only advised in the event of a lost password
+
+
+- **5.2. Delete Profile** 
+ A user can erase their profile and all their data. It cannot be recovered there after. A user is met with a modal prompt upon clicking the `Delete` button as an added step as so to ensure that one doesn't permanently delete their user profile from the database by a mistake.  
+
+**6. Products Page**
+A user can browse the products page, which shows the electronics products available to purchase on the site. An image and details such as price are given. The use can add an item (currently the maximum to each addtion is 999). A user can stay on the products page but browse the products section using the paginate method.
+
+**7. Cart Page**
+A users cart/basket is a boolean, it can either be empty or have contents. If the the cart is empty, a Jumbotron will display a message to the user and prompts some direction back to the products section to potentially select an item to buy. If the cart has items present, the user can amend the quantity (for example, remove a product completely). The current total is displayed in euros :euro: . Once the user is happy with the contents in their cart, they can click the checkout buy to proceed to the checkout/payment section
+
+**CART APP:**
 - For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictate the logic of the cart section and this also ensures that the cart contents are available when rendering
 every page on the site. 
 
     The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
 
-**User Posts (Individual Posts):**
+**8. Checkout (Payment) Page**
+The user is once again presented with the total amount (:euro:) currently in their basket (how muc they will spend). The main form on this payment is the payment form where the user will have to fill out correct details (or be prompted with an error message). Once all the details of the payment form have been correctly entered, the user can hit the green `submit payment` button that will give the user a confirmation message that their payment was success (the full payment details are logged on the Stripe end). The user is then redirected back products page. Also below the payment form, is a recap of what's currently in the users basket (for referral)
+
+*Please note, the Stripe payment system is fully active but a test platform (so no products will be sent). Please use the credit card number `4242_4242_4242_4242` for testing purposes*
+
+**9. User Posts Pages (Individual Posts and All Posts)**
+A user can browse the User Posts section to see all of what other users have posted about. All users can enter into the User Post details page and `like` a particular post. A user can add, edit and delete their own posts. The admin can add, edit and delete all posts.
+
+**10. Add User Post Page**
+- **10.1. Edit/Update Posts** 
+If the user was the author of a post (or is the admin), they can simply edit their post and it will be updated.
+
+- **10.2. Delete Posts** 
+If the user was the author of a post (or is the admin), they can also delete their post. They are once again prompt by a modal cause anything that's deleted is removed form the database and therefore can't be recovered.
+
+- **10.3. Like Posts** 
+A simple `like` counter that all users can avail from to demonstrate which posts they enjoyed.
+
+
+**USER POSTS APP - (Individual Posts):**
 
 - I followed this tutorial to add the [like button functionality](https://www.youtube.com/watch?v=PXqRPqDjDgc&ab_channel=Codemy.com) and I feel it works quite smoothly and adds to the feel of a community. I could have also added the *dislike* button but I wanted to avoid any negative connotations on the site. 
 
     If the user has written the post themselves, they have the option to edit/update and/delete. If the user is on a post from another user, they do not have the option to edit or delete a post. The Admin reserves the write to edit and/delete any post they so choose. This is an important tenet of CRUD (Create, Read, Update and Delete) from the ux perspective as well as a site management point of view. The admin can remove or edit a post they feel is unsuitable or against the site regulations, for example.
+
+**11. Other Site Functions** 
+
+- Navbar
+    -  The Navbar is a constant on the site. It allows the user to navigate and on smaller displays it adapts to the viewport (via Hamburger icon)
+- Buttons
+- Search bar
+    - Allows users and non logged in site visitors to quickly and easily search for products. They are prompted if a product doesn't exist and redirected to the main landing page.
+- Landing Page Scroll Button
+    - allows a user, who has scrolled further down the main page, to simply clikc the fixed button on the right and instantly return to the top of the page.
+- Modals
+    - mainly used a prompt for the user when doing an important action, whereby a second confirmation is necessary (like deleting a profile)
+- pagination:
+    - allows for smooth and logical browsing for the user, if there are many products or posts.
+
 
 
 ## **Features Left to Implement** 
@@ -334,6 +356,9 @@ I tested the site in a number of ways, always attempting to incorporate a defens
 > Defensive coding allows our software to behave in a correct manner, despite incorrect input
 
 I tested the platform on a number of devices (ipad, iphone, android, laptop). And I always aim to *disrupt* the flow of the creature of project. I referred to the ever trusty [Real Python](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests) to guide me through some of the tests at the later stage of the project, when I had no access to the course content.
+
+
+
 
 ### **Validation**
 
@@ -618,6 +643,11 @@ This section is important as it gves the touch of a real and interactive site. I
 **Search**
 
 I found a really simple [fix](https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django) for returning a `message` redirecting back to the home page if, when using the search bar, the Django queryset filter was empty, which was this simple built in method `if products.exists():` 
+
+
+**Featurette Landing Page Style**
+
+[Featurette](https://stackoverflow.com/questions/33626772/line-up-bootstrap-featurette-text-with-the-image-above-it) 
 
 **Pagination** 
 
