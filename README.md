@@ -297,14 +297,42 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
 - Navbar
     -  The Navbar is a constant on the site. It allows the user to navigate and on smaller displays it adapts to the viewport (via Hamburger icon)
-- Buttons
+
+- Button Logic:
+
+    •	Register - Upon clicking this button, the user redirected to the registration page where, upon entering their (correct) details, can avail of an user account and have access to the site.
+
+    •	Login – Upon clicking this button, the user is redirected the login form where they can enter their details (if they have already signed up) to access their account.
+
+    •	Logout - Upon clicking this button, which is placed as a dropdown button on the Navbar and so accessible at all times, the user log out of their account. When a user is logged out, the session is over and they are redirected to the landing page (as a non-logged in user).
+
+    •	Reset-Password – A non-logged in user (if they have an account but cannot access it for whatever reason), can choose to reset their password. This button is found on both the login and register pages. Upon clicking it, a user is brought to main reset password page where they can follow the simple procedure, which will eventually send an email (to the address they registered with) with a link to reassign a new password to their old account. It’s a standard procedure for a lot of sites. Perhaps not the most secure security measures but it adds a layer of protection against hacks.
+
+    •	View Products/Posts/Profile - Upon clicking these buttons, the user can easily navigate to other pages on the site and thus the user experience is improved. An obvious and simple example is a user on the home page, wanting to see their profile can either navigate to the profile via the Navbar option, the aforementioned button or even the url, if they so choose.
+
+    •	Add Products- A vital yet straightforward concept. On the products page, if a user wants to add a product to their cart (to purchase), they would select the quantity and upon clicking the *Add* button (**which via the Django templating language is connected to a function/view, which in turn will update the contents in their cart**). This allows a user to fill their cart up with as little or as many products as they please for later purchase. Upon clicking the button, the user is automatically (if they have selected a `quantity > 0`) redirected to the checkout section
+     
+    •	Go to Checkout – When a user has arrived in their cart (if there are contents greater than 0), upon evaluating what’s in their cart and, if the user is happy to proceed to the payment section, they can simply click the *Go to Checkout* button to be directed to the Checkout/Payment section. 
+
+    •	Amend Quantity – On the cart page, after a user has selected a product or products to add to their cart. The user can decided to amend the quantity, either increase, decrease and/or remove (by entering 0) products and their cart contents number will be updated automatically (if the cart is empty or full can be seen at all times on the Navbar). Upon clicking the amend button, the user stays on the cart page and can see the adjusted amount of their cart.
+
+    •	Back to Top – This button is visible on the pages with more content or the pages that are designed to increase/adjust in height (for example if a user selects one of each of all the products of the site to purchase, their cart and checkout page will expand in height). The home page, cart and checkout pages avail of the `back-to-top` button. Once a user scrolls down a page, they can simply click on this button (which is visible as it is fixed to the bottom right hand side on the page and has a `z-index: 1`) and the user to brought back up to the top of the body of the html page. It’s a particularly valuable function on mobile phone devices, as the viewport as content is condensed and it tends to favor a scrolling style, so this option, in my opinion is a nice option for users to avail of to make their experiences a little smoother.
+
+    •	Submit Payment – Once the user has selected products to purchase and confirmed the quantity, the must enter their details correctly on the payment form (which applies Stripe logic) and they can then click the `Submit Payment` button which, as it’s linked to the Stripe backend logic, which confirm their payment, sending the user to the Products page with the message - “You have successfully paid! Your products are on their way!” . If the form details are incorrect, the user will be prompted with a red/warning message specifying which form detail needs to be rectified. 
+
 - Search bar
     - Allows users and non logged in site visitors to quickly and easily search for products. They are prompted if a product doesn't exist and redirected to the main landing page.
+
 - Landing Page Scroll Button
+
     - allows a user, who has scrolled further down the main page, to simply clikc the fixed button on the right and instantly return to the top of the page.
+
 - Modals
+
     - mainly used a prompt for the user when doing an important action, whereby a second confirmation is necessary (like deleting a profile)
-- pagination:
+
+- Pagination:
+
     - allows for smooth and logical browsing for the user, if there are many products or posts.
 
 
