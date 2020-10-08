@@ -9,11 +9,11 @@
                 <div class="col-12">
                     <div class="card card-white post justify-content-center">
                         <div class="post-heading">
-                            <div class="float-left image">
+                            <div class="text-center p-1 image">
 
                             {% if post.image %}
 
-                             <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400" alt="profile-image">
+                             <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="350" height="350" alt="profile-image">
 
                                 <!-- <img class="img-circle avatar" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Post Image"> -->
 
@@ -28,7 +28,8 @@
                             {% endif %}
 
                             </div>
-                            <div class="float-left meta">
+                            <div class="card-body meta">
+                            <!-- card-body -->
                             <div class="title h3">
                                     {{ post.title }}</div>
 
@@ -39,22 +40,25 @@
                                 <h6 class="text-muted time">{{ post.published_date|naturaltime }}</h6>
                             </div>
                         </div> 
-                        <div class="post-description"> 
+                        <div class="post-description p-1"> 
                             <p>{{ post.content }}</p> 
                         </div>
                         <div class="div">
                         <p><span class="text-muted">Views:</span> {{post.views}}</p>
                         <p><span class="text-muted">Tag:</span> {{ post.tag }}</p>
                         </div>
+                        <hr>
 
                         {% if user.is_authenticated and user == post.author %}
-
-                        <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
-
+                        <div class="text-center m-1">
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-success">Edit Post</a>
+                        <!-- </div> -->
                         <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button"> Delete Post</a> -->
 
+                        <!-- <div class="text-center m-1"> -->
                         <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="modal" data-target="#centralModalDanger">Delete Post
                         </button>
+                        </div>
  
  
                             <!-- Central Modal Medium Danger -->
@@ -135,10 +139,13 @@
                             </div>
                             <!-- Central Modal Medium Danger-->
                         {% endif %}
+                        <!-- <hr> -->
+                        <div class="text-center mt-2">
+                        <a href="{% url 'retrieve_posts' %}" class="btn btn-outline-warning btn-lg">Back to Blog</a>
+                        </div>
+                        <hr>
 
-                        <a href="{% url 'retrieve_posts' %}" class="btn btn-default">Back to Blog</a>
-
-                       <div>
+                       <div class="m-1">
 
                         <form action="{% url 'like_post' post.id %}" method="POST">
                             {% csrf_token %}

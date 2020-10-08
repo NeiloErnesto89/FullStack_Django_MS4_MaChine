@@ -26,20 +26,20 @@
     
     {% for post in posts %}
 
-    <div style="border-top: 6px solid purple"></div>
+    <div class="mt-2 mb-2" style="border-top: 6px solid purple"></div>
             
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col userposts_col p-2">
                     <div class="card card-white post">
                         <div class="post-heading">
-                            <div class="justify-content-center image">
+                            <div class="text-center p-1 image">
 
                             {% if post.image %}
 
                                 <!-- <img class="rounded-circle avatar img-thumbnail" width="400" height="400" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image"> -->
 
-                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="400" height="400" alt="Post Image">
+                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="250" height="250" alt="Post Image">
 
                             
                             {% else %}
@@ -50,21 +50,25 @@
                                 
                             {% endif %}
                             </div>
-                            <div class=" meta">
-                                <div class="title h3">
-                                        {{ post.title }}</div>
+                            <div class="card-body text-center">
+                                <div class="title h3 p-2">
+                                        <p>{{ post.title }}</p>
+                                    </div>
 
                                     <div class="title h5">
                                         posted by <a href="#"><b>{{ post.author }}</b></a>
                                         
                                     </div>
+
                                 <h6 class="text-muted time">{{ post.published_date|naturaltime }}</h6>
                             </div>
                         </div> 
-                        <div class="post-description"> 
+                        <hr>
+                        <div class="post-description p-2"> 
                             <p>{{ post.content |truncatewords:30|linebreaks}}</p> 
                         </div>
-                        <div class="div">
+                        <hr>
+                        <div class="div text-center mb-2">
                         <a href="{% url 'post_info' post.id %}" class="btn btn-success mt-2 mb-2">View Post in Detail</a>
                         <a href="{% url 'index' %}" class="btn btn-info">Back to Home</a>
                         
