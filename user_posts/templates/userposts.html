@@ -4,9 +4,9 @@
 
 {% load humanize %}
 
-{% block page_title %}User Post Page{% endblock %} 
+{% block page_title %}User Posts{% endblock %} 
 
-{% block page_heading %}User PostPage{% endblock %}
+{% block page_heading %}User Posts {% endblock %}
 
 {% block content %}
 
@@ -14,15 +14,7 @@
     <!-- {{ posts.has_next }}
 
     {{ posts.has_previous }} -->
-        {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}"> 
-                        <a class="close" data-dismiss="alert">×</a>
-                        {{ message|safe }}
-                    </div>
-                {% endfor %}
-        {% endif %}
-
+       
     
     {% for post in posts %}
 

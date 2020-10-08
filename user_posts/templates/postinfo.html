@@ -2,6 +2,10 @@
 
 {% load humanize %}
 
+{% block page_title %}User Post Details{% endblock %} 
+
+{% block page_heading %}User Post Details{% endblock %}
+
 {% block content %}
    
         <div class="container">
@@ -51,12 +55,11 @@
 
                         {% if user.is_authenticated and user == post.author %}
                         <div class="text-center m-1">
-                        <a href="{% url 'edit_post' post.id %}" class="btn btn-success">Edit Post</a>
-                        <!-- </div> -->
-                        <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button"> Delete Post</a> -->
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-success m-1">Edit Post</a>
+                        
 
                         <!-- <div class="text-center m-1"> -->
-                        <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="modal" data-target="#centralModalDanger">Delete Post
+                        <button type="button" class="btn btn-danger waves-effect waves-light m-1" data-toggle="modal" data-target="#centralModalDanger">Delete Post
                         </button>
                         </div>
  
@@ -68,8 +71,8 @@
                                 <!--Content-->
                                 <div class="modal-content">
                                     <!--Header-->
-                                    <div class="modal-header">
-                                    <p class="heading lead">Delete this Post</p>
+                                    <div class="modal-header ">
+                                    <p class="heading lead" style="font-weight: bold;">Delete this Post</p>
                             
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true" class="white-text">&times;</span>
@@ -79,7 +82,7 @@
                                     <!--Body-->
                                     <div class="modal-body">
                                     <div class="text-center">
-                                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                      <i class="fas fa-trash fa-4x mb-3 animated rotateIn" style="color: red;"></i>
                                         <p>Be careful. Once you delete your post, you cannot undo it!</p>
                                     </div>
                                     </div>
@@ -97,12 +100,14 @@
 
                         {% elif user.is_authenticated and user.is_superuser %}
 
-                        <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+                        <div class="text-center m-1">
+                        <a href="{% url 'edit_post' post.id %}" class="btn btn-success m-1">Edit Post</a>
+                        
 
-                        <!-- <a href="{% url 'delete_posts' post.id %}" class="btn btn-danger" role="button" >Delete Post</a> -->
-
-                        <button type="button" class="btn btn-danger waves-effect waves-light " data-toggle="modal" data-target="#centralModalDanger">Delete Post
+                        <!-- <div class="text-center m-1"> -->
+                        <button type="button" class="btn btn-danger waves-effect waves-light m-1" data-toggle="modal" data-target="#centralModalDanger">Delete Post
                         </button>
+                        </div>
  
  
                             <!-- Central Modal Medium Danger -->
@@ -113,8 +118,9 @@
                                 <div class="modal-content">
                                     <!--Header-->
                                     <div class="modal-header">
-                                    <p class="heading lead">Delete this Post</p>
-                            
+                                    
+                                    <p class="heading lead" style="font-weight: bold;"><strong>Delete this Post</strong></p>
+                                    
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true" class="white-text">&times;</span>
                                     </button>
@@ -123,7 +129,7 @@
                                     <!--Body-->
                                     <div class="modal-body">
                                     <div class="text-center">
-                                        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                    <i class="fas fa-trash fa-4x mb-3 animated rotateIn" style="color: red;"></i>
                                         <p>Be careful. Once you delete your post, you cannot undo it!</p>
                                     </div>
                                     </div>

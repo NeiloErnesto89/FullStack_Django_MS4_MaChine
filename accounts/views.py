@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Mess, Profile
+from checkout.models import Order
 from accounts.forms import UserLoginForm, UserCreationForm, ProfileForm
 
 
@@ -75,8 +76,11 @@ def registration(request):
 # @login_required
 def user_profile(request):
 
-    if request.user.is_authenticated:
+    if request.user.is_authenticated:     
         user = User.objects.get(email=request.user.email)
+
+        # profile = User.objects.get(profile=request.user.profile)
+        # orders = Order.objects.filter(userprofile=request.user)
     else:
         messages.warning(request, ('Please Login or Sign up'))
         return redirect('login')
