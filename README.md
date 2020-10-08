@@ -336,14 +336,13 @@ A simple `like` counter that all users can avail from to demonstrate which posts
     - allows for smooth and logical browsing for the user, if there are many products or posts.
 
 
-
 ## **Features Left to Implement** 
 
-Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features, both backend and frontend, that could be incorporated. I focused more on the backend logic and making sure that the users could perform a variety of actions but here are some features that can be added in the future:
+Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features and logic, both backend and frontend, that could be incorporated. I focused more on the backend logic and making sure that the users could perform a variety of actions but here are some features that can be (and hopefully will be) added in the future:
 
 - I could have also added a user comment section/forum for each post, which would cultivate an interactive community (for example, on [StackOverflow](https://stackoverflow.com/), if a user is struggling on a topic or justs wants to know more about something, they could pose a question to the forum, hoping for a robust response). 
 
-- 
+- I briefly played with the idea to add an *Order history* to the user profile section and the implementation wasn't too difficult however during my efforts I made an error with the `Null=True` and `Blank=True` [model arguments (fields)](https://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django), and a `makemigrations` command which caused me quite a bit of trouble (which I will explain in the bugs section). So due to this error and simply a lack of time, I chose against this option for the time being. But I feel it would be a very simple, logical piece of code to implement and importantly, give the user a paper trail on the site. 
 
 
 
