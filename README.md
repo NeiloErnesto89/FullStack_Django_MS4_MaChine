@@ -430,6 +430,8 @@ This error in fact lead to another, more [troubling error](https://stackoverflow
 *Amazon S3*:
 - Plenty of minor bugs and issues stemmed from using the [Amazon S3 Buckets](https://aws.amazon.com/s3/). One interesting bug in particular was that, for testing, I was using an older bucket I created for the Django ecommerce app. As that app was uploaded to Heroku, despite the fact I had deleted the old contents, my new project was simultanelously runnings with 2 `style.css` files. It took me a while to figure out and rectify (by deleting the older, unused Heroku app). Frustrating but interesting nevertheless as Heroku had manage to maintain the deleted css file and simultanelously run it on my new app.
 
+As usual there were plenty of minor bugs invloing the html/css grid system, I had a particular issue with the search function, if a product was found and it returned a product card, the width, in tandem with the padding was too large, causing the card to flow over the grid, not a good site for the user. 
+
 # Deployment 
 
 Deploying the project is vital as it demonstrates the steps one needs to pass to get a functional site live>
