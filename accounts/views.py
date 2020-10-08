@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Mess, Profile
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 from accounts.forms import UserLoginForm, UserCreationForm, ProfileForm
 
 
@@ -73,12 +73,12 @@ def registration(request):
     return render(request, 'registration.html', {"registration_form": registration_form})  # context dict key + (value - name of instance above)
 
 
-# @login_required
+@login_required
 def user_profile(request):
 
     if request.user.is_authenticated:     
         user = User.objects.get(email=request.user.email)
-
+        # order = request.session['order']
         # profile = User.objects.get(profile=request.user.profile)
         # orders = Order.objects.filter(userprofile=request.user)
     else:
