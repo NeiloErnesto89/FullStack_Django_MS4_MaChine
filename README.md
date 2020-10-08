@@ -459,6 +459,16 @@ This error in fact lead to another, more [troubling error](https://stackoverflow
 
 As usual there were plenty of minor bugs invloing the html/css grid system, I had a particular issue with the search function, if a product was found and it returned a product card, the width, in tandem with the padding was too large, causing the card to flow over the grid, not a good site for the user. 
 
+In an attempt to add an order hitory to my project (a bit late in the day if I'm honest) and as mentioned above, as I push `makemigrations` and then attempted to `migrate` and began to get a whole host of errors. I needed to refer to the [Django docs](https://docs.djangoproject.com/en/3.1/topics/migrations/) and after some research I ended up having to reverse the model migrations I made - the command being `python3 manage.py migrate checkout zero` - which had reversed all non commited model changes I made (so luckily I didn't commit). I realised also, after some tests, I arrived at this [step](https://stackoverflow.com/questions/26185687/you-are-trying-to-add-a-non-nullable-field-new-field-to-userprofile-without-a):
+
+    ```
+    You are trying to add a non-nullable field 'user' to slide without a default; we can't do that (the database needs something to populate existing rows).
+    Please select a fix:
+    1) Provide a one-off default now (will be set on all existing rows)
+    2) Quit, and let me add a default in models.py
+    Select an option:
+    ```
+
 # Deployment 
 
 Deploying the project is vital as it demonstrates the steps one needs to pass to get a functional site live>
