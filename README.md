@@ -194,7 +194,7 @@ For example, the `on_delete=models.CASCADE` method ensures that if a `User` is d
 
 I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home)
 
-![DB Diagram](/media/ReadMe_Docs/db_diagram.png "DB Diagram" )
+![DB Diagram](/media/ReadMe_Docs/db_diagram2.png "DB Diagram" )
 
 **PostgresSQL Database Table**
 
