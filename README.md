@@ -304,7 +304,7 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 **11. Other Site Functions** 
 
 - Navbar
-    -  The Navbar is a constant on the site. It allows the user to navigate and on smaller displays it adapts to the viewport (via Hamburger icon)
+    -  The Navbar is a constant on the site. It allows the user to navigate and on smaller (mobile) displays it adapts to the viewport via Hamburger icon. All the main functionality on the site can be enacted via the navbar and so it provides a stable and reliable aspect to the site layout and logic. On smaller viewports, the dropdown is also condensed to allow for a better UX.
 
 - Button Logic:
 
@@ -335,8 +335,19 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
     •   Add a New Post - found via a button at the bottom of the user posts page  (and via the Navbar), this button allows users to be redirected to a form where they can upload their own personalised post. 
 
+- Form Logic
 
--Search bar
+    - Login/Register: Enables users to sign in or sign up using their own personalised details. By Registering, users are created in the database
+
+    - Reset Passwords: Allows users, who have an account, to retrieve their account, if it is lost for any reason. This triggers an external email, containing information and a link for the user to reset their password.
+
+    - Edit User Profile: Allows a user to personalise their own user profile, for example, by uploading an image/avatar (as opposed to using the default)
+
+    - Orders/Checkout: A robust form, connected with Stripe, to allow a user (who has added products to their cart) to enter their payment details to confirm a purchase of the products. Will be prompted if information is incorrect and will be redirected with a successful message and order details if the payment was successful.
+
+    - Add/Edit User Post: Allows users to add their own detailed posts, including content and images
+
+- Search bar
     - Found on the right-hand side of the navbar, it allows users and non-logged in site visitors alike to quickly and easily search for products. They are prompted if a product doesn't exist and redirected to the main landing page. If they find a product, for example, a 'Multimeter', they are brought to a page to view the product.
 
 - Page Scroll Button
@@ -352,9 +363,13 @@ A simple `like` counter that all users can avail from to demonstrate which posts
    - allows for smooth and logical browsing for the user, if there are many products or posts, they user can navigate via the pagination buttons at the bottom of the page. As for example, user comments naturally increase over time, a user can navigate to older comments easily, smoothly and with logic, by maintain uniformity to the page structure.
 
 
-- Form Logic
+- Bootstrap Cards and Jumbotron:
 
-    - Login/register
+    - I used bootstrap cards heavily to display users profiles, posts and products. I found them to give a smooth, simply look to the site and allow for good use of the grid system. I also used a Jumbotron to display to the user when their basket was empty, with a nice image added again for colour and imagery.
+
+
+
+        
 
 
 ## **Features Left to Implement** 
