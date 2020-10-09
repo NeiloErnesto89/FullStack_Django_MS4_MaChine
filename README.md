@@ -589,6 +589,12 @@ Whilst testing I also noticed that Javascript was throwing up lots of errors on 
 > a slim version of jQuery does not contain all the original jQuery functions
 And so for example, the `animate` function on my `back-to-top` scroll button wasn't working very smoothly. This issue was resolved very nicely in the end with a really simply fix.
 
+### Known Bugs
+
+- Stripe payment form has 2019 and as default
+- Navbar dropdown is a little aggressive in hamburger format
+- `img thumbnail` on the user posts has a height that is set to 'auto' so it change depending on the image upload. 
+
 # Deployment 
 
 Deploying the project is vital as it demonstrates the steps one needs to pass to get a functional site live>
