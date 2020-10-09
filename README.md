@@ -5,6 +5,12 @@
 
 <h2 align="center">Machine :robot: </h2>
 
+## Project introduction
+
+Full Stack Frameworks Milestone Project - Django
+
+![Devices View](/media/ReadMe_Docs/Site_Devices_View.png "Site Devices View" )
+
 [The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
 
 *For the **Code Institute testing purposes**, I suggest (at some stage) logging into the site as the **Admin**, using the following details*: 
