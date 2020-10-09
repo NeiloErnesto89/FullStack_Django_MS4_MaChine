@@ -386,13 +386,13 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop). An
 
 
 
-
 ### **Validation**
 
 -   [PEP8](http://pep8online.com/)
 -   [JSHint](https://jshint.com/)
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input+with_options) 
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+- [Google Mobile-Friendly Test site](https://search.google.com/test/mobile-friendly)
 
 ## Analysing User Experiences 
 
@@ -450,24 +450,28 @@ Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
 I had a number of interesting and challenges bugs throughout the project. [Stack Overflow](https://stackoverflow.com/questions/44026548/getting-typeerror-init-missing-1-required-positional-argument-on-delete) as always proved very helpful with this error. I actually entered the `collectstatic` command in the terminal incorrectly (something like `collecstatic`) however the console returned an intriguing error: 
 `product = models.ForeignKey(Product, null=False) TypeError: __init__() missing 1 required positional argument: 'on_delete'`. The fix proved to be simple however I thought it curious as the incorrect command gave feedback on a missing `arg` when using `ForeignKey` in the models.
 
+*Django - Exception in djang-main-thread*:
 Some reccuring bugs that had really simple fixes initally had me scratching my head, such as this Django error `AttributeError at /accounts/edit-profile/ 'str' object has no attribute 'fields'`. This was resolved from [this](https://stackoverflow.com/questions/25615753/attributeerror-str-object-has-no-attribute-fields-using-django-non-rel-on-g) discussion on Stack Overflow and it was simply a typo in the end, whereby I called the incorrect form name on the template (correction was `{{ profile_form | as_bootstrap }}` for example), however honing in on why and what's going wrong is critial. 
 
-This error in fact lead to another, more [troubling error](https://stackoverflow.com/questions/56274132/exception-in-thread-django-main-thread)`Exception in thread django-main-thread:`. I have a little bit of experience with firing threads in my work and this error gave me a bit more trouble. I began by spot fixing the error feedback, which stated `ImportError: No module named 'django.core.urlresolvers'` so I removed the `reverse lazy` library and simplified it with `from django.urls import reverse` [following this discussion of Stack Overflow](https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers). However this lead to a game of cat and mouse, as with each change I got a new error relating to some import incompatiblity. However, through a bit more research I realised (and this is why Github version control is so important) that my Django version had been updated when I installed some new libraries, namely the `django-storages==1.10.1`, was the version that cause the error, thus resulting in a string of incompatiblities. So I simplied reinstalled an older version of `Django==1.11.29`and `django-storages==1.9.1`. Following that, I ran my runserver command in the terminal and it worked. 
+This error, in fact, lead to another, more [troubling error](https://stackoverflow.com/questions/56274132/exception-in-thread-django-main-thread)`Exception in thread django-main-thread:`. I have a little bit of experience with firing threads in my work so I was aware a misfiring concurret thread can cause. And this error did give me a bit of trouble. I began by spot fixing the error feedback, which stated `ImportError: No module named 'django.core.urlresolvers'` so I removed the `reverse lazy` library and simplified it with `from django.urls import reverse` [following this discussion of Stack Overflow](https://stackoverflow.com/questions/43139081/importerror-no-module-named-django-core-urlresolvers). However this lead to a game of cat and mouse, as with each change I got a new error relating to some import incompatiblity. However, through a bit more research I realised (and this is why Github version control is so important) that my Django version had been updated when I installed some new libraries, namely the `django-storages==1.10.1`, was the version that cause the error, thus resulting in a string of incompatiblities. So I simplied reinstalled an older version of `Django==1.11.29`and `django-storages==1.9.1`. Following that, I ran my runserver command in the terminal and it worked. 
 
 *Amazon S3*:
 - Plenty of minor bugs and issues stemmed from using the [Amazon S3 Buckets](https://aws.amazon.com/s3/). One interesting bug in particular was that, for testing, I was using an older bucket I created for the Django ecommerce app. As that app was uploaded to Heroku, despite the fact I had deleted the old contents, my new project was simultanelously runnings with 2 `style.css` files. It took me a while to figure out and rectify (by deleting the older, unused Heroku app). Frustrating but interesting nevertheless as Heroku had manage to maintain the deleted css file and simultanelously run it on my new app.
 
 As usual there were plenty of minor bugs invloing the html/css grid system, I had a particular issue with the search function, if a product was found and it returned a product card, the width, in tandem with the padding was too large, causing the card to flow over the grid, not a good site for the user. 
 
-In an attempt to add an order hitory to my project (a bit late in the day if I'm honest) and as mentioned above, as I push `makemigrations` and then attempted to `migrate` and began to get a whole host of errors. I needed to refer to the [Django docs](https://docs.djangoproject.com/en/3.1/topics/migrations/) and after some research I ended up having to reverse the model migrations I made - the command being `python3 manage.py migrate checkout zero` - which had reversed all non commited model changes I made (so luckily I didn't commit). I realised also, after some tests, I arrived at this [step](https://stackoverflow.com/questions/26185687/you-are-trying-to-add-a-non-nullable-field-new-field-to-userprofile-without-a):
+*Django migrations*:
+In an attempt to add an order hitory to my project (a bit late in the day, if I'm honest) and as mentioned above, as I push `makemigrations` command via the Gitpod terminal, I then attempted to `migrate` and began to get a whole host of errors. I needed to refer to the [Django docs](https://docs.djangoproject.com/en/3.1/topics/migrations/) and after some (stress induced) research I ended up having to reverse the model migrations I made - the command being `python3 manage.py migrate checkout zero` - which had reversed all non commited model changes I made (so, luckily I didn't commit). I realised also, after some tests, I arrived at this [step](https://stackoverflow.com/questions/26185687/you-are-trying-to-add-a-non-nullable-field-new-field-to-userprofile-without-a):
 
     ```
     You are trying to add a non-nullable field 'user' to slide without a default; we can't do that (the database needs something to populate existing rows).
-    Please select a fix:
-    1) Provide a one-off default now (will be set on all existing rows)
-    2) Quit, and let me add a default in models.py
-    Select an option:
     ```
+I actually believe the fix for this is really straightforward, however, after my inital scare and due to a simple lack of time, I left this function out. It would be a logic step towards a more robust database schema so it's one for the future.
+
+*Javascript*
+Whilst testing I also noticed that Javascript was throwing up lots of errors on the Chrome Dev tools and I couldn't figure it out directly. My js code and the id's etc. showed no errors on JSHint. However, after a bit of research I realised, somehow, I managed to use a *slim* version of the Jquery library. [This post](https://stackoverflow.com/questions/43067555/why-is-this-jquery-error-happening-animate-is-not-a-function) was very helpful in explaining that, basically: 
+> a slim version of jQuery does not contain all the original jQuery functions
+And so for example, the `animate` function on my `back-to-top` scroll button wasn't working very smoothly. This issue was resolved very nicely in the end with a really simply fix.
 
 # Deployment 
 
