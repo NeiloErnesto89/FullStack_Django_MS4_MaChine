@@ -841,6 +841,8 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 ## Credits
 
+**Includes Media**
+
 At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
 All that being said, the internet is an endless wealth of material, content, inspiration and snippets for a would-be developer to avail from, so here are all the points of reference I had for building my project: 
@@ -894,7 +896,6 @@ I also used this to extend the User model by adding a [Profile model](https://si
 
 [CSS return to top button](https://codepen.io/michalwyrwa/pen/GBaPPj)
 
-
 I refered quite often to the **[Django docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)** (here is the section on forms)
 
 Another StackOverflow discussion resulting in a [Django messages template example](https://stackoverflow.com/questions/16711917/django-message-template-tag-checking)
@@ -921,8 +922,13 @@ I used some svg icons from the [bootsrap icons library here](https://icons.getbo
 
 A fellow Code Institute Student whose [project](https://github.com/JBroks/unicornattractor_issue_tracker) was a huge source of inspiration as their project was of such high quality. I referred to it at times when I was entertaining some ideas and looking for some solid logic. The size, scale and professionalism of this project is really impressive. No direct code snippets were used (mainly due to different techniques implemented), so it was more of a guide, but excellent and inspiring work nevertheless!
 
-## Media
+**Media**
 
+- Carousel [images from](https://mdbootstrap.com/docs/jquery/javascript/carousel/)
+- Product Images from [Amazon](https://www.amazon.com/)
+- Profile [image](https://www.bootdey.com/img/Content/avatar/avatar7.png)
+- Default Robot [avatar](https://iconarchive.com/show/matrilineare-icons-by-sora-meliae/avatar-default-icon.html)
+- User post examples - a mix of my personal photos and from [google](www.google.com)
 
 
 ## Acknowledgements
