@@ -392,6 +392,7 @@ Other features to add/improve upon include:
     4. The ability to contact the admin, report issues directly etc. 
     5. User updates, if, for example, another user responds to their post. 
     6. The ability to add other users to your group discussion and/or have a private/chat thread with another user.
+    7. Change the Stripe  year selection placeholder on the credit detail details from 2019 to current year.
 
 There are endless options with Django, and considering I'm currently using the version `Django==1.11.29`, I hope to have time in the future to update the site and add many more robust functions, models, views, libraries etc. The options are boundless!
 
@@ -488,6 +489,31 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop) as 
 - [Google Mobile-Friendly Test site](https://search.google.com/test/mobile-friendly)
     - Positive feedback from this site, which stated:
     > Page is mobile friendly. This page is easy to use on a mobile device
+
+
+### Automated - Travis CI - Continuous Integration
+
+The build is currently passing, has some small hiccups early on when I was automating testing with coverage but I resolved the problems as they arose. Again, due to time contraints I would have loved to automate my tesing much more but I was busy focusing on other parts of the project. Coverage caused me some issues as well when I was connected to PostgreSQL (as it only works with SQLite), so I tested on another local environment. 
+
+### Testing Functionality
+
+With each iteration of my project, I tested all new functionality and tried to ensure that everytihng was working as I intended, including:
+
+    - Password Reset Email confirmation - priate emailing plus following the links
+    - Stripe Payment confirmation (and incorrect details prompt)
+    - Checking via Devtools (live on Heroku) if AWS media hosting links were functioning
+    - User Login, Logout and Registered (check information also on backend)
+    - Non-logged in user attempting to access content (refused)
+    - All buttons and links tested
+    - User editing pages and deleting Pages
+    - User editing and deleting profile
+    - Users availing of the like button
+    - Image uploads tested - large, incorrect format etc. 
+    - Forms robustly tested with correct and incorrect detail 
+
+### Device Testing
+
+I used Chrome tools extensively when fixing issues and testing on all the viewports.. I also tested the pages and functionality on other browsers like Firefox, Safari and Microsoft Edge. The Toggle Device Toolbar helps to evaluate all the different viewports, which really enhances the development process. I also enlisted the help of friends to simulate a new User experience testing on their phones mainly but also tablets (iPad) and laptops (desktops). Any issues that were noticed I attempted to resolved with regards to all the viewports.
 
 ## Analysing User Experiences 
 
