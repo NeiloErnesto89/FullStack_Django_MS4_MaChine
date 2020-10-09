@@ -85,12 +85,12 @@ I aimed to stick to this overarching goal and the following section summarises w
 
 The site is built using the [Django](https://www.djangoproject.com/) Framework. Furthermore, the CI project had some more technical requirements to fulfill, including using the follow languages:
 
-    * HTML
-    * CSS
-    * JavaScript 
-    * Python (+ Django)
+* HTML
+* CSS
+* JavaScript 
+* Python (+ Django)
 
-These languages needed to be utilised in tandem with a relational database management system (recommended - [MySQL](https://www.mysql.com/) or [PostgreSQL](https://www.postgresql.org/)). The site is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). The site has the [Stripe](https://stripe.com/ie) payment system software fully integrated. As well as numerous additional libraires and API's dotted and employed throughout the site.
+These languages needed to be utilised in tandem with a relational database management system (recommended either [MySQL](https://www.mysql.com/) or [PostgreSQL](https://www.postgresql.org/)). The site is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). The site has the [Stripe](https://stripe.com/ie) payment system software fully integrated. As well as numerous additional libraires and API's dotted and employed throughout the site.
 
 
 
@@ -100,7 +100,7 @@ My aim was offer the user a smooth and logical experience, focusing on  simplici
 
 ### UX Target Audience
 
-My target audience would be users who are interested in electronics as a hobby. This is an all-encompassing subject but particularly in my case it's been helpful of my coding journey as I found using a Raspberry Pi (minicomputer) allows the user to learn about electronics and programming in a real fun and intuitive manner.
+My target audience would be users who are interested in electronics as a hobby. This is an all-encompassing subject but particularly in my case it's been helpful of my coding journey as I found using a Raspberry Pi (minicomputer) allows the user to learn about electronics and programming in a real fun and intuitive manner. 
 
 ### **User Stories**
 
@@ -108,23 +108,24 @@ The following section details the type of user experiences I wanted the users of
 
 #### First Time User
 
-* As a first time user, I  want to navigate around the site easily
-* As a first time user, I want to know quickly what the site is about 
-* As a first time user, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
-* As a first time user, I want to access the site via any device
+* As a first time visitor, I want to navigate around the site easily
+* As a first time visitor, I want to learn quickly what the site is about and what benefits a user can avail of
+* As a first time visitor, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
+* As a first time visitor, I want to access the site via any device
 
-#### Returning User
+#### Returning/Frequent User
 
-* As a user, I am interested in electronics and want to learn a bit more
-* As a user, I want a smooth browsing experience, signing up, logging in and, if I can't remember my password, have a smooth exchange to facilitate a password reset (via email)
-* As a user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop)) 
+* As a frequent user, I am interested in electronics and want to learn a bit more
+* As a frequent user, I want a smooth browsing experience, signing up, logging in and, if I can't remember my password, have a smooth exchange to facilitate a password reset (via email)
+* As a frequent user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop)) 
 * As a user, I want to build a profile and research products to potentially purchase
-* As a user, I want to add my own posts and see the other posts from other members of the community, I would also enjoy a form of interaction such a like button for posts I enjoy or support.
+* As a frequent user, I want to add my own posts and see the other posts from other members of the community, I would also enjoy a way of interactioning with other members.
 
 #### Admin
 
 * As an admin, I would like to be able to edit and delete posts I see as unfit.
 * As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
+
 
 
 # Design 
@@ -136,21 +137,20 @@ In keeping in line with a machine themed site, I chose the Google Font [Roboto M
 
 #### Colour Scheme
 
-I wanted to keep the colour schematic simple, but a bit different compared to my other milestone projects, which all used the colour green heavily. This site I went for a grey tone to match the sort of mechanical colouring associated with machines and electronics. But I also dotted the site with red, blue, yellow and green (among others) - which can be considered a subtle ode to rainbow coloured electrical wiring. 
+I wanted to keep the colour schematic really simple, but a bit different compared to my other milestone projects, which all used the colour green heavily. This site body I went for a very light grey tone `#EEEEEE` ([referred to as *Whisper*](https://www.htmlcsscolor.com/hex/EEEEEE)) to match the sort of mechanical colouring associated with machines and electronics. My navbar colour `#212529` is described as very dark blue [according to this site](https://www.colorhexa.com/212529). However I also dotted the site with red, blue, yellow, a little bit of purple and green (among others) - which can be considered a subtle ode to rainbow coloured electrical wiring. 
 
 For example, I chose  [metallic green](https://encycolorpedia.com/296e01) `#296e01` as the footer colour as once again I liked the juxtaposition between the green, which is associated with nature, and metallic which gives off more of a colder, static machine tone.
 
 
-Over all, I like the contrast the dark grey colour it gives to the lighter elements of the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
+Over all, I like the contrast the dark grey colour navbar, the light grey body with the other elements as I feel it illuminates the elements on the page and in my opinion lends itself to aesthetically pleasing site, and therefore, easier on the eye for the user.
 
 #### Imagery 
 
+I actually chose some nature focused images for the site like the main carousel or the empty cart/checkout basket. As mention, I simply liked the colour as well as the contrast it provides. I personally don't think it's confusing for a user to a site to see a range of images that don't directly correlate to the site topic, but that could perhaps be a criticism. However, personally I like it and feel it adds some nice chroma to the site. 
 
 ### **Wireframes**
 
-Landing Home Page Wireframe - [View](https://github.com/)
-
-I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find it to be a really intuitive and user friendly application, which allows a user to build, simply and efficiently, a wireframe. This allowed me to clearly visualize the structure and design of my project.
+Wireframes are really important for a developer to have an idea of where they want the site to go and flesh out how it will look and function. I used the app [Balsamiq](https://balsamiq.com/) to build my wireframes. I find it to be a really intuitive and user friendly application, which allows a user to build, simply and efficiently, a wireframe. This allowed me to clearly visualize the structure and design of my project.
 
 Here is my original desktop landing page wireframe. I wanted a really simple, efficient and clean design whereby the user can navigate easily: 
 
@@ -168,8 +168,6 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 
 *Figure 2. Landing Page (Phone) (Index.html)*
 
-<!-- <img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100"> -->
-
 
 # Database Schema 
 
@@ -178,25 +176,25 @@ Here is my original desktop landing page wireframe. I wanted a really simple, ef
 **SQLite3** 
 
 SQLite is a lightweight relational database management system. It's Django's default database management system, so once you create a Django project, 
-an SQLite database is automatically created, which allows the user to store data locally and run tests.
+a SQLite database is automatically created, which allows the user to store data locally and run tests.
 SQLite is embedded on the end-program (Django) as opposed to being a ['client-server' database engine](https://en.wikipedia.org/wiki/SQLite).
 
 **PostgreSQL**
 
-PostgreSQL is a relational database that is synced to the live Heroku application and facilitate the data exchange in the site.
+PostgreSQL is a relational database that is synced to the live Heroku application and facilitates the data exchange in the site.
 
-Below is a table of my `User_Posts` Model, which I am demonstrating as an example of the database schematic. Please note the variations in Field Type and Validation as the the model can be associated with other models, making the database fluid and interchangeable, which is a key tenet when working with data that is constantly changing and adaoting. 
+Below is a table of my `User_Posts` Model, which I am demonstrating as an example of the database schematic. Please note the variations in Field Type and Validation as the model can be associated with other models, making the database fluid and interchangeable, which is a key tenet when working with data that is constantly changing and adapting. 
 
 For example, the `on_delete=models.CASCADE` method ensures that if a `User` is deleted, the `author` and therefore the post will also be deleted. As mentioned this is extremely important to the structure of the database. As we can see from the `author` item in the table, it utilises the [SQL]() `ForeignKey`, which is, as stated on the [W3 Schools site](https://www.w3schools.com/sql/sql_foreignkey.asp#:~:text=A%20FOREIGN%20KEY%20is%20a,the%20referenced%20or%20parent%20table.),:
 > (A `FOREIGN KEY` is) a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table e.g. (`author` :arrow_right: `User`)
 
 #### Database Diagram Structure (*PostgreSQL*)
 
-I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home). I feel the database structure could be improved by adding more `ForeignKey` elements to intertwine more models but as I shall explain in the *bugs* and *features left to implement* section, I had some contraints to execute this. But certainly something I learned a lot about and can improve upon in the future.
+I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home). I feel the database structure could be improved by adding more `ForeignKey` elements to intertwine more models but as I shall explain in the *bugs* and *features left to implement* section, I had some constraints to execute this. But certainly something I learned a lot about and can improve upon in the future.
 
 ![DB Diagram](/media/ReadMe_Docs/db_diagram2.png "DB Diagram" )
 
-**PostgresSQL Database Table**
+**PostgresSQL Database Table (User Posts)**
 
 | **Name** | **Database Primary Key** | **Field Type(s)** | **Validation** |
 --- | --- | --- | --- 
