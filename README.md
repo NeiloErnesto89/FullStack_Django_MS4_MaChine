@@ -714,7 +714,7 @@ My site code is deployed on [Github](https://github.com/NeiloErnesto89/FullStack
 - And then  the command`git commit -m "initial commit"`(and with every commitfollowed by any comments) to `add` and `commit` files to Github. 
 - Then, I would use the `git push origin master` command to push my updated code to the remote Github repository.
 
-### Clone Code Locally
+### Clone Code for Local Use
 
 Steps to clone a repo on Github:
 
@@ -726,6 +726,24 @@ Steps to clone a repo on Github:
 6. Command - `git clone <url from above>` and enter to commence local repo
 7. You then need to add your own details, perferable via an `env.py` file stored on a `.gitignore` file
 8. You need to add a `requirements.txt`(if necessary, you need the file from clone with all the dependencies) - command on Gitpod `pip3 install -r requirements.txt` and to update `pip local > freeze requirments.txt`.
+9. To initialise Django, run the `python3 manage.py runserver` in your terminal. In Gitpod for example, you can navigate to the IP host address or open a preview in the terminal or browser.
+10. Finally, you need to create a superuser and (in order to build models) run migrations, via the following commands:
+
+        `python3 manage.py makemigrations` (always first)
+        then:
+        `python3 manage.py migrate`
+        *and to create a superuser (followed by details)*
+        `python3 manage.py createsuperuser`
+`
+
+
+#### Forking a Github Repo
+
+Forking is simply making a code of the repo, adapting it but not affecting the original:
+
+1. Sign into Gihub and go to your chosen repo (for example, [mine](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine) )
+2. Find the `fork` button (like the `clone` button)
+3. Now you have your own copy of a repo on your Github account to do with it what you please.
 
 ### Heroku
 
@@ -836,28 +854,28 @@ This section is important as it gves the touch of a real and interactive site. I
 - As well as a few ventures onto Stack Overflow including this [query](https://stackoverflow.com/questions/28421887/django-email-with-smtp-gmail-smtpauthenticationerror-534-application-specific-pa) and [this question](https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received)
 - And also the [Django documention](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/views/)
 
-**Search**
+**Search Function**
 
 I found a really simple [fix](https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django) for returning a `message` redirecting back to the home page if, when using the search bar, the Django queryset filter was empty, which was this simple built in method `if products.exists():` 
 
 
 **Featurette Landing Page Style**
 
-[Featurette](https://stackoverflow.com/questions/33626772/line-up-bootstrap-featurette-text-with-the-image-above-it) 
+I found the base for my [Featurette](https://stackoverflow.com/questions/33626772/line-up-bootstrap-featurette-text-with-the-image-above-it) here
 
 **Pagination** 
 
 Settled on a view based function as opposed to class based pagination function.
 [This blog](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html) guided me very smoothly through this process. 
 
+**Comment**
 
-- This Bootstrap style [comment example](https://bootsnipp.com/snippets/exz9y) was used as the base for my user posts/comments but I did adapt it quite a bit in the end.
+This Bootstrap style [comment example](https://bootsnipp.com/snippets/exz9y) was used as the base for my user posts/comments but I did adapt it quite a bit in the end.
 
-**base.html layout**
 
-[footer example](https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/)
+**Modals**
 
-- For my modals, I took some snippets from [this site](https://mdbootstrap.com/docs/jquery/modals/customization/) as I thought they looked really sleek and worked very well.
+For my modals, I took some snippets from [this site](https://mdbootstrap.com/docs/jquery/modals/customization/) as I thought they looked really sleek and worked very well.
 
 
 On this StackOverflow post I found the [logic](https://stackoverflow.com/questions/11916297/django-detect-admin-login-in-view-or-template/11916391) for the `is_superuser` templating 
@@ -891,7 +909,7 @@ Another StackOverflow discussion resulting in a [Django messages template exampl
 **Javascript/Bootstrap Carousel:** 
 - I got my inspiration and code snippet for my landing page carousel [here](https://mdbootstrap.com/docs/jquery/javascript/carousel/). I loved the imagery and even though they are landscape as opposed to machine/electronics, I enjoy the juxtaposition of nature and electronics.
 
-*Landing Page SVG Icons* 
+**Landing Page SVG Icons** 
 
 I used some svg icons from the [bootsrap icons library here](https://icons.getbootstrap.com/icons/lightning/). I used them only on the main landing page. I found the SVG format to be a bit clunky but it did give me some nice inline styling, sizing and positioning options I didn't have with Fontawesome.
 
@@ -904,6 +922,8 @@ I used some svg icons from the [bootsrap icons library here](https://icons.getbo
 A fellow Code Institute Student whose [project](https://github.com/JBroks/unicornattractor_issue_tracker) was a huge source of inspiration as their project was of such high quality. I referred to it at times when I was entertaining some ideas and looking for some solid logic. The size, scale and professionalism of this project is really impressive. No direct code snippets were used (mainly due to different techniques implemented), so it was more of a guide, but excellent and inspiring work nevertheless!
 
 ## Media
+
+
 
 ## Acknowledgements
 
