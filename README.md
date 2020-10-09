@@ -243,13 +243,13 @@ class User_Posts(models.Model):
 The following features are divided up by page, detailing the logic behind each:
 
 **1. Landing Page** 
-The main site page with Carousel and some informative text as well as links. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
+The main site page contains a Carousel with images and some informative text as well as links and buttons helping the user to navigate the site. Navbar adapts depending on whether the user is logged in or not, offering different options. The is a search bar (in both cases) to allow a logged in user and someone who isn't logged in to browse the products (but not purchase unless they are an authenticated user)
 
 **2. Login Page**  
 If a user already has registered, they can log into the site to access their profile and the sites benefits. They can enter their `username` and `password` and pressing the `login` button. If a user can't recall their `password`, they can follow the `reset password` logic. 
 
 **3. Register Page**
-A visitor on the site would would like to sign up for an account, they simple need to provide their `email`, a `username` and a `password` (that needs to be confirmed)
+A visitor on the site would like to sign up for an account, they simple need to provide their `email`, a `username` and a `password` (that needs to be confirmed)
 
 **4. Reset Password Pages**
 Functionality to allow a user (who already has registered successfully) to recover a lost password by entering in their email (must be valid to receive an email from the site), follow the link generated on the email to a page to enter in a new password (plus confirmation), so that the user can recover their profile with their bio and comments on it.
@@ -263,17 +263,16 @@ Functionality to allow a user (who already has registered successfully) to recov
 
 
 - **5.2. Delete Profile** 
- A user can erase their profile and all their data. It cannot be recovered there after. A user is met with a modal prompt upon clicking the `Delete` button as an added step as so to ensure that one doesn't permanently delete their user profile from the database by a mistake.  
+ A user can erase their profile and all their data. It cannot be recovered thereafter. A user is met with a modal prompt upon clicking the `Delete` button as an added step as so to ensure that one doesn't permanently delete their user profile from the database by a mistake.  
 
 **6. Products Page**
-A user can browse the products page, which shows the electronics products available to purchase on the site. An image and details such as price are given. The use can add an item (currently the maximum to each addtion is 999). A user can stay on the products page but browse the products section using the paginate method.
+A user can browse the products page, which shows the electronics products available to purchase on the site. An image and details such as price are given. The use can add an item (currently the maximum to each addition is 999). A user can stay on the products page but browse the products section using the paginate method.
 
 **7. Cart Page**
-A users cart/basket is a boolean, it can either be empty or have contents. If the the cart is empty, a Jumbotron will display a message to the user and prompts some direction back to the products section to potentially select an item to buy. If the cart has items present, the user can amend the quantity (for example, remove a product completely). The current total is displayed in euros :euro: . Once the user is happy with the contents in their cart, they can click the checkout buy to proceed to the checkout/payment section
+A user’s cart/basket is a boolean, it can either be empty or have contents. If the the cart is empty, a Jumbotron will display a message to the user and prompts some direction back to the products section to potentially select an item to buy. If the cart has items present, the user can amend the quantity (for example, remove a product completely). The current total is displayed in euros :euro: . Once the user is happy with the contents in their cart, they can click the checkout buy to proceed to the checkout/payment section
 
 **CART APP:**
-- For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictate the logic of the cart section and this also ensures that the cart contents are available when rendering
-every page on the site. 
+- For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictates the logic of the cart section and this also ensures that the cart contents are available when rendering every page on the site. 
 
     The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
 
@@ -290,7 +289,7 @@ A user can browse the User Posts section to see all of what other users have pos
 If the user was the author of a post (or is the admin), they can simply edit their post and it will be updated.
 
 - **10.2. Delete Posts** 
-If the user was the author of a post (or is the admin), they can also delete their post. They are once again prompt by a modal cause anything that's deleted is removed form the database and therefore can't be recovered.
+If the user was the author of a post, (or is the admin), they can also delete their post. They are once again prompt by a modal cause anything that's deleted is removed from the database and therefore can't be recovered.
 
 - **10.3. Like Posts** 
 A simple `like` counter that all users can avail from to demonstrate which posts they enjoyed.
@@ -300,7 +299,7 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
 - I followed this tutorial to add the [like button functionality](https://www.youtube.com/watch?v=PXqRPqDjDgc&ab_channel=Codemy.com) and I feel it works quite smoothly and adds to the feel of a community. I could have also added the *dislike* button but I wanted to avoid any negative connotations on the site. 
 
-    If the user has written the post themselves, they have the option to edit/update and/delete. If the user is on a post from another user, they do not have the option to edit or delete a post. The Admin reserves the write to edit and/delete any post they so choose. This is an important tenet of CRUD (Create, Read, Update and Delete) from the ux perspective as well as a site management point of view. The admin can remove or edit a post they feel is unsuitable or against the site regulations, for example.
+    If the user has written the post themselves, they have the option to edit/update and/delete. If the user is on a post from another user, they do not have the option to edit or delete a post. The Admin reserves the right to edit and/delete any post they so choose. This is an important tenet of CRUD (Create, Read, Update and Delete) from the ux perspective as well as a site management point of view. The admin can remove or edit a post they feel is unsuitable or against the site regulations, for example.
 
 **11. Other Site Functions** 
 
@@ -325,32 +324,37 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
     •	Amend Quantity – On the cart page, after a user has selected a product or products to add to their cart. The user can decided to amend the quantity, either increase, decrease and/or remove (by entering 0) products and their cart contents number will be updated automatically (if the cart is empty or full can be seen at all times on the Navbar). Upon clicking the amend button, the user stays on the cart page and can see the adjusted amount of their cart.
 
-    •	`Back-to-Top` – This button is visible on the pages with more content or the pages that are designed to increase/adjust in height (for example if a user selects one of each of all the products of the site to purchase, their cart and checkout page will expand in height). The home page, cart and checkout pages avail of the `back-to-top` button. Once a user scrolls down a page, they can simply click on this button (which is visible as it is fixed to the bottom right hand side on the page and has a `z-index: 1`) and the user to brought back up to the top of the body of the html page. It’s a particularly valuable function on mobile phone devices, as the viewport as content is condensed and it tends to favor a scrolling style, so this option, in my opinion is a nice option for users to avail of to make their experiences a little smoother.
+    •	`Back-to-Top` – This button is visible on the pages with more content or the pages that are designed to increase/adjust in height (for example if a user selects one of each of all the products of the site to purchase, their cart and checkout page will expand in height). The home page, cart and checkout pages avail of the `back-to-top` button. Once a user scrolls down a page, they can simply click on this button (which is visible as it is fixed to the bottom right hand side on the page and has a `z-index: 1`) and the user to brought back up to the top of the body of the html page. It’s a particularly valuable function on mobile phone devices, as the viewport as content is condensed and it tends to favour a scrolling style, so this option, in my opinion is a nice option for users to avail of to make their experiences a little smoother.
 
     •	Submit Payment – Once the user has selected products to purchase and confirmed the quantity, the must enter their details correctly on the payment form (which applies Stripe logic) and they can then click the `Submit Payment` button which, as it’s linked to the Stripe backend logic, which confirm their payment, sending the user to the Products page with the message - “You have successfully paid! Your products are on their way!” . If the form details are incorrect, the user will be prompted with a red/warning message specifying which form detail needs to be rectified. 
 
     •	User Posts Section - If a user arrives on the user posts page, they can navigate (via pagination) the user posts section to see all of the shared comments. A user can click either `View Post in Detail` or `Back to Home`. Viewing a post in detail products the user with a focused view on a particular post (giving them further options) and back to home button simply returns the user to the main home page. 
 
-    •	User Posts in Detail - As mentioned above, a user can select to `View Post in Detail`. This button brings them to a focused User's post (recognised via the id in the URL). The user has a number of options on this page. If they are they author of the post (or the admin), they have the right to edit (brings them to the `edit user post form`) or delete the post entirely. The user can also choose to like a user. A user can like all posts (regardless if they are author) owever, it functions on a - one user, one like per post basis. A user can't just add endless likes on a particular user post. If the user is not the author of the post (nor the admin), they can not delete or edit posts. They can only view and like (x1) the post.All users can see the total accumulated likes on any posts and also avail of the `Back to Posts` to return to the general User posts section. 
+    •	User Posts in Detail - As mentioned above, a user can select to `View Post in Detail`. This button brings them to a focused User's post (recognized via the id in the URL). The user has a number of options on this page. If they are they author of the post (or the admin), they have the right to edit (brings them to the `edit user post form`) or delete the post entirely. The user can also choose to like a user. A user can like all posts (regardless if they are author) however, it functions on a - one user, one like per post basis. A user can't just add endless likes on a particular user post. If the user is not the author of the post, (nor the admin), they won’t be able to delete or edit a post. They can only view and like (x1) the post. All users can see the total accumulated likes on any posts and also avail of the `Back to Posts` to return to the general User posts section.
 
 
-    •   Add a New Post - (found a Nav link) allows users to 
+    •   Add a New Post - found via a button at the bottom of the user posts page  (and via the Navbar), this button allows users to be redirected to a form where they can upload their own personalised post. 
 
 
-- Search bar
-    - Allows users and non logged in site visitors to quickly and easily search for products. They are prompted if a product doesn't exist and redirected to the main landing page.
+-Search bar
+    - Found on the right-hand side of the navbar, it allows users and non-logged in site visitors alike to quickly and easily search for products. They are prompted if a product doesn't exist and redirected to the main landing page. If they find a product, for example, a 'Multimeter', they are brought to a page to view the product.
 
-- Landing Page Scroll Button
+- Page Scroll Button
 
-    - allows a user, who has scrolled further down the main page, to simply clikc the fixed button on the right and instantly return to the top of the page.
+    - Found on numbers pages (home, checkout, cart, user posts), using this function (when it appears) allows a user, who have scrolled further down the page, to simply click on the fixed button on the bottom right-hand side and instantly and smoothly return to the top of the page.
 
 - Modals
 
-    - mainly used a prompt for the user when doing an important action, whereby a second confirmation is necessary (like deleting a profile)
+    - Modals are mainly used as a prompt for the user, for example, when undertaking an important action, whereby a second confirmation is necessary (like deleting a profile). On the site, if a user wants to delete a post or delete their user profile, they will be prompt with a modal popup, which will focus solely on the action and allow the user a sort of 2 step process when commiting important actions.
 
 - Pagination:
 
-    - allows for smooth and logical browsing for the user, if there are many products or posts.
+   - allows for smooth and logical browsing for the user, if there are many products or posts, they user can navigate via the pagination buttons at the bottom of the page. As for example, user comments naturally increase over time, a user can navigate to older comments easily, smoothly and with logic, by maintain uniformity to the page structure.
+
+
+- Form Logic
+
+    - Login/register
 
 
 ## **Features Left to Implement** 
