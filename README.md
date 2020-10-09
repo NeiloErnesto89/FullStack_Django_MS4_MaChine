@@ -5,32 +5,32 @@
 
 <h2 align="center">Machine :robot: </h2>
 
-## Project introduction
+## **Project Introduction and Brief**
 
-Full Stack Frameworks Milestone Project - Django
+### *Title: **[Machine](https://machine-ms4-app.herokuapp.com/)** - an Electronics e-Commerce website and community*
 
-![Devices View](/media/ReadMe_Docs/Site_Devices_View.png "Site Devices View" )
-
-[The project is live on this link.](https://machine-ms4-app.herokuapp.com/)
-
-*For the **Code Institute testing purposes**, I suggest (at some stage) logging into the site as the **Admin**, using the following details*: 
-- Username: **_test_**   
-- Password: **_test_** 
-
-*For the sake of testing, please all use **4242_4242_4242_4242** when entering credit card details when paying for products using [Stripe](https://stripe.com/en-ie)
-
-
-## Project Brief
-
-### *Title: **Machine** - an Electronics e-Commerce website and community*
+*Full Stack Frameworks Milestone Project - Django*
 
 This is a site aimed at electronics enthusiasts looking to interact with fellow members of the community, to write blog posts and hopefully purchase some products.
 
 Keeping in line with the CI project requirements as well as CRUD tenets, the site is aiming to incorporate, and expand on, what has been taught in the CI course. 
 
+
+![Devices View](/media/ReadMe_Docs/Site_Devices_View.png "Site Devices View" )
+
+### *Note for External Tester*
+
+*For the **Code Institute testing purposes**, I suggest (at some stage) logging into the site as the **Admin/SuperUser**, using the following details*: 
+- Username: **Neilo**   
+- Password: **_test_** 
+
+*Also, for the sake of further testing, please only use the test number **`4242_4242_4242_4242`** when entering credit card number when paying for products using [Stripe](https://stripe.com/en-ie)
+
+
+
 # **Table of Contents**
 
-- [**Project Brief**](#project-brief)
+- [**Project Introduction and Brief**](#project-introduction-and-brief)
 - [**Demo**](#demo)
 - [**Project Purpose and Scope**](#project-purpose-and-scope) 
 - [**UX**](#ux)
