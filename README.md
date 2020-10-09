@@ -64,7 +64,7 @@ According to the *CI Assessment Handbook 2020*, the aim of this project is to:
 
 > *build a full-stack site based around business logic used to control a centrally-owned dataset. You will set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service*
 
-I aimed to stick to this overarching goal and the following section summarises what was needed in terms of requirements to complete the project. This excerpt was taken and shorten, from the **CI project requirements** documentation:
+I aimed to stick to this overarching goal and the following section summarises what was needed in terms of requirements to complete the project. This excerpt was taken and adapted, from the **CI project requirements** documentation:
 
 > 1.	Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
 > 2.	Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
@@ -83,20 +83,20 @@ I aimed to stick to this overarching goal and the following section summarises w
 
 ### **Further Technical Insight** 
 
-The site is built using the [Django](https://www.djangoproject.com/) Framework. Furthermore, the CI project had some more technical requirements to fulfill, including using the follow languages:
+The site is built using the [Django](https://www.djangoproject.com/) Framework. Furthermore, the CI project had some more technical requirements to fulfil, including using the follow languages:
 
 * HTML
 * CSS
 * JavaScript 
 * Python (+ Django)
 
-These languages needed to be utilised in tandem with a relational database management system (recommended either [MySQL](https://www.mysql.com/) or [PostgreSQL](https://www.postgresql.org/)). The site is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). The site has the [Stripe](https://stripe.com/ie) payment system software fully integrated. As well as numerous additional libraires and API's dotted and employed throughout the site.
+These languages needed to be utilised in tandem with a relational database management system (recommended either [MySQL](https://www.mysql.com/) or [PostgreSQL](https://www.postgresql.org/)). The site is deployed via [Heroku](https://dashboard.heroku.com/) cloud hosting platform. Media and Static files are hosted via the [AWS S3 platform](https://aws.amazon.com/s3/). The site has the [Stripe](https://stripe.com/ie) payment system software fully integrated. As well as numerous additional libraries and API's dotted and employed throughout the site.
 
 
 
 # **UX** 
 
-My aim was offer the user a smooth and logical experience, focusing on  simplicity. I wanted an aesthetically pleasing and functional site. I aimed to put into practice what I had learned throughout the course, focusing on the Pythonic backend functionality, as well as cultivating my code.
+My aim was offer the user a smooth and logical experience, focusing on simplicity. I wanted an aesthetically pleasing and functional site. I aimed to put into practice what I had learned throughout the course, focusing on the *Pythonic* backend functionality, as well as cultivating my code.
 
 ### UX Target Audience
 
@@ -269,7 +269,7 @@ Functionality to allow a user (who already has registered successfully) to recov
 A user can browse the products page, which shows the electronics products available to purchase on the site. An image and details such as price are given. The use can add an item (currently the maximum to each addition is 999). A user can stay on the products page but browse the products section using the paginate method.
 
 **7. Cart Page**
-A user’s cart/basket is a boolean, it can either be empty or have contents. If the the cart is empty, a Jumbotron will display a message to the user and prompts some direction back to the products section to potentially select an item to buy. If the cart has items present, the user can amend the quantity (for example, remove a product completely). The current total is displayed in euros :euro: . Once the user is happy with the contents in their cart, they can click the checkout buy to proceed to the checkout/payment section
+A user’s cart/basket is a boolean, it can either be empty or have contents. If the cart is empty, a Jumbotron will display a message to the user and prompts some direction back to the products section to potentially select an item to buy. If the cart has items present, the user can amend the quantity (for example, remove a product completely). The current total is displayed in euros :euro: . Once the user is happy with the contents in their cart, they can click the checkout buy to proceed to the checkout/payment section
 
 **CART APP:**
 - For the cart section of the site, we utilise a contexts.py file. This file contains a function which dictates the logic of the cart section and this also ensures that the cart contents are available when rendering every page on the site. 
@@ -277,7 +277,7 @@ A user’s cart/basket is a boolean, it can either be empty or have contents. If
     The cart items also don't go into the database. Cart items are stored in session when the use is logged in. A standard feature on e-commerce sites but an interesting adaptation nevertheless. It may also lend itself to reminding users that they have something in their basket that perhaps they want to purchase. However, when the user logs out, all the carts contents are lost. 
 
 **8. Checkout (Payment) Page**
-The user is once again presented with the total amount (:euro:) currently in their basket (how muc they will spend). The main form on this payment is the payment form where the user will have to fill out correct details (or be prompted with an error message). Once all the details of the payment form have been correctly entered, the user can hit the green `submit payment` button that will give the user a confirmation message that their payment was success (the full payment details are logged on the Stripe end). The user is then redirected back products page. Also below the payment form, is a recap of what's currently in the users basket (for referral)
+The user is once again presented with the total amount (:euro:) currently in their basket (how much they will spend). The main form on this payment is the payment form where the user will have to fill out correct details (or be prompted with an error message). Once all the details of the payment form have been correctly entered, the user can hit the green `submit payment` button that will give the user a confirmation message that their payment was success (the full payment details are logged on the Stripe end). The user is then redirected back products page. Also below the payment form, is a recap of what's currently in the users basket (for referral)
 
 *Please note, the Stripe payment system is fully active but a test platform (so no products will be sent). Please use the credit card number `4242_4242_4242_4242` for testing purposes*
 
@@ -330,10 +330,10 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
     •	User Posts Section - If a user arrives on the user posts page, they can navigate (via pagination) the user posts section to see all of the shared comments. A user can click either `View Post in Detail` or `Back to Home`. Viewing a post in detail products the user with a focused view on a particular post (giving them further options) and back to home button simply returns the user to the main home page. 
 
-    •	User Posts in Detail - As mentioned above, a user can select to `View Post in Detail`. This button brings them to a focused User's post (recognized via the id in the URL). The user has a number of options on this page. If they are they author of the post (or the admin), they have the right to edit (brings them to the `edit user post form`) or delete the post entirely. The user can also choose to like a user. A user can like all posts (regardless if they are author) however, it functions on a - one user, one like per post basis. A user can't just add endless likes on a particular user post. If the user is not the author of the post, (nor the admin), they won’t be able to delete or edit a post. They can only view and like (x1) the post. All users can see the total accumulated likes on any posts and also avail of the `Back to Posts` to return to the general User posts section.
+    •	User Posts in Detail - As mentioned above, a user can select to `View Post in Detail`. This button brings them to a focused User's post (recognized via the id in the URL). The user has a number of options on this page. If they are they author of the post (or the admin), they have the right to edit (brings them to the `edit user post form`) or delete the post entirely. The user can also choose to like a user. A user can like all posts (regardless if they are author) however, it functions on a - one user, one like per post basis. A user can't just add endless likes on a particular user post. If the user is not the author of the post, nor the admin, they won’t be able to delete or edit a post. They can only view and like (x1) the post. All users can see the total accumulated likes on any posts and also avail of the `Back to Posts` to return to the general User posts section.
 
 
-    •   Add a New Post - found via a button at the bottom of the user posts page  (and via the Navbar), this button allows users to be redirected to a form where they can upload their own personalised post. 
+    •   Add a New Post - found via a button at the bottom of the user posts page (and via the Navbar), this button allows users to be redirected to a form where they can upload their own personalised post. 
 
 - Form Logic
 
@@ -356,7 +356,7 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
 - Modals
 
-    - Modals are mainly used as a prompt for the user, for example, when undertaking an important action, whereby a second confirmation is necessary (like deleting a profile). On the site, if a user wants to delete a post or delete their user profile, they will be prompt with a modal popup, which will focus solely on the action and allow the user a sort of 2 step process when commiting important actions.
+    - Modals are mainly used as a prompt for the user, for example, when undertaking an important action, whereby a second confirmation is necessary (like deleting a profile). On the site, if a user wants to delete a post or delete their user profile, they will be prompt with a modal popup, which will focus solely on the action and allow the user a sort of 2 step process when committing important actions.
 
 - Pagination:
 
@@ -392,7 +392,7 @@ Other features to add/improve upon include:
     4. The ability to contact the admin, report issues directly etc. 
     5. User updates, if, for example, another user responds to their post. 
     6. The ability to add other users to your group discussion and/or have a private/chat thread with another user.
-    7. Change the Stripe  year selection placeholder on the credit detail details from 2019 to current year.
+    7. Change the Stripe year selection placeholder on the credit detail details from 2019 to current year.
 
 There are endless options with Django, and considering I'm currently using the version `Django==1.11.29`, I hope to have time in the future to update the site and add many more robust functions, models, views, libraries etc. The options are boundless!
 
