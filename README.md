@@ -181,7 +181,7 @@ SQLite is embedded on the end-program (Django) as opposed to being a ['client-se
 
 **PostgreSQL**
 
-PostgreSQL is a relational database that is synced to the live Heroku application and facilitates the data exchange in the site.
+[PostgreSQL](https://www.postgresql.org/) is a relational database that is synced to the live Heroku application and facilitates the data exchange in the site.
 
 Below is a table of my `User_Posts` Model, which I am demonstrating as an example of the database schematic. Please note the variations in Field Type and Validation as the model can be associated with other models, making the database fluid and interchangeable, which is a key tenet when working with data that is constantly changing and adapting. 
 
@@ -396,9 +396,9 @@ Other features to add/improve upon include:
 There are endless options with Django, and considering I'm currently using the version `Django==1.11.29`, I hope to have time in the future to update the site and add many more robust functions, models, views, libraries etc. The options are boundless!
 
 
-# **Site Layout**
+## **Site Layout**
 
-## Django Framework Logic 
+### Django Framework Logic 
 
 I mainly followed the MVT (Model-View-Template) concept of Django as I found it to be the most clean and logical approach for my needs. [Check out more info on MVT here](https://medium.com/@jaychaturvedi18/a-brief-introduction-to-django-mvt-framework-8ef46cc321ab)
 
@@ -410,31 +410,43 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 
 ### **Languages**
 
--   [Python](https://www.python.org/)
--   [HTML5](https://en.wikipedia.org/wiki/HTML5)
--   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
--   [Javascript](https://www.javascript.com/)
+-   [Python](https://www.python.org/) - the main backend programming language used. Python is a [interpreted, object-oriented, high-level programming language](https://www.python.org/doc/essays/blurb/). Python is used in tandem with Django to construct the views and main site logic.
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5) I used HTML to define structure and layout of thesite;
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - is used as the stylesheet language for styling and rendering.
+-   [Javascript](https://www.javascript.com/) - is the renowned programming scripting language and the main libraries are JS.
 
 
 ### **Frameworks**
 
--   [Django](https://www.djangoproject.com/)  
+-   [Django](https://www.djangoproject.com/) - is a high-level Python Web framework that used the MVT system 
 
 ### **Libraries and Other Programs Used**
 1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
     - Bootstrap was used heavily as the main library to style the site. I availed particular from the grid system and the buttons, among many other functions.
 1. [Google Fonts:](https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap)
-    - I felt Google Fonts  was extremely important to improve the look and UX of the site. I used the `Roboto Mono` font which I found to be perfectly fitted to the technical *machine* styling I was looking for. The first time I switched the font (from the standard default bootstrap font), I was really taken aback by how much the site look and professional feel was improved by the font.
+    - I felt Google Fonts was extremely important to improve the look and UX of the site. I used the `Roboto Mono` font which I found to be perfectly fitted to the technical *machine* styling I was looking for. The first time I switched the font (from the standard default bootstrap font), I was really taken aback by how much the site look and professional feel was improved by the font.
 1. [Font Awesome:](https://fontawesome.com/)
-    - I used Font Awesome heavily  on all pages on my website. I like the sleek icon style and feels it gives a boost to the UX
+    - I used Font Awesome heavily on all pages on my website. I like the sleek icon style and feels it gives a boost to the UX
 1. [jQuery:](https://jquery.com/)
-    - jQuery CDN 
-1. [Git](https://git-scm.com/)
-    - Using Git on the Gitpod IDE for version control
+    - jQuery CDN library was used to assign functionality to Bootstrap elements 
+1. [Git:](https://git-scm.com/)
+    - Using Git on the Gitpod IDE for version control, to commit and push code to Github
 1. [GitHub:](https://github.com/)
     - Pushing with my git commands, my entire project code is store on Github
 1. [Balsamiq](https://balsamiq.com/) 
     - was used to create my wireframes
+1.  [django-storages](https://django-storages.readthedocs.io/en/latest/) & [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - were libraries used to connect Django to AWS S3 Buckets to host media. Both found on `requirments.txt`
+1. [django-forms-bootstrap ](https://pypi.org/project/django-forms-bootstrap/)
+    - a library used to adapt the standard django forms into bootstrap styling. Listed on `requirments.txt`.
+
+- **Databases, Hosting, API’s, Mockups:**
+
+    - [PostgreSQL](https://www.postgresql.org/) - a relational db management system, hosted on Heroku;
+    - [SQLite](https://en.wikipedia.org/wiki/SQLite) - a lightweight db management system that runs locally on Django (used mainly for testing)
+    - [Heroku](https://dashboard.heroku.com/apps) – The site is hosted on Heroku platform
+    - [Stripe API](https://stripe.com/en-ie)  – Used to make secure payments
+    - [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) – Used to generate site mockup for different view ports (Mac)
+    - [DBDiagram]( https://dbdiagram.io/home) – Diagram tool used to craft the PostgreSQL database as a diagram using the native language
 
 
 # **Testing**
