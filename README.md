@@ -41,12 +41,13 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 	- [Existing features](#existing-features)
 	- [Features left to implement](#features-left-to-implement)
 - [**Site Layout**](#site-layout)	        
-- [**Technologies used**](#technologies-used)
+- [**Technologies Used**](#technologies-used)
     - [Languages](#languages)
-    - [Libraries and Other Programs Used](libraries-and-other-programs-used])
+    - [Libraries and Other Programs Used](#libraries-and-other-programs-used])
 - [**Testing**](#testing)	
     - [Validation](#validation)
-- [**Bugs**](bugs)
+    - [Analysing User Experiences](#analysing-user-experiences)
+- [**Bugs**](#bugs)
 - [**Deployment**](#deployment)
 - [**Credits**](#credits)
 	- [Content](#content)
@@ -839,7 +840,7 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 # Credits
 
-## Credits
+## Content
 
 **Includes Media**
 
