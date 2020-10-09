@@ -462,11 +462,12 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop) as 
 ### **Validation**
 
 -   [PEP8](http://pep8online.com/)
+     - PEP8 was the tool I tested my Python code on. I recieved plenty warnings such as:
+        > `W292	10	44	no newline at end of file`
+        > `line too long (80 > 79 characters)` 
+        > `trailing whitespace . . `
 
-    I recieved a few warnings such as:
-    > `W292	10	44	no newline at end of file`
-    > `line too long (80 > 79 characters)`
-    > `trailing whitespace . . `
+        I did my best to remove as much of the warnings as possible but my main focus, with a lack of time, was clean code and functionality.
 
 -   [JSHint](https://jshint.com/) 
     - I did not add the Stripe.js file, just the JS static file hosted on AWS. Once I ran my code into JSHint and this was the feedback:
@@ -485,6 +486,8 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop) as 
     * I only added my static css code, which is hosted on AWS.
 
 - [Google Mobile-Friendly Test site](https://search.google.com/test/mobile-friendly)
+    - Positive feedback from this site, which stated:
+    > Page is mobile friendly. This page is easy to use on a mobile device
 
 ## Analysing User Experiences 
 
