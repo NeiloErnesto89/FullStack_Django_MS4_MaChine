@@ -374,15 +374,27 @@ A simple `like` counter that all users can avail from to demonstrate which posts
 
 ## **Features Left to Implement** 
 
-Due to a mix up, I had less time than anticapted to finish up my project and so I feel there are plenty more features and logic, both backend and frontend, that could be incorporated. I focused more on the backend logic and making sure that the users could perform a variety of actions but here are some features that can be (and hopefully will be) added in the future:
+Due to a mix up, I had less time than anticipated to finish up my project and so I feel there are plenty more features and logic, both backend and frontend, that could be incorporated. I focused more on the backend logic and making sure that the users could perform a variety of actions but here are some features that can be (and hopefully will be) added in the future:
 
-- I could have also added a user comment section/forum for each post, which would cultivate an interactive community (for example, on [StackOverflow](https://stackoverflow.com/), if a user is struggling on a topic or justs wants to know more about something, they could pose a question to the forum, hoping for a robust response). 
+- I could have also added a user comment section/forum for each post, which would cultivate an interactive community (for example, on [StackOverflow](https://stackoverflow.com/), if a user is struggling on a topic or just wants to know more about something, they could pose a question to the forum, hoping for a robust response). 
 
-- I briefly played with the idea to add an *Order history* to the user profile section, so users could refer to what they have alreadt purchased. The implementation wasn't too difficult however during my efforts I made an error with the `Null=True` and `Blank=True` [model arguments (fields)](https://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django), and a `makemigrations` command which caused me quite a bit of trouble (which I will explain in the bugs section). So due to this error and simply a lack of time, I chose against this option for the time being. But I feel it would be a very simple, logical piece of code to implement and importantly, give the user a paper trail on the site. 
+- I briefly played with the idea to add an *Order history* to the user profile section, so users could refer to what they have already purchased. The implementation wasn't too difficult however during my efforts I made an error with the `Null=True` and `Blank=True` [model arguments (fields)](https://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django), and a `makemigrations` command which caused me quite a bit of trouble (which I will explain in the bugs section). So due to this error and simply a lack of time, I chose against this option for the time being. But I feel it would be a very simple, logical piece of code to implement and importantly, give the user a paper trail on the site. 
 
-I feel that there is huge room for improvement in terms of how the models, the site and the database interact. As mentioned above (and below) with the issue I had with `migrations`, were in fact simple fixes. I wanted to add, for example, a default user post photo (as there is a `default img` on the `Profile` model) but again, pushing the project over the line meant not having time to fine tune all of the MVT aspects but really good learning experience in crafting a large project with a professional tilt. 
+I feel that there is huge room for improvement in terms of how the models, the site and the database interact. As mentioned above (and below) with the issue I had with `migrations`, were in fact simple fixes. I wanted to add, for example, a default user post photo (as there is a `default img` on the `Profile` model) but again, pushing the project over the line meant not having time to fine tune all of the MVT aspects but really good learning experience in crafting a large project with a professional tilt. With the orders history in tandem, I also felt I could have an automatic email system (like for the reset password form), that confirms a user’s order with a receipt via email.
 
-I will improve simple user functionality and add more flow to the site, for example, on the products page, if a user selects a product and clicks the `Add` button (to their cart), they are automatically redirected to the Cart section. This was a choice on my part but it could easily be adapted to simply stay on the Products page (with the user cart amount incrementing to the chosen quanityt) to faciliate a multiple product choice buying experience.
+I would like to improve simple user functionality and add more flow to the site, for example, on the products page, if a user selects a product and clicks the `Add` button (to their cart), they are automatically redirected to the Cart section. This was a choice on my part but it could easily be adapted to simply stay on the Products page (with the user cart amount incrementing to the chosen quantity) to facilitate a multiple product choice buying experience.
+
+Other features to add/improve upon include:
+
+    1. A more robust sign in/sign up system - obtaining more user details
+    2. A larger user profile, with previous orders (mentioned), more comments and direct interaction with other users (via a forum for example)
+    3. Replace the `img thumbnail` class on user post cards as the height is set to `auto;`, meaning that the image heights are stable and can be bigger or smaller than the default.
+    4. The ability to contact the admin, report issues directly etc. 
+    5. User updates, if, for example, another user responds to their post. 
+    6. The ability to add other users to your group discussion and/or have a private/chat thread with another user.
+
+There are endless options with Django, and considering I'm currently using the version `Django==1.11.29`, I hope to have time in the future to update the site and add many more robust functions, models, views, libraries etc. The options are boundless!
+
 
 # **Site Layout**
 
@@ -390,9 +402,8 @@ I will improve simple user functionality and add more flow to the site, for exam
 
 I mainly followed the MVT (Model-View-Template) concept of Django as I found it to be the most clean and logical approach for my needs. [Check out more info on MVT here](https://medium.com/@jaychaturvedi18/a-brief-introduction-to-django-mvt-framework-8ef46cc321ab)
 
-* Models 
- - The model creation is extremely important as it's the information going into the database. Which will be all the information we require from a user, for example, the Checkout app model. Each time we create a new model, we must migrate the data to ensure that [Model Definitions and the Database Schema are in Sync](https://realpython.com/django-migrations-a-primer/#:~:text=Without%20migrations%2C%20you%20will%20have,in%20sync%20with%20your%20models.)
-
+**Models** 
+ - The model creation is extremely important that's collected from the user and that will be going into the database. This will be all the information we require from a user, for example, the `Checkout` app model. Each time we create a new model, we must migrate the data to ensure that [Model Definitions and the Database Schema are in Sync](https://realpython.com/django-migrations-a-primer/#:~:text=Without%20migrations%2C%20you%20will%20have,in%20sync%20with%20your%20models.). Again this something, with time and more experience in the future, I would like to improve upon.
 
 
 # **Technologies Used** 
