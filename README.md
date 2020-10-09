@@ -100,7 +100,7 @@ My aim was offer the user a smooth and logical experience, focusing on  simplici
 
 ### UX Target Audience
 
-My target audience would be users who are interested in electronics as a hobby. This is an all encompassing subject but particularly in my case it's been helpful of my coding journey as I found using a Raspberry Pi (mini computer) allows the user to learn about electronics and programming in a real fun and intuitve manner. 
+My target audience would be users who are interested in electronics as a hobby. This is an all-encompassing subject but particularly in my case it's been helpful of my coding journey as I found using a Raspberry Pi (minicomputer) allows the user to learn about electronics and programming in a real fun and intuitive manner.
 
 ### **User Stories**
 
@@ -108,7 +108,7 @@ The following section details the type of user experiences I wanted the users of
 
 #### First Time User
 
-* As a first time user, I am want to navigate around the site easily
+* As a first time user, I  want to navigate around the site easily
 * As a first time user, I want to know quickly what the site is about 
 * As a first time user, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
 * As a first time user, I want to access the site via any device
@@ -190,6 +190,11 @@ Below is a table of my `User_Posts` Model, which I am demonstrating as an exampl
 For example, the `on_delete=models.CASCADE` method ensures that if a `User` is deleted, the `author` and therefore the post will also be deleted. As mentioned this is extremely important to the structure of the database. As we can see from the `author` item in the table, it utilises the [SQL]() `ForeignKey`, which is, as stated on the [W3 Schools site](https://www.w3schools.com/sql/sql_foreignkey.asp#:~:text=A%20FOREIGN%20KEY%20is%20a,the%20referenced%20or%20parent%20table.),:
 > (A `FOREIGN KEY` is) a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table e.g. (`author` :arrow_right: `User`)
 
+#### Database Diagram Structure
+
+I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home)
+
+![DB Diagram](/media/ReadMe_Docs/db_diagram.png "DB Diagram" )
 
 **PostgresSQL Database Table**
 
