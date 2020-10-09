@@ -597,6 +597,7 @@ And so for example, the `animate` function on my `back-to-top` scroll button was
 - Navbar dropdown is a little aggressive in hamburger format
 - `img thumbnail` on the user posts has a height that is set to 'auto' so it changes depending on the image upload. 
 - like button doesn't tell user if that have already liked a post
+- General Code isn't as clean as I would like it to be with plenty of comment and unused code still there.
 
 # Deployment 
 
