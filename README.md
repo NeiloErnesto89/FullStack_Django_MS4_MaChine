@@ -119,7 +119,7 @@ The following section details the type of user experiences I wanted the users of
 * As a frequent user, I want a smooth browsing experience, signing up, logging in and, if I can't remember my password, have a smooth exchange to facilitate a password reset (via email)
 * As a frequent user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop)) 
 * As a user, I want to build a profile and research products to potentially purchase
-* As a frequent user, I want to add my own posts and see the other posts from other members of the community, I would also enjoy a way of interactioning with other members.
+* As a frequent user, I want to add my own posts and see the other posts from other members of the community, I would also enjoy a way of interacting with other members.
 
 #### Admin
 
@@ -491,15 +491,60 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop) as 
     > Page is mobile friendly. This page is easy to use on a mobile device
 
 
+## Analysing User Experiences 
+
+Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
+
+
+### Testing User Stories from User Experience (UX) Section
+
+#### First Time Visitor Goals Recap:
+
+1.	As a First Time Visitor, visitor, I want to navigate around the site easily..
+2.	As a First Time Visitor, I want to learn quickly what the site is about and what benefits a user can avail of
+3.	As a First Time Visitor, if I am interested to do so, I would like to sign up for an account in a smooth and simple fashion
+4.	As a first time visitor, I want to access the site via any device
+
+#### First Time Visitor Goals Results:	
+
+* *Result*: Upon landing on site, users are met with a simple title and carousel gives the user something visual to focus on. Users can navigate via the Navbar and I find that the main landing page, gives plenty of clear indicators, buttons and text for the first timer to interact with, as to where to go to sign up and what to expect from the site. 
+* I used minimalist style of text and formatting so allow the user to quickly understand the site’s reason for existence and the benefits for signing up. Clear directions prompt the user to the register section and as mentions in the device testing section, I made sure that the site was robustly tested and user friendly on all devices.
+
+
+
+#### Returning/Frequent User Goals Recap
+
+ 
+1. As a frequent user, I am interested in electronics and want to learn a bit more
+2. As a frequent user, I want a smooth browsing experience, signing up, logging in and, if I can't remember my password, have a smooth exchange to facilitate a password reset (via email)
+3. As a frequent user, I want to access the application via any device I have access to (e.g. ipad, mobile phone. laptop (desktop))
+4. As a user, I want to build a profile and research products to potentially purchase
+5. As a frequent user, I want to add my own posts and see the other posts from other members of the community; I would also enjoy a way of interacting with other members.
+
+#### Returning/Frequent User Goals Results:	
+
+* *Result*: If a user has availed of a user account, the different sections on the site allow the user to pique their electronics interested. This area could have been improved for example with blog articles that give the user more reliable content. I tested rigorously the browsing experience particularly for logging in, registering and resetting the password. 
+* I feel this section has achieved what I was aiming for. Again, same as the previous section, I tested on many different devices and feel that the site is capable of handling the variations in devices. I am particularly fond of the user profile section as I feel it’s personalised and also users to craft something of their own, for example, with a profile image/avatar. This section can be improved however with more content and a more robust model. Finally, adding posts and viewing others posts I achieved as well as the addition of a like button. There was potentially for much more user interaction but that will be a future project.
+
+#### Admin/SuperUser Goals Recap:
+1. As an admin, I would like to be able to edit and delete posts I see as unfit.
+2. As an admin, I would like to access the sites back office to remove any users who are not abiding by the sites rules
+
+* *Result*:  I spent most of my time testing as an admin so I felt that I got a really good feel for it. It’s a super option that Django offers and a really clever format. I felt I achieved what are, admittedly, modest goals for the admin to achieve. As mentioned in my future features section, there’s a lot of room for scope here. However, my admin/superuser can indeed edit and delete posts as they see fit from all users. Obviously through the backend the Admin can delete any user but I didn’t manage to incorporate this on the front end side of things as my deadline was approaching a little too fast. However, I felt the admin profile offers a superior UX experience and is fit for purpose.
+
+### Further Testing
+
+Overall, I felt I could have done a lot more on the testing side of my project. It's something I plan on improving on and something that's in fact, quite interesting. I enjoyed the logic and concept behind unit-testing and at every step of my project I focused heavily on functional testing. It was a mentally and physically straining experience but a great learning curve nevertheless.
+
 ### Automated - Travis CI - Continuous Integration
 
 The build is currently passing, has some small hiccups early on when I was automating testing with coverage but I resolved the problems as they arose. Again, due to time contraints I would have loved to automate my tesing much more but I was busy focusing on other parts of the project. Coverage caused me some issues as well when I was connected to PostgreSQL (as it only works with SQLite), so I tested on another local environment. 
 
 ### Testing Functionality
 
-With each iteration of my project, I tested all new functionality and tried to ensure that everytihng was working as I intended, including:
+With each new addition to my project, I tested all new functionality and tried to ensure that everything was working, as I intended, including:
 
-    - Password Reset Email confirmation - priate emailing plus following the links
+    - Password Reset Email confirmation - private emailing plus following the links
     - Stripe Payment confirmation (and incorrect details prompt)
     - Checking via Devtools (live on Heroku) if AWS media hosting links were functioning
     - User Login, Logout and Registered (check information also on backend)
@@ -514,56 +559,6 @@ With each iteration of my project, I tested all new functionality and tried to e
 ### Device Testing
 
 I used Chrome tools extensively when fixing issues and testing on all the viewports.. I also tested the pages and functionality on other browsers like Firefox, Safari and Microsoft Edge. The Toggle Device Toolbar helps to evaluate all the different viewports, which really enhances the development process. I also enlisted the help of friends to simulate a new User experience testing on their phones mainly but also tablets (iPad) and laptops (desktops). Any issues that were noticed I attempted to resolved with regards to all the viewports.
-
-## Analysing User Experiences 
-
-Analysing User Experiences versus (expected) User Goals [from UX Section](UX)
-
-
-### Testing User Stories from User Experience (UX) Section
-
--   #### First Time Site Visitor Goals
-
-    1. As a First Time Visitor, I want to "quote from above"  . . 
-
-        1. Upon landing on site, users are met 
-        2. Simple title and carosel gives the user some direction.
-
-    2.  As a First Time Visitor,  . . . 
-
-        1. Once the new visitor has read t
-        2. 
-
-     3. As a First Time Visitor, I want to look
-
--   #### Returning Visitor Goals
-
-    1. As a Returning Visitor, I want to find the ..
-
-        1. These are clearly shown in the banner message.
-        2. The user . . 
-
-    2. As a Returning Visitor, I..
-
-        1. The navigation bar ...
-        2. Here . . .
-
--   #### Frequent User Goals
-
-    1. As a Frequent User, I want  . . 
-
-        1. The user is at ease with the websites ins and outs
-
-    2. As a Frequent User, I want to see if there are any new user posts.
-
-        1. The user would  . . 
-
-### Further Testing  . . 
-
--   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
--   A large amount of testing was done to ensure that all pages were linking correctly.
--   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
 
 ## **Bugs** 
