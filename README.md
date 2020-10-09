@@ -700,20 +700,32 @@ This step enables the *Django* project to have access to the *S3 Bucket*. Public
 
 ### Github - Version Control
 
+
 ### Github and Gitpod
 
-My site code is deployed on [Github](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine). This project was built and tested on the [Gitpod IDE.](https://www.gitpod.io/). Which has a base similar to VSCode (which I use for work) so I found it to be suitable and nice to use. I had some issues with the ports not closing and so I had to use some linux commands such as `ps aux` to find the PID port number and then `kill <PID>`. Other than some minor issues it served its purpose well.
-
-This site code is deployed on GitHub. My code was directly deployed from the master branch. I consistently added, committed and pushed my updates via the Gitpod command terminal as often as possible. I then deployed the site automatically upon receiving the new commits to the master branch/source. The following commands were used for Github push:
+My site code is deployed on [Github](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine). This project was built and tested on the [Gitpod IDE.](https://www.gitpod.io/). Which has a base similar to VSCode (which I use for work) so I found it to be suitable and nice to use. I had some issues with the ports not closing and so I had to use some linux commands such as `ps aux` to find the PID port number and then `kill <PID>`. Other than some minor issues it served its purpose well. My code was directly deployed from the master branch. I consistently added, committed and pushed my updates via the Gitpod command terminal as often as possible. I then deployed the site automatically upon receiving the new commits to the master branch/source. The following commands were used in Gitpod to deploy my code to Github:
 
 **In the Gitpod Command Terminal**
 
 - The `git init` to initialise my local repo. command was used  
-- Then then `git remote add origin https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.git` command was used to add the new remote repo.  
+- Then then `git remote add origin https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.git` command was used to add the new remote repo (taken from Github pages site).  
 - Afterward I used the `git push origin master` pushing my code to the master branch.
 - And so after my repo was initlaised, I used the commands: `git add . ` (to add all) or `git add ReadMe` (to add a specific file) 
 - And then  the command`git commit -m "initial commit"`(and with every commitfollowed by any comments) to `add` and `commit` files to Github. 
 - Then, I would use the `git push origin master` command to push my updated code to the remote Github repository.
+
+### Clone Code Locally
+
+Steps to clone a repo on Github:
+
+1. Go to my [repo on Github](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine)
+2. Click the `Clone or download` button
+3. In HTTPS, copy the clone url
+4. Return to Gitpod (or chosen IDE)
+5. `pwd` to print your working directry and then (if needed) `cd` change directory to the path you want your clone to exist on
+6. Command - `git clone <url from above>` and enter to commence local repo
+7. You then need to add your own details, perferable via an `env.py` file stored on a `.gitignore` file
+8. You need to add a `requirements.txt`(if necessary, you need the file from clone with all the dependencies) - command on Gitpod `pip3 install -r requirements.txt` and to update `pip local > freeze requirments.txt`.
 
 ### Heroku
 
