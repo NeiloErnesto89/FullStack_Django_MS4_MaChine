@@ -190,9 +190,9 @@ Below is a table of my `User_Posts` Model, which I am demonstrating as an exampl
 For example, the `on_delete=models.CASCADE` method ensures that if a `User` is deleted, the `author` and therefore the post will also be deleted. As mentioned this is extremely important to the structure of the database. As we can see from the `author` item in the table, it utilises the [SQL]() `ForeignKey`, which is, as stated on the [W3 Schools site](https://www.w3schools.com/sql/sql_foreignkey.asp#:~:text=A%20FOREIGN%20KEY%20is%20a,the%20referenced%20or%20parent%20table.),:
 > (A `FOREIGN KEY` is) a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table e.g. (`author` :arrow_right: `User`)
 
-#### Database Diagram Structure
+#### Database Diagram Structure (*PostgreSQL*)
 
-I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home)
+I had a little bit of trouble extracting the PostgreSQL database from Heroku so I quickly crafted this structure below to mimic my current database. I designed it using the [DB Diagram tool](https://dbdiagram.io/home). I feel the database structure could be improved by adding more `ForeignKey` elements to intertwine more models but as I shall explain in the *bugs* and *features left to implement* section, I had some contraints to execute this. But certainly something I learned a lot about and can improve upon in the future.
 
 ![DB Diagram](/media/ReadMe_Docs/db_diagram2.png "DB Diagram" )
 
