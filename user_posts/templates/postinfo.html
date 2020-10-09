@@ -15,24 +15,24 @@
                         <div class="post-heading">
                             <div class="text-center p-1 image">
 
-                            {% if post.image %}
+                                {% if post.image %}
 
-                             <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="350" height="350" alt="profile-image">
+                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="350" height="350" alt="profile-image">
 
-                                <!-- <img class="img-circle avatar" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Post Image"> -->
 
-                               
-                        
-                        <!-- <div><img class="card-img-top mb-3" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Cover for {{ book.book_title }}"></div> -->
+                                <!-- src="{{ MEDIA_URL }}app_img/default.png" -->
+                            
+                            <!-- <div><img class="card-img-top mb-3" src="url('{{ MEDIA_URL }}{{post.image}}" alt="Cover for {{ book.book_title }}"></div> -->
                             
                             {% else %}
-                            
+                                
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
 
                             {% endif %}
 
                             </div>
-                            <div class="card-body meta">
+                            
+                            <div class="card-body text-center meta">
                             <!-- card-body -->
                             <div class="title h3">
                                     {{ post.title }}</div>
@@ -44,12 +44,13 @@
                                 <h6 class="text-muted time">{{ post.published_date|naturaltime }}</h6>
                             </div>
                         </div> 
-                        <div class="post-description p-1"> 
+                        <hr>
+                        <div class="post-description text-center mb-2"> 
                             <p>{{ post.content }}</p> 
                         </div>
                         <div class="div">
-                        <p><span class="text-muted">Views:</span> {{post.views}}</p>
-                        <p><span class="text-muted">Tag:</span> {{ post.tag }}</p>
+                        <p lass="mt-2" style="font-size: 12px;"><span class="text-muted">Views:</span> {{post.views}}</p>
+                        <p class="mt-2" style="font-size: 12px;"><span class="text-muted" >Tag:</span> {{ post.tag }}</p>
                         </div>
                         <hr>
 
@@ -147,8 +148,9 @@
                         {% endif %}
                         <!-- <hr> -->
                         <div class="text-center mt-2">
-                        <a href="{% url 'retrieve_posts' %}" class="btn btn-outline-warning btn-lg">Back to Blog</a>
+                        <a href="{% url 'retrieve_posts' %}" class="btn btn-outline-warning btn-lg">Back to Posts</a>
                         </div>
+                        
                         <hr>
 
                        <div class="m-1">

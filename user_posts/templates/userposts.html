@@ -9,11 +9,8 @@
 {% block page_heading %}User Posts {% endblock %}
 
 {% block content %}
-
-
-    <!-- {{ posts.has_next }}
-
-    {{ posts.has_previous }} -->
+<hr>
+<p class="text-center mb-4 mt-3" style="color: grey; font-weight: bold; font-size: 14px;"> Check out all our members posts, stories, issues and questions below! Feel free to start <a href="{% url 'new_post' %}">posting</a> and liking!</p>
        
     
     {% for post in posts %}
@@ -31,14 +28,14 @@
 
                                 <!-- <img class="rounded-circle avatar img-thumbnail" width="400" height="400" style="background-image: url('{{ MEDIA_URL }}{{ post.image }}')" alt="Post Image"> -->
 
-                                <img src="{{ post.image.url }}" class="rounded-circle avatar img-thumbnail" width="250" height="250" alt="Post Image">
+                                <img src="{{ post.image.url }}" class="rounded-circle avatar-xl img-thumbnail m-2" width="250" height="250" alt="Post Image">
 
                             
                             {% else %}
 
                             <!-- <img src="img_avatar.png" alt="Avatar" class="avatar"> -->
                             
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail m-2" width="250" height="250" alt="profile-image">
                                 
                             {% endif %}
                             </div>
@@ -78,6 +75,13 @@
 
 
     {% endfor %}
+
+            <a id="back-to-top" href="#" class="btn btn-outline-success back-to-top" role="button" style="color:green; display: inline;"><i class="fas fa-chevron-up"></i></a>
+
+            <div class="text-center mt-3 mb-3">
+                <a href="{% url 'new_post' %}" class="btn btn-outline-success btn-lg">Add a New Post</a>
+            </div>
+                
     <hr>
 
         {% if posts.has_other_pages %}

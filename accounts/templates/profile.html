@@ -35,6 +35,7 @@
             <img src="{{ user.profile.image.url }}" class="rounded-circle avatar-xl img-thumbnail img-fluid" alt="profile-image">
 
             {% else %}
+            <!-- in case default.png doesn't work in model -->
             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
             
             {% endif %}
@@ -173,6 +174,10 @@
 
                 <p class="text-muted mb-2 font-13"><strong>Joined :</strong> <span class="ml-2">{{ user.date_joined|naturaltime }}</span></p>
             </div>
+
+            <!-- <div class="text-center mt-3 mb-3">
+                <a href="{% url 'new_post' %}" class="btn btn-outline-success btn-sm">Add a New Post</a>
+            </div> -->
 
 
             <hr>

@@ -14,11 +14,13 @@
 {% block content %}
     <hr>
 
-        <!-- <img class="d-block" src="{{ MEDIA_URL }}app_img/pome2.png" alt="First slide"> -->
+        <!-- <img class="d-block" src="{{ MEDIA_URL }}app_img/default.png" alt="First slide"> -->
     <div>
-    <!-- <h5 class="text-center mb-2 mt-3" style="color: grey;"><u>Welcome to Machine</u></h5>  -->
-    
-    <p class="text-center mb-4 mt-3" style="color: grey;"> The site for electronics enthusiasts to share comments, buy products and build a user profile. Join the community today!</p>
+        <p class="text-center mb-4 mt-3" style="color: grey; font-weight: bold;"> The site for electronics enthusiasts to buy products, post and share stories and build a personalised user profile.</p>
+        {% if user.is_authenticated %}
+        {% else %}
+        <p class="text-center text-muted mb-3 mt-2" style="font-size: 14px;"><a href="{% url 'registration' %}">Not a member? Join the community today! </a></p>
+        {% endif %}
     </div>
         
     <!--Carousel Wrapper Change id to myCarousel-->
@@ -39,7 +41,7 @@
             <div class="mask rgba-black-light"></div>
         </div>
         <div class="carousel-caption">
-            <h3 class="h3-responsive">Machines</h3>
+            <h5 class="h5-responsive">Machines</h5>
             <p></p>
         </div>
         </div>
@@ -51,7 +53,7 @@
             <div class="mask rgba-black-strong"></div>
         </div>
         <div class="carousel-caption">
-            <h3 class="h3-responsive">Programming</h3>
+            <h5 class="h5-responsive">Programming</h5>
             <p></p>
         </div>
         </div>
@@ -63,7 +65,7 @@
             <div class="mask rgba-black-slight"></div>
         </div>
         <div class="carousel-caption">
-            <h3 class="h3-responsive" >Electronics</h3>
+            <h5 class="h5-responsive" >Electronics</h5>
             <p></p>
         </div>
         </div>

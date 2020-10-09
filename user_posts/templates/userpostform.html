@@ -7,8 +7,13 @@
 {% block page_heading %}Add a New Post{% endblock %}
 
     {% block content %}
+    <div class="text-center mb-4 mt-4">
+        
+        <h5>What's on your mind {{ user }}?</h5>
 
-    <h3>What's on your mind?</h3>
+    </div>
+
+    <hr>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | as_bootstrap }}
