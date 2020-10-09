@@ -393,8 +393,20 @@ I mainly followed the MVT (Model-View-Template) concept of Django as I found it 
 -   [Django](https://www.djangoproject.com/)  
 
 ### **Libraries and Other Programs Used**
-
--   [Balsamiq](https://balsamiq.com/) was used to create my wireframes
+1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+    - Bootstrap was used heavily as the main library to style the site. I availed particular from the grid system and the buttons, among many other functions.
+1. [Google Fonts:](https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap)
+    - I felt Google Fonts  was extremely important to improve the look and UX of the site. I used the `Roboto Mono` font which I found to be perfectly fitted to the technical *machine* styling I was looking for. The first time I switched the font (from the standard default bootstrap font), I was really taken aback by how much the site look and professional feel was improved by the font.
+1. [Font Awesome:](https://fontawesome.com/)
+    - I used Font Awesome heavily  on all pages on my website. I like the sleek icon style and feels it gives a boost to the UX
+1. [jQuery:](https://jquery.com/)
+    - jQuery CDN 
+1. [Git](https://git-scm.com/)
+    - Using Git on the Gitpod IDE for version control
+1. [GitHub:](https://github.com/)
+    - Pushing with my git commands, my entire project code is store on Github
+1. [Balsamiq](https://balsamiq.com/) 
+    - was used to create my wireframes
 
 
 # **Testing**
