@@ -23,7 +23,7 @@ def pagination(request, post_list):
 
 
 @login_required
-def retrieve_posts(request):  
+def retrieve_posts(request):
     posts = User_Posts.objects.filter(published_date__lte=timezone.now()
     ).order_by('-published_date')
 
@@ -33,7 +33,7 @@ def retrieve_posts(request):
 
 
 @login_required
-def post_info(request, pk):  
+def post_info(request, pk):
     user_likes = get_object_or_404(User_Posts, pk=pk)
     total_likes = user_likes.total_likes()
     post = get_object_or_404(User_Posts, pk=pk)
@@ -53,7 +53,7 @@ def create_or_adapt_post(request, pk=None):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.save()  
+            post.save()
             #post = form.save()
             return redirect(post_info, post.pk)
     else:

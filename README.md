@@ -463,14 +463,19 @@ I tested the platform on a number of devices (ipad, iphone, android, laptop) as 
 
 -   [PEP8](http://pep8online.com/)
 
+    I recieved a few warnings such as:
+    > `W292	10	44	no newline at end of file`
+    > `line too long (80 > 79 characters)`
+    > `trailing whitespace . . `
+
 -   [JSHint](https://jshint.com/) 
     - I did not add the Stripe.js file, just the JS static file hosted on AWS. Once I ran my code into JSHint and this was the feedback:
     
         > Metrics- There are 10 functions in this file. Function with the largest signature take 0 arguments, while the median is 0. Largest function has 6 statements in it, while the median is 1. The most complex function has a cyclomatic complexity value of 2 while the median is 1. One undefined variable
 
 
-
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input+with_options) 
+    - The feedback from this code validator wasn't brilliant as I had to ignore the errors from the Jinja templating system. For example, userpostsform.html, returned `1 warning, 3 errors` all due to Jinja. I passed my htmls into the validtor in any case. The main test was seeing the pages rendering via my own tests.
 
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
     * I added my css code into the valditor and it stated: 

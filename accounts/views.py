@@ -20,7 +20,7 @@ def say_hello(request):
 def logout(request):
     auth.logout(request)  # request contains user object
     messages.success(request, "You are now logged out!")
-    return redirect(reverse('index'))  
+    return redirect(reverse('index'))
     # pass in name of url we want to be redirect to
 
 
@@ -51,13 +51,13 @@ def login(request):
 def registration(request):
     if request.user.is_authenticated:
         return redirect(reverse('index'))
-    
+  
     if request.method == "POST":
-        registration_form = UserCreationForm(request.POST)  # instance of form 
+        registration_form = UserCreationForm(request.POST)  # instance of form
 
         if registration_form.is_valid():
             registration_form.save()
-           
+          
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
 
@@ -76,17 +76,17 @@ def registration(request):
 @login_required
 def user_profile(request):
 
-    if request.user.is_authenticated:   
+    if request.user.is_authenticated:
         user = User.objects.get(email=request.user.email)
-        # user = get_object_or_404(User, pk=pk)  
+        # user = get_object_or_404(User, pk=pk)
         # order = request.session['order']
         # profile = User.objects.get(profile=request.user.profile)
         # orders = Order.objects.filter(userprofile=request.user)
-        
+     
     else:
         messages.warning(request, ('Please Login or Sign up'))
         return redirect('login')
-   
+
     return render(request, 'profile.html', {"profile": user})
 
 
@@ -94,16 +94,16 @@ def user_profile(request):
 def edit_profile(request):
     if request.user.is_authenticated:
         user = User.objects.get(email=request.user.email)
-        
+      
         if request.method == "POST":
             # user_form = UserCreationForm(request.FILES, instance=request.user)
             profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
             print(profile_form)
-            if profile_form.is_valid():  # user_form.is_valid() and 
+            if profile_form.is_valid():  # user_form.is_valid() and
                 # user_form.save()
                 profile_form.save()
                 messages.success(request, ('Your profile was successfully updated!'))
-                return render(request, 'profile.html', {'profile_form': profile_form})  # 'user_form': user_form, 
+                return render(request, 'profile.html', {'profile_form': profile_form})  # 'user_form': user_form,
             else:
                 messages.error(request, 'forms not valid')
                 # profile_form = ProfileForm()
@@ -137,3 +137,5 @@ def delete_user(request, pk):
     else:
         messages.error(request, 'you are not allowed to deleted this post')
         return redirect('profile', user.pk)
+
+
