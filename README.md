@@ -594,6 +594,8 @@ And so for example, the `animate` function on my `back-to-top` scroll button was
 - Stripe payment form has 2019 and as default
 - Navbar dropdown is a little aggressive in hamburger format
 - `img thumbnail` on the user posts has a height that is set to 'auto' so it change depending on the image upload. 
+- like button doesn't tell user if that have already liked a post
+- 
 
 # Deployment 
 
@@ -695,6 +697,23 @@ This step enables the *Django* project to have access to the *S3 Bucket*. Public
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     ```
 3. Finally, in your Command Line Terminal, run the following command to push the static files to the S3 Bucket - `python3 manage.py collectstatic` 
+
+### Github - Version Control
+
+### Github and Gitpod
+
+My site code is deployed on [Github](https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine). This project was built and tested on the [Gitpod IDE.](https://www.gitpod.io/). Which has a base similar to VSCode (which I use for work) so I found it to be suitable and nice to use. I had some issues with the ports not closing and so I had to use some linux commands such as `ps aux` to find the PID port number and then `kill <PID>`. Other than some minor issues it served its purpose well.
+
+This site code is deployed on GitHub. My code was directly deployed from the master branch. I consistently added, committed and pushed my updates via the Gitpod command terminal as often as possible. I then deployed the site automatically upon receiving the new commits to the master branch/source. The following commands were used for Github push:
+
+**In the Gitpod Command Terminal**
+
+- The `git init` to initialise my local repo. command was used  
+- Then then `git remote add origin https://github.com/NeiloErnesto89/FullStack_Django_MS4_MaChine.git` command was used to add the new remote repo.  
+- Afterward I used the `git push origin master` pushing my code to the master branch.
+- And so after my repo was initlaised, I used the commands: `git add . ` (to add all) or `git add ReadMe` (to add a specific file) 
+- And then  the command`git commit -m "initial commit"`(and with every commitfollowed by any comments) to `add` and `commit` files to Github. 
+- Then, I would use the `git push origin master` command to push my updated code to the remote Github repository.
 
 ### Heroku
 
