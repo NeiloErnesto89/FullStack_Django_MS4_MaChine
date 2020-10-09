@@ -76,11 +76,13 @@ def registration(request):
 @login_required
 def user_profile(request):
 
-    if request.user.is_authenticated:     
+    if request.user.is_authenticated:   
         user = User.objects.get(email=request.user.email)
+        # user = get_object_or_404(User, pk=pk)  
         # order = request.session['order']
         # profile = User.objects.get(profile=request.user.profile)
         # orders = Order.objects.filter(userprofile=request.user)
+        
     else:
         messages.warning(request, ('Please Login or Sign up'))
         return redirect('login')
@@ -135,33 +137,3 @@ def delete_user(request, pk):
     else:
         messages.error(request, 'you are not allowed to deleted this post')
         return redirect('profile', user.pk)
-
-# added 01/10
-# @login_required
-# def update_profile(request):
-#     if request.user.is_authenticated:
-#         # user = User.objects.get(email=request.user.email)
-#         if request.method == "POST":
-#             registration_form = UserCreationForm(instance=request.user)
-#             profile_form = ProfileForm(request.POST, instance=request.user.profile)
-#             if profile_form.is_valid() and registration_form.is_valid():
-#                 registration_form.save()
-#                 profile_form.save()
-#                 messages.success(request, _('Your profile was successfully updated!'))
-#                 return render(request, 'edit_profile.html', {"user form": registration_form })
-#             else:
-#                 messages.error(request, 'forms not valid')
-#         else:
-#             registration_form = UserCreationForm(instance=request.user)
-#             profile_form = ProfileForm(instance=request.user.profile)
-#         return render(request, 'edit_profile.html', {
-#             "user form": registration_form,
-#             'profile_form': profile_form
-#         })
-#     else:
-#         messages.error(request, 'forms not valid')
-#         return redirect(reverse('login'))
-
-
-
-

@@ -10,7 +10,7 @@
 
 {% block content %}
 <hr>
-<p class="text-center mb-4 mt-3" style="color: grey; font-weight: bold; font-size: 14px;"> Check out all our members posts, stories, issues and questions below! Feel free to start <a href="{% url 'new_post' %}">posting</a> and liking!</p>
+<p class="text-center mb-4 mt-3" style="color: grey; font-weight: bold; font-size: 14px;"> {{ user }}, check out all our members posts, stories, issues and questions below! Feel free to start <a href="{% url 'new_post' %}">posting</a> and liking!</p>
        
     
     {% for post in posts %}

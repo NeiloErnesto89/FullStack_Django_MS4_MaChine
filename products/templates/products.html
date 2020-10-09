@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% load bootstrap_tags %}
+
 {% block page_heading %}Products{% endblock %}
 
 {% block content %}
+<hr>
+<p class="text-center mb-4 mt-3" style="color: grey; font-weight: bold; font-size: 13px;"> Hi {{user}}! Feel free to browse and add products to your <a href="{% url 'view_cart' %}">basket</a></p> 
 <hr>
 <div class="row row-flex">
     {% for product in products %}
@@ -12,25 +18,22 @@
                     
                     <div class="card card-cascade" style="width: 19rem; padding: 5px; height: 28rem;">
                 
-                        <div class="product view view-cascade overlay" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
+                        <div class="product view view-cascade overlay mt-1" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>                       
                         </div>
                      
-                    <!-- <img src="{{ product.image.url }}" class="rounded-circle avatar-xl img-thumbnail img-fluid" width="400" height="400" alt="profile-image"> -->
+                            <!-- <img src="{{ product.image.url }}" class="rounded-circle avatar-xl img-thumbnail img-fluid" width="400" height="400" alt="profile-image"> -->
 
-                        <div class="card-body card-body-cascade text-center"> 
+                        <div class="card-body card-body-cascade text-center mb-3"> 
                         
-                            <h3 class="text-center indigo-text py-2 mt-2" style="font-weight: bold;">{{ product.name }}</h3>
+                            <h3 class="text-center indigo-text py-2 m-2" style="font-weight: bold;">{{ product.name }}</h3>
                             <hr>
                             <p class="product-description">{{ product.description }}</p>
                         
                             <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>    
 
-                            <!-- <div class="fixed-bottom"> -->
-                                
-                            <!-- </div> -->
                         </div>
 
                     

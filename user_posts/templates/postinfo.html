@@ -34,10 +34,11 @@
                             
                             <div class="card-body text-center meta">
                             <!-- card-body -->
-                            <div class="title h3">
-                                    {{ post.title }}</div>
+                            <div class="title h3 mb-2">
+                                    {{ post.title }}
+                            </div>
 
-                                <div class="title h5">
+                                <div class="title h5 mt-2">
                                     posted by <a href="#"><b>{{ post.author }}</b></a>
                                     
                                 </div>
@@ -48,7 +49,8 @@
                         <div class="post-description text-center mb-2"> 
                             <p>{{ post.content }}</p> 
                         </div>
-                        <div class="div">
+                        
+                        <div class="p-1">
                         <p lass="mt-2" style="font-size: 12px;"><span class="text-muted">Views:</span> {{post.views}}</p>
                         <p class="mt-2" style="font-size: 12px;"><span class="text-muted" >Tag:</span> {{ post.tag }}</p>
                         </div>
