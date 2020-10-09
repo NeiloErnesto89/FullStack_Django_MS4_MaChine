@@ -22,7 +22,7 @@ Keeping in line with the CI project requirements as well as CRUD tenets, the sit
 
 *For the **Code Institute testing purposes**, I suggest (at some stage) logging into the site as the **Admin/SuperUser**, using the following details*: 
 - Username: **Neilo**   
-- Password: **_test_** 
+- Password: **Neilo99!** 
 
 *Also, for the sake of further testing, please only use the test number **`4242_4242_4242_4242`** when entering credit card number when paying for products using [Stripe](https://stripe.com/en-ie)
 
@@ -595,7 +595,6 @@ And so for example, the `animate` function on my `back-to-top` scroll button was
 - Navbar dropdown is a little aggressive in hamburger format
 - `img thumbnail` on the user posts has a height that is set to 'auto' so it change depending on the image upload. 
 - like button doesn't tell user if that have already liked a post
-- 
 
 # Deployment 
 
@@ -747,7 +746,7 @@ Forking is simply making a code of the repo, adapting it but not affecting the o
 
 ### Heroku
 
-I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to faciliate this. 
+I hosted the site on Heroku. To deploy my code, Heroku provided me with a straightforward process to facilitate this. 
 
 
 ### Deploy on Heroku
@@ -843,14 +842,14 @@ Sidenote: After configuring all of this, after any big changes or advancements o
 
 **Includes Media**
 
-At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome, I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definetley a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
+At the beginning of my project I had access to the course material, which guided me crafting the bones of the project. However, due to an unforeseen mix up, I was left to complete the course with 3 weeks less than I had originally planned for and no course material to refer to. This is not to bemoan this outcome; I am in fact, quite happy with the end result. I felt I managed to produce a piece of work that I can call my own, without leaning too much on the course material or any one source (bar [Stack Overflow](https://stackoverflow.com/) of course) :grinning: . And I researched and devised a decent part of the later logic myself (paginate, user likes, user image upload (profile/posts) etc.), so I feel that it's definitely a positive iteration in terms of my progress. The course material was, of course, a big help but it's more the satisfaction I derived from working on, and producing, something that feels very much like my own doing. 
 
 All that being said, the internet is an endless wealth of material, content, inspiration and snippets for a would-be developer to avail from, so here are all the points of reference I had for building my project: 
 
 
 **User Password-Reset Email**
 
-This section is important as it gves the touch of a real and interactive site. I ran into some issues along the way including some of the naming conventions and having to generate an two-factor authentication step for my email account to faciliate the actual email being sent. The bones of the *reset password* logic was crafted using the CI course material, however the final hurdle was aided by the ever reliable:
+This section is important as it gives the touch of a real and interactive site. I ran into some issues along the way including some of the naming conventions and having to generate a two-factor authentication step for my email account to facilitate the actual email being sent. The bones of the *reset password* logic was crafted using the CI course material; however the final hurdle was aided by the ever reliable:
 
 - [Corey Schafer's Youtube video(s)](https://www.youtube.com/watch?v=-tyBEsHSv7w&t=750s&ab_channel=CoreySchafer) 
 - As well as a few ventures onto Stack Overflow including this [query](https://stackoverflow.com/questions/28421887/django-email-with-smtp-gmail-smtpauthenticationerror-534-application-specific-pa) and [this question](https://stackoverflow.com/questions/28074127/django-send-email-shows-success-but-no-email-received)
@@ -896,7 +895,7 @@ I also used this to extend the User model by adding a [Profile model](https://si
 
 [CSS return to top button](https://codepen.io/michalwyrwa/pen/GBaPPj)
 
-I refered quite often to the **[Django docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)** (here is the section on forms)
+I referred quite often to the **[Django docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)** (here is the section on forms)
 
 Another StackOverflow discussion resulting in a [Django messages template example](https://stackoverflow.com/questions/16711917/django-message-template-tag-checking)
 
@@ -916,7 +915,7 @@ I used some svg icons from the [bootsrap icons library here](https://icons.getbo
 
 **Delete Functions/Views:**
 
-- some of the logic that I used for the delete user and delete (user) posts methods was adapted from this [StackOverflow post](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django)
+- Some of the logic that I used for the delete user and delete (user) posts methods was adapted from this [StackOverflow post](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django)
 
 **Acknowledgements**
 
@@ -937,4 +936,4 @@ A fellow Code Institute Student whose [project](https://github.com/JBroks/unicor
 
 * Thanks to Code Institute Support team, my fellow students/alumni (via Slack), to my family and my partner for everything 	:smiley:
 
-> NOTE: This project was created for educational purposes. **Machine** is a fictious site. 
+> NOTE: This project was created for educational purposes. **Machine** is a factious site. 
