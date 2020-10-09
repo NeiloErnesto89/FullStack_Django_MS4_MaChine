@@ -30,9 +30,9 @@
                         
                             <h3 class="text-center indigo-text py-2 m-2" style="font-weight: bold;">{{ product.name }}</h3>
                             <hr>
-                            <p class="product-description">{{ product.description }}</p>
+                            <p class="product-description" style="font-size: 13px;">{{ product.description }}</p>
                         
-                            <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>    
+                            <p class="mb-1"><i class="fas fa-euro-sign"></i> {{ product.price }}</p>    
 
                         </div>
 
@@ -40,7 +40,7 @@
                         <div class="card-footer text-muted text-center">
                             <form method="post" action="{% url 'add_to_cart' product.id %}">
                                     {% csrf_token %}
-                                    <div class="input-group mt-3">
+                                    <div class="input-group mt-2">
                                         <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                                         <span class="input-group-btn">
                                             <button class="btn btn-success pull-left" style="margin-right:5px;" type="submit" data-toggle="tooltip" title="Add Products to Cart">Add</button>
