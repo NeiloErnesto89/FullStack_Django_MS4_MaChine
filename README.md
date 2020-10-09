@@ -455,16 +455,30 @@ I tested the site in a number of ways, always attempting to incorporate a defens
 
 > Defensive coding allows our software to behave in a correct manner, despite incorrect input
 
-I tested the platform on a number of devices (ipad, iphone, android, laptop). And I always aim to *disrupt* the flow of the creature of project. I referred to the ever trusty [Real Python](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests) to guide me through some of the tests at the later stage of the project, when I had no access to the course content.
+I tested the platform on a number of devices (ipad, iphone, android, laptop) as well as all the viewports on Chrome Devtools. And I always aim to *disrupt* the flow of the creature of project. I referred to the ever trusty [Real Python](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests) to guide me through some of the tests at the later stage of the project, when I had no access to the course content.
 
 
 
 ### **Validation**
 
 -   [PEP8](http://pep8online.com/)
--   [JSHint](https://jshint.com/)
+
+-   [JSHint](https://jshint.com/) 
+    - I did not add the Stripe.js file, just the JS static file hosted on AWS. Once I ran my code into JSHint and this was the feedback:
+    
+        > Metrics- There are 10 functions in this file. Function with the largest signature take 0 arguments, while the median is 0. Largest function has 6 statements in it, while the median is 1. The most complex function has a cyclomatic complexity value of 2 while the median is 1. One undefined variable
+
+
+
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input+with_options) 
+
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    * I added my css code into the valditor and it stated: 
+            > W3C CSS Validator results for TextArea (CSS level 3 + SVG)
+    Congratulations! No Error Found.
+
+    * I only added my static css code, which is hosted on AWS.
+
 - [Google Mobile-Friendly Test site](https://search.google.com/test/mobile-friendly)
 
 ## Analysing User Experiences 
